@@ -8,8 +8,5 @@ __pycache__/
 dist/
 *.log
 *.part
-# raw PDFs (~645 MB): pinned by data/raw/MANIFEST.csv, restored with `make fetch`
-data/raw/**
-!data/raw/MANIFEST.csv
 # OCR in progress; finished documents are gzipped and committed
 data/interim/ocr/2022/*.jsonl

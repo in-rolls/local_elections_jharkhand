@@ -1,2 +1,5 @@
 # Checksummed data and provenance must keep their exact bytes on every platform.
 data/** -text
+# The source PDFs are committed and pinned by SHA-256 in data/raw/MANIFEST.csv;
+# no line-ending or filter conversion may touch them (core.autocrlf included).
+*.pdf binary
