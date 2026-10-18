@@ -1,0 +1,2 @@
+# Checksummed data and provenance must keep their exact bytes on every platform.
+data/** -text
