@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite the repository and record the commit used."
+type: dataset
+title: "Jharkhand Gram Panchayat Head (Mukhiya) Reservations and Winners, 2015 and 2022"
+authors:
+  - family-names: Sood
+    given-names: Gaurav
+repository-code: "https://github.com/in-rolls/local_elections_jharkhand"
+url: "https://github.com/in-rolls/local_elections_jharkhand"
+keywords:
+  - Jharkhand
+  - local elections
+  - panchayat
+  - mukhiya
+  - reservation
