@@ -89,10 +89,28 @@ def gp_sequence(frame):
             repeats.append(
                 {"district": district, "block_no": int(block_no), "gp_no": doubled}
             )
+    review = DATA / "2022/manual/gap_review.csv"
+    source_gaps = set()
+    if review.exists():
+        ledger = pd.read_csv(review, dtype=str)
+        ledger = ledger[ledger["finding"] == "source_gap"]
+        source_gaps = {
+            (r.district, int(r.block_no), int(r.gp_no)) for r in ledger.itertuples()
+        }
+    unexplained = [
+        n
+        for g in gaps
+        for n in g["missing"]
+        if (g["district"], g["block_no"], n) not in source_gaps
+    ]
     return {
         "name": "gp_numbers_run_unbroken_2022",
-        "appeals_to": "source: the gazette's own 1..N GP numbering within a block",
-        "status": "pass" if not gaps and not repeats else "warn",
+        "appeals_to": "source: the gazette's own 1..N GP numbering within a block; "
+        "each gap opened and recorded in data/2022/manual/gap_review.csv",
+        "status": "pass" if not unexplained and not repeats else "warn",
+        "missing_numbers": sum(len(g["missing"]) for g in gaps),
+        "verified_source_gaps": len(source_gaps),
+        "unexplained_missing": len(unexplained),
         "blocks": int(frame.groupby(["district", "block_no"]).ngroups),
         "blocks_with_gaps": gaps,
         "blocks_with_repeats": repeats,
@@ -225,7 +243,7 @@ def name_match(m2015, m2022, threshold=85):
     in the same block (block number, from either 2015 column) or district."""
     a = m2015.assign(
         district=m2015["district"].replace(DISTRICT_2015),
-        block_key=m2015["block_no"].fillna(m2015["block_no_from_id"]),
+        block_key=m2015["block_no"],
         name=m2015["gram_panchayat"].map(norm_name),
     )
     a = a[a["name"] != ""]
@@ -323,7 +341,14 @@ def handcheck(m2022):
     if not HANDCHECK.exists():
         return {"name": "hand_transcription_2022", "status": "missing"}
     truth = pd.read_csv(HANDCHECK, dtype=str)
-    parsed = m2022.astype({"block_no": "Int64", "gp_no": "Int64"})
+    # rows of documents since keyed by hand have no OCR reading to score
+    methods = m2022.groupby("source_path")["entry_method"].agg(set)
+    keyed = {path for path, kinds in methods.items() if kinds == {"hand_keyed"}}
+    excluded = int(truth["source_path"].isin(keyed).sum())
+    truth = truth[~truth["source_path"].isin(keyed)].reset_index(drop=True)
+    parsed = m2022[m2022["row_y0"].notna()].astype(
+        {"block_no": "Int64", "gp_no": "Int64"}
+    )
     matches = []
     for row in truth.itertuples():
         page = parsed[
@@ -351,7 +376,11 @@ def handcheck(m2022):
         "caste_reservation": ("caste_reservation_true", "caste_reservation"),
         "woman_reserved": ("woman_reserved_true", "woman_reserved"),
     }
-    report = {"rows": len(truth), "unmatched": int(merged["district"].isna().sum())}
+    report = {
+        "rows": len(truth),
+        "excluded_hand_keyed": excluded,
+        "unmatched": int(merged["district"].isna().sum()),
+    }
     for field, (t, p) in fields.items():
         scores = [
             char_agreement(x, y) for x, y in zip(merged[t], merged[p], strict=True)
@@ -420,6 +449,77 @@ def text_layer():
     }
 
 
+PORTED_2015 = DATA / "2015/source/mukhiya_reservation_2015.csv"
+CLOSING_NUMBER = re.compile(r"\(\s*(\d+)\s*\)\s*$")
+
+
+def printed_numbers(text):
+    """Block and GP number from a pooled 2015 seat_id_raw: the first two
+    numbers, or for Latehar/Jamtara the first and the parenthesised last."""
+    if not isinstance(text, str):
+        return None, None
+    closing = CLOSING_NUMBER.search(text)
+    if closing:
+        numbers = re.findall(r"\d+", text[: closing.start()])
+        return (int(numbers[0]), int(closing.group(1))) if numbers else (None, None)
+    numbers = re.findall(r"\d+", text)
+    return (int(numbers[0]), int(numbers[1])) if len(numbers) >= 2 else (None, None)
+
+
+def ported_2015(m2015):
+    """The re-read 2015 table against the pooled repository's parse of the
+    same PDFs (kept in data/2015/source/ as a cross-check, not an output).
+    Two readings by different code; matched on (district, block, GP number)."""
+    old = pd.read_csv(PORTED_2015, dtype=str)
+    old["district"] = old["district"].replace(DISTRICT_2015)
+    numbers = old["seat_id_raw"].map(printed_numbers)
+    old["block_key"] = pd.to_numeric(old["block_no"]).fillna(
+        pd.Series([n[0] for n in numbers], index=old.index, dtype="float")
+    )
+    old["gp_key"] = pd.to_numeric(old["gp_no"]).fillna(
+        pd.Series([n[1] for n in numbers], index=old.index, dtype="float")
+    )
+    old = old.dropna(subset=["block_key", "gp_key"])
+    old = old.drop_duplicates(["district", "block_key", "gp_key"], keep=False)
+    new = m2015.dropna(subset=["block_no", "gp_no"]).drop_duplicates(
+        ["district", "block_no", "gp_no"], keep=False
+    )
+    new = new.assign(
+        block_key=new["block_no"].astype(float), gp_key=new["gp_no"].astype(float)
+    )
+    both = new.merge(old, on=["district", "block_key", "gp_key"], suffixes=("", "_old"))
+    caste = both[both["caste_reservation"].notna()]
+    woman = both[both["woman_reserved"].notna()]
+    names = [
+        char_agreement(a, b)
+        for a, b in zip(both["winner"], both["winner_old"], strict=True)
+    ]
+    disagree = caste[caste["caste_reservation"] != caste["caste_reservation_old"]]
+    caste_same = len(caste) - len(disagree)
+    woman_same = int(
+        (
+            woman["woman_reserved"].astype(int)
+            == woman["woman_reserved_old"].astype(int)
+        ).sum()
+    )
+    return {
+        "name": "ported_2015_agreement",
+        "appeals_to": "independent: the pooled repository's 2015 parse of the same "
+        "PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans)",
+        "status": "info",
+        "rows_new": len(m2015),
+        "rows_ported": len(pd.read_csv(PORTED_2015, dtype=str)),
+        "shared_keys": len(both),
+        "caste_agree": f"{caste_same}/{len(caste)}",
+        "woman_agree": f"{woman_same}/{len(woman)}",
+        "winner_char_agreement": round(sum(names) / max(len(names), 1), 4),
+        "winner_exact": f"{sum(n == 1.0 for n in names)}/{len(names)}",
+        "caste_disagreements_by_district": disagree["district"]
+        .value_counts()
+        .to_dict(),
+    }
+
+
 def run_all(m2015, m2022):
     return [
         coverage(m2022, 2022),
@@ -435,4 +535,5 @@ def run_all(m2015, m2022):
         name_match(m2015, m2022),
         handcheck(m2022),
         text_layer(),
+        ported_2015(m2015),
     ]

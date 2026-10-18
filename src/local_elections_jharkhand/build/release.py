@@ -26,7 +26,8 @@ from local_elections_jharkhand.paths import DATA, ROOT
 MANIFEST = DATA / "MANIFEST.json"
 README = DATA / "README.md"
 RELEASED = {
-    "2015/mukhiya_results.parquet": "One 2015 mukhiya seat per row (pooled parse)",
+    "2015/panchayat_samiti_results.parquet": "One 2015 panchayat samiti seat per row",
+    "2015/mukhiya_results.parquet": "One 2015 mukhiya seat per row (Form 23 OCR)",
     "2022/mukhiya_results.parquet": "One 2022 mukhiya seat per row (Form 23 OCR)",
     "2022/panchayat_samiti_results.parquet": "One 2022 panchayat samiti seat per row",
 }
@@ -36,6 +37,10 @@ INPUTS = [
     "external/lgd_jharkhand_village_gp.csv",
     "checks/handcheck_2022.csv",
     "checks/text_layer_2022.csv",
+    "2022/manual/lohardaga_mukhiya.csv",
+    "2022/manual/identifier_corrections.csv",
+    "2022/manual/missing_rows.csv",
+    "2022/manual/gap_review.csv",
 ]
 
 
@@ -62,16 +67,17 @@ def inputs():
         path = DATA / relative
         if path.exists():
             out.append({"file": relative, "sha256": digest(path)})
-    ocr = sorted((DATA / "interim/ocr/2022").glob("*.jsonl.gz"))
-    out.append(
-        {
-            "file": "interim/ocr/2022/*.jsonl.gz",
-            "documents": len(ocr),
-            "sha256_of_hashes": hashlib.sha256(
-                "".join(digest(p) for p in ocr).encode()
-            ).hexdigest(),
-        }
-    )
+    for year in ("2015", "2022"):
+        ocr = sorted((DATA / f"interim/ocr/{year}").glob("*.jsonl.gz"))
+        out.append(
+            {
+                "file": f"interim/ocr/{year}/*.jsonl.gz",
+                "files": len(ocr),
+                "sha256_of_hashes": hashlib.sha256(
+                    "".join(digest(p) for p in ocr).encode()
+                ).hexdigest(),
+            }
+        )
     return out
 
 

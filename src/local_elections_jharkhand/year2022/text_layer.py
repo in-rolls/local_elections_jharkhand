@@ -23,8 +23,7 @@ from rapidfuzz import fuzz
 
 from local_elections_jharkhand.build.checks import KRUTI_CHECK, norm_name
 from local_elections_jharkhand.krutidev import to_unicode
-from local_elections_jharkhand.paths import DATA, ROOT
-from local_elections_jharkhand.year2022.ocr import SOURCES
+from local_elections_jharkhand.paths import DATA, RAW, ROOT
 from local_elections_jharkhand.year2022.parse import district_of
 
 MUKHIYA = "eqf[k;k"
@@ -91,7 +90,7 @@ def build():
     ocr = pd.read_parquet(DATA / "2022/mukhiya_results.parquet")
     ocr = ocr.astype({"block_no": "Int64", "gp_no": "Int64"})
     text = []
-    for pdf in sorted(SOURCES.glob("*.pdf")):
+    for pdf in sorted((RAW / "2022").glob("*.pdf")):
         text.extend(rows_from_text(pdf))
     frame = pd.DataFrame(text).drop_duplicates(["district", "block_no", "gp_no"])
     merged = frame.merge(

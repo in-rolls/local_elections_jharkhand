@@ -1,21 +1,17 @@
-"""Fetch and verify the raw source PDFs.
+"""Verify the committed source PDFs against data/raw/MANIFEST.csv.
 
-The scans total about 630 MB, too large to keep in git history, so they are
-git-ignored and `data/raw/MANIFEST.csv` (tracked) pins every file by SHA-256.
-Every file is byte-identical to the copy committed in the pooled repository
-in-rolls/local_elections at commit 010ff38a, which is public, so `fetch`
-downloads each file from that commit and refuses anything whose hash differs.
+The 141 PDFs (117 for 2015, 24 for 2022) are committed under data/raw/ as the
+official copy. MANIFEST.csv pins each by SHA-256 and records its size, page
+count and origin: every file is byte-identical to the copy committed in the
+pooled repository in-rolls/local_elections at commit 010ff38a.
 
-    python -m local_elections_jharkhand.sources fetch    # download missing files
-    python -m local_elections_jharkhand.sources verify   # hash every file
+    python -m local_elections_jharkhand.sources verify
 """
 
 import argparse
 import csv
 import hashlib
 import sys
-import urllib.parse
-import urllib.request
 
 from local_elections_jharkhand.paths import RAW
 
@@ -42,33 +38,20 @@ def verify():
         elif digest(path) != row["sha256"]:
             print(f"changed  {row['path']}")
             bad += 1
-    print(f"{len(entries()) - bad} of {len(entries())} source files verified")
+    listed = {row["path"] for row in entries()}
+    for path in sorted(RAW.rglob("*.pdf")):
+        if path.relative_to(RAW).as_posix() not in listed:
+            print(f"unlisted {path.relative_to(RAW)}")
+            bad += 1
+    print(f"{len(entries())} listed; {bad} missing, changed or unlisted")
     return 1 if bad else 0
-
-
-def fetch():
-    for row in entries():
-        path = RAW / row["path"]
-        if path.exists() and digest(path) == row["sha256"]:
-            continue
-        url = urllib.parse.quote(row["origin_url"], safe=":/")
-        print(f"fetching {row['path']}")
-        path.parent.mkdir(parents=True, exist_ok=True)
-        part = path.with_name(path.name + ".part")
-        with urllib.request.urlopen(url, timeout=300) as response:
-            part.write_bytes(response.read())
-        if digest(part) != row["sha256"]:
-            part.unlink()
-            sys.exit(f"hash mismatch for {row['path']} from {url}")
-        part.rename(path)
-    return verify()
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["fetch", "verify"])
-    args = parser.parse_args()
-    return fetch() if args.command == "fetch" else verify()
+    parser.add_argument("command", choices=["verify"])
+    parser.parse_args()
+    return verify()
 
 
 if __name__ == "__main__":

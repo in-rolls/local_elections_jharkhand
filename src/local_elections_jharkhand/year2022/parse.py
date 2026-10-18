@@ -29,6 +29,7 @@ name together ("08/रमना"), and failing that from a page heading
     python -m local_elections_jharkhand.year2022.parse
 """
 
+import argparse
 import re
 import statistics
 import sys
@@ -41,9 +42,8 @@ import pandas as pd
 from rapidfuzz import fuzz
 
 from local_elections_jharkhand.paths import DATA, RAW, ROOT
-from local_elections_jharkhand.year2022.ocr import SOURCES, read_cache
-
-OUT = DATA / "2022"
+from local_elections_jharkhand.year2022.ocr import cache_stem, read_cache, year_of
+from local_elections_jharkhand.year2022.repair import read_repairs, read_rereads
 
 DISTRICTS = {
     "Garhwa": 1,
@@ -70,12 +70,6 @@ DISTRICTS = {
     "West Singhbhum": 22,
     "Seraikela Kharsawan": 23,
     "East Singhbhum": 24,
-}
-FILE_DISTRICT = {
-    "Sahebgunj": "Sahebganj",
-    "WestSinghbhum": "West Singhbhum",
-    "EastSinghbhum": "East Singhbhum",
-    "Seraikela": "Seraikela Kharsawan",
 }
 
 DASH = re.compile(r"[‐-―−~_]")
@@ -118,9 +112,33 @@ def clean(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
+NUMBER_DISTRICT = {number: name for name, number in DISTRICTS.items()}
+
+
+FOLDER_DISTRICT = {
+    "GOODA": "Godda",
+    "HAZARIBAG": "Hazaribagh",
+    "SERAIKELA": "Seraikela Kharsawan",
+    "WEST SINGHBHUM": "West Singhbhum",
+    "EAST SINGHBHUM": "East Singhbhum",
+}
+
+
 def district_of(pdf):
-    token = pdf.stem.split("_")[1]
-    return FILE_DISTRICT.get(token, token)
+    """2022: the file's leading number, in the state's standard order
+    ("17_Lohardaga_..."). 2015: the district folder's name; its folders are
+    numbered differently (2015's 19 is Ranchi, 2022's 19 is Khunti)."""
+    parts = Path(pdf).resolve().relative_to(RAW.resolve()).parts
+    if parts[0] == "2022":
+        return NUMBER_DISTRICT[int(re.match(r"\d+", parts[1]).group())]
+    folder = re.sub(r"^\d+\.\s*", "", parts[1]).upper()
+    for key, name in FOLDER_DISTRICT.items():
+        if folder.startswith(key):
+            return name
+    for name in DISTRICTS:
+        if folder.startswith(name.upper()):
+            return name
+    raise ValueError(f"no district for {parts[1]}")
 
 
 def caste_of(text):
@@ -133,10 +151,16 @@ def caste_of(text):
     compact = re.sub(r"[\s\-|।]", "", text)
     if "Open" in text or "खुली" in text or "श्रेणी" in text:
         return "NONE", True
+    # 2015 still reserved for backward classes: पिछड़ा वर्ग, पि0 व0
+    if "पिछ" in compact or re.search(r"पि[०0o.]?\s*व[०0o.]", text):
+        return "BC", False
     # जनजाति also prints as जन्जाति and OCRs as जनर्जाति; a bare जाति check
     # below would call those SC.
+    # ...and abbreviates to अनु0जन0 जाति (2015 Jamtara; OCR also gives अनुण्जन0),
+    # which a bare जाति check would call SC
+    dotless = re.sub(r"[०0o.\u093c]|ण्", "", compact)
     if (
-        re.search(r"जन[्र]{0,2}जा", compact)
+        re.search(r"जन[्र]{0,2}जा", dotless)
         or fuzz.partial_ratio("जनजाति", compact) >= 85
     ):
         return "ST", False
@@ -163,6 +187,8 @@ def caste_of(text):
 def woman_of(text):
     """1 for महिला, 0 for अन्य, judged on whole tokens so a name such as
     "अन्ती देवी" is not read as अन्य."""
+    # 2015's backward-class label, अन्य पिछड़ा वर्ग, carries its own अन्य
+    text = re.sub(r"अ[नल]्?य\s*पिछ\S*\s*वर्ग", " ", text)
     tokens = re.findall(r"[\u0900-\u097f\u200c\u200d]+", text)
     has_w = any(t == "महिला" or fuzz.ratio(t, "महिला") >= 80 for t in tokens)
     has_o = any(t.replace("\u200d", "") in ("अन्य", "अन्", "अन्‍य") for t in tokens)
@@ -224,12 +250,21 @@ def split_identifier(text):
     text = ABBREVIATION_ZERO.sub("", clean(text).translate(DEVANAGARI_DIGITS))
     # Vision sometimes splits a number with a space ("1 3/4", "02/1 8-करियातपुर").
     text = re.sub(r"(?<=\d) (?=\d)", "", text)
+    # ...reads a 9 as g ("/2/g - दिघी")...
+    text = re.sub(r"(?<=/)(\s*0?)g(?=\s*-)", r"\g<1>9", text)
     # ...and reads a zero as the letter O ("/O7 /02/").
     text = re.sub(r"(?<=[/\s])[Oo](?=\d)|(?<=\d)[Oo](?=[\d/\s-])", "0", text)
     parts = [p.strip() for p in re.split(r"[/।]", text)]
     # Anything before the district's name is noise: Palamu's numeral "II"
     # comes back as "11", "|1I" or "/11".
+    # The district part can go into another box, leaving "/02/17-पोस्तवारी".
+    district_missing = text.lstrip().startswith("/") and bool(
+        re.search(r"[\u0900-\u097f]", text)
+    )
     while parts and not re.search(r"[\u0900-\u097f]", parts[0]):
+        if district_missing and re.fullmatch(r"\d{1,3}", parts[0]):
+            parts.insert(0, "")
+            break
         parts.pop(0)
     if not parts:
         return None
@@ -238,7 +273,7 @@ def split_identifier(text):
     if head and re.search(r"[\u0900-\u097f]", parts[0]):
         seq.append(("n", int(head.group(1))))
     for part in parts[1:]:
-        match = re.match(r"^(\d{1,3})(?!\d)\s*[-.]?\s*(.*)$", part)
+        match = re.match(r"^[.:,\s]*(\d{1,3})(?!\d)\s*[-.]?\s*(.*)$", part)
         if match:
             seq.append(("n", int(match.group(1))))
             part = match.group(2)
@@ -271,11 +306,49 @@ def split_identifier(text):
             if ward
             else place,
         }
-    place = " ".join(v for k, v in seq[first + 1 :] if k == "t")
+    texts = [v for k, v in seq[first + 1 :] if k == "t"]
+    if len(texts) >= 2:
+        # 2015 Latehar, Jamtara and Ichak print the GP number last:
+        # "III लातेहार/01/बरवाडीह/केचकी-(1)" is block 01 (बरवाडीह), GP 1.
+        seat = re.search(r"(?:\(\s*(\d{1,3})\s*\)|-\s*(\d{1,3}))\s*$", texts[-1])
+        if seat:
+            name = texts[-1][: seat.start()].rstrip(" -")
+            return {
+                "shape": "gp",
+                "block_no": seq[first][1],
+                "block_name": " ".join(texts[:-1]),
+                "number": int(seat.group(1) or seat.group(2)),
+                "place": name,
+                "place_without_seat": name,
+            }
+    place = " ".join(texts)
+    leading = re.match(r"^-?\s*\(\s*(\d{1,3})\s*\)\s*-?\s*(\S.*)$", place)
+    if leading:
+        # 2015 Chalkusha: "हजारीबाग / 04/-(1) मनैया" is block 4, GP 1
+        return {
+            "shape": "gp",
+            "block_no": seq[first][1],
+            "block_name": None,
+            "number": int(leading.group(1)),
+            "place": leading.group(2),
+            "place_without_seat": leading.group(2),
+        }
     seat = re.search(r"\(\s*(\d{1,3})\s*\)\s*$", place)
     if not seat:
         return None
     name = place[: seat.start()].rstrip(" -")
+    # 2015 Jamtara joins block and GP names in one segment:
+    # "/5/ नाला - महुलबोना (1)" is block 5 (नाला), GP 1 (महुलबोना).
+    joined = re.match(r"^(\S[^-]*?)\s+-\s+(\S.*)$", name)
+    if joined:
+        return {
+            "shape": "gp",
+            "block_no": seq[first][1],
+            "block_name": joined.group(1),
+            "number": int(seat.group(1)),
+            "place": joined.group(2),
+            "place_without_seat": joined.group(2),
+        }
     return {
         "shape": "block",
         "block_no": seq[first][1],
@@ -560,9 +633,111 @@ def heading_for(headings, y):
     return headings[0][1] if headings else None
 
 
-def parse_document(pdf):
+def overlaps(a, b):
+    return a[2] < b[4] and b[2] < a[4] and a[3] < b[5] and b[3] < a[5]
+
+
+def with_repairs(records, pdf):
+    """Add the name-column re-reads (repair.py) that the first pass lacked."""
+    repairs = read_repairs(year_of(pdf))
+    stem = cache_stem(pdf)
+    for record in records:
+        repair = repairs.get((stem, record["page"]))
+        if repair is None:
+            continue
+        if repair.get("replace"):
+            record["boxes"] = repair["boxes"]
+            continue
+        kept = [
+            b
+            for b in repair["boxes"]
+            if not any(overlaps(b, o) for o in record["boxes"])
+        ]
+        record["boxes"] = record["boxes"] + kept
+    return records
+
+
+# 2015 Hazaribagh publishes one file per block, "10.Mukhiya_Daru_Form 23.pdf",
+# whose identifiers print only the GP ("01- मेढ़कुरीखुर्द"). The file's number
+# is the block's: the files that do print the block ("V हजारीबाग/11/01" in
+# 11.Mukhiya_Keredari) agree, as does 2022's numbering of the same blocks.
+FILE_BLOCK = re.compile(r"^(\d{1,2})\.Mukhiya_")
+BARE_GP = re.compile(r"^[|\s]*(\d{1,2})\s*[/\-]\s*([\u0900-\u097f].*)$")
+
+
+def with_file_block(records, pdf):
+    match = FILE_BLOCK.match(pdf.name)
+    if not match:
+        return records, False
+    prefix = f"जिला /{int(match.group(1))}/"  # placeholder district segment
+    for record in records:
+        for box in record["boxes"]:
+            if box[2] <= 0.5 * record["width"]:
+                continue
+            bare = BARE_GP.match(box[0])
+            if bare:
+                box[0] = f"{prefix}{bare.group(1)}-{bare.group(2)}"
+            else:
+                # "12/01-सिन्दुवारी", "महिला 14/1/खरना": block and GP printed,
+                # district not
+                both = re.match(
+                    r"^([|\s]*(?:महिला|अन्य)?\s*)(\d{1,2}\s*/\s*\d{1,2}\s*[-/].*)$",
+                    box[0],
+                )
+                if both:
+                    box[0] = (
+                        f"{both.group(1).strip(' |')} जिला /{both.group(2)}".strip()
+                    )
+    return records, True
+
+
+def heading_numbers(records, pdf):
+    """Block name -> number as this document prints them together elsewhere
+    (samiti rows "देवघर/01/...", identifiers with a block name)."""
+    seats, headings = parse_document(pdf, records=records, rewrite_headings=False)
+    names = block_names(seats, headings)
+    return {clean(name): number for number, (name, _) in names.items()}
+
+
+def with_heading_block(records, pdf):
+    """Pages whose identifiers print only the GP ("01-खोरीपानन", 2015
+    Deoghar) under a "प्रखण्ड - देवघर" heading: the block's number comes from
+    the heading's name as the document prints it elsewhere."""
+    bare_pages = [
+        r
+        for r in records
+        if sum(
+            bool(BARE_GP.match(b[0])) and b[2] > 0.5 * r["width"] for b in r["boxes"]
+        )
+        >= 3
+    ]
+    if not bare_pages:
+        return records, set()
+    lookup = heading_numbers(records, pdf)
+    rewritten = set()
+    for record in bare_pages:
+        headings = page_headings(record)
+        # no heading: the block is not printed; 0 stands for "unknown" and
+        # becomes a null block_no with the row flagged block_not_printed
+        number = lookup.get(clean(headings[0][1])) if headings else 0
+        if number is None:
+            continue
+        for box in record["boxes"]:
+            bare = BARE_GP.match(box[0])
+            if bare and box[2] > 0.5 * record["width"]:
+                box[0] = f"जिला /{number}/{bare.group(1)}-{bare.group(2)}"
+        rewritten.add(record["page"])
+    return records, rewritten
+
+
+def parse_document(pdf, records=None, rewrite_headings=True):
     district = district_of(pdf)
-    records = read_cache(pdf)
+    if records is None:
+        records = with_repairs(read_cache(pdf), pdf)
+    records, block_from_file = with_file_block(records, pdf)
+    heading_pages = set()
+    if rewrite_headings and not block_from_file:
+        records, heading_pages = with_heading_block(records, pdf)
     source_path = pdf.resolve().relative_to(ROOT).as_posix()
     seats, heading_blocks = [], {}
     for record in records:
@@ -572,7 +747,12 @@ def parse_document(pdf):
             fields = read_row(row, width)
             seat = split_identifier(fields["seat_text"])
             post = fields["post"]
-            if seat is None or seat["number"] == 0 or seat["block_no"] == 0:
+            unprinted_block = bool(
+                seat and seat["block_no"] == 0 and record["page"] in heading_pages
+            )
+            if seat is None or (seat["block_no"] == 0 and not unprinted_block):
+                continue
+            if seat["number"] == 0 and post != "mukhiya":
                 continue
             if (
                 post is None
@@ -610,6 +790,10 @@ def parse_document(pdf):
             # A few GP names end in a number (Dhanbad's आसनबनी-1 and -2), so
             # a mukhiya row keeps its whole name.
             place = seat["place"] if tier == "mukhiya" else seat["place_without_seat"]
+            if number == 0:
+                # a GP number OCR read as 00; the row is kept, the number is not
+                number = None
+                flags.append("gp_no_unread")
             caste, open_category = caste_of(fields["caste_text"])
             woman = woman_of(fields["caste_text"])
             if caste is None:
@@ -620,6 +804,13 @@ def parse_document(pdf):
                 flags.append("winner_unread")
             if pdf.stem in LOW_QUALITY:
                 flags.append("low_quality_source")
+            if block_from_file:
+                flags.append("block_no_from_file_name")
+            if unprinted_block:
+                block_no = None
+                flags.append("block_not_printed")
+            elif record["page"] in heading_pages:
+                flags.append("block_no_from_heading")
             heading = heading_for(headings, fields["row_y0"])
             if heading:
                 heading_blocks.setdefault(block_no, Counter())[heading] += 1
@@ -673,10 +864,17 @@ def block_names(seats, heading_blocks):
     return out
 
 
-LABEL_CASTE = {"SC": "SC ", "ST": "ST ", "NONE": "", "RESERVED": "Reserved "}
+LABEL_CASTE = {
+    "SC": "SC ",
+    "ST": "ST ",
+    "BC": "BC ",
+    "NONE": "",
+    "RESERVED": "Reserved ",
+}
 RAW_CASTE = {
     "SC": "अनुसूचित जाति",
     "ST": "अनुसूचित जनजाति",
+    "BC": "पिछड़ा वर्ग",
     "NONE": "अनारक्षित",
     "RESERVED": "आरक्षित",
 }
@@ -731,11 +929,13 @@ MUKHIYA_COLUMNS = [
     "open_category",
     "woman_reserved",
     "winner",
+    "vacant",
     "reservation_raw",
     "seat_id_raw",
     "row_text_raw",
     "ocr_min_confidence",
     "parse_flags",
+    "entry_method",
     "script",
     "source_path",
     "source_page",
@@ -748,18 +948,219 @@ SAMITI_COLUMNS = [
     if c not in ("gram_panchayat", "gp_no")
     else {"gram_panchayat": "block_label", "gp_no": "seat_no"}[c]
     for c in MUKHIYA_COLUMNS
+    if c != "vacant"
 ]
 
 
-def build():
-    pdfs = sorted(SOURCES.glob("*.pdf"), key=lambda p: int(p.name.split("_")[0]))
+# Pages whose OCR could not be trusted and were keyed by hand from the image
+# instead: (year, cache stem) -> CSV under data/. Each row cites its page.
+MANUAL = {("2022", "17_Lohardaga_Prapatra23"): "2022/manual/lohardaga_mukhiya.csv"}
+
+
+def manual_rows(year, pdf):
+    path = DATA / MANUAL[(year, cache_stem(pdf))]
+    frame = pd.read_csv(path, dtype=str)
+    district = district_of(pdf)
+    rows = []
+    for row in frame.itertuples():
+        block_no, woman = int(row.block_no), int(row.woman_reserved)
+        caste = row.caste_reservation
+        # block names keyed from the same gazette's samiti rows (pages 1-3)
+        block, source = row.block, "hand_keyed"
+        rows.append(
+            {
+                "state": "Jharkhand",
+                "year": int(year),
+                "district": district,
+                "district_no": DISTRICTS[district],
+                "block": block,
+                "block_no": block_no,
+                "block_source": source,
+                "gram_panchayat": row.gram_panchayat,
+                "gp_no": int(row.gp_no),
+                "tier": "gp_head",
+                "tier_local": "mukhiya",
+                "reservation": LABEL_CASTE[caste]
+                + ("Woman" if woman else "Other than Woman"),
+                "caste_reservation": caste,
+                "open_category": False,
+                "woman_reserved": woman,
+                "winner": row.winner,
+                "reservation_raw": RAW_CASTE[caste]
+                + (" | महिला" if woman else " | अन्य"),
+                "seat_id_raw": None,
+                "row_text_raw": None,
+                "ocr_min_confidence": None,
+                "parse_flags": [],
+                "entry_method": "hand_keyed",
+                "script": "devanagari",
+                "source_path": pdf.resolve().relative_to(ROOT).as_posix(),
+                "source_page": int(row.source_page),
+                "row_y0": None,
+                "row_y1": None,
+                "page_rotation": 0,
+            }
+        )
+    return rows
+
+
+VACANT = {"रिक्त", "रिक्‍त"}
+
+
+def review(frame, year):
+    """Apply the reviewed fixes kept under data/<year>/manual/.
+
+    identifier_corrections.csv: a row's block or GP number, where OCR misread
+        it or the gazette misprinted it; matched on document, page and the
+        identifier exactly as OCR read it, and flagged `corrected_<kind>`.
+    missing_rows.csv: printed rows OCR never saw, keyed from the image.
+    Then: a winner printed as रिक्त (vacant) becomes `vacant = 1`; and where
+    a printed number is shared by a row whose post read मुखिया and rows whose
+    post was unreadable, the latter are dropped (on Pakur pages 43-45 they
+    are ward rows that lost their ward number).
+    """
+    frame = frame.copy()
+    folder = DATA / year / "manual"
+    corrections = folder / "identifier_corrections.csv"
+    if corrections.exists():
+        for fix in pd.read_csv(corrections, dtype=str).itertuples():
+            hit = (
+                (frame["source_path"] == fix.source_path)
+                & (frame["source_page"] == int(fix.source_page))
+                & (frame["seat_id_raw"] == fix.seat_id_raw)
+            )
+            if hit.sum() != 1:
+                raise ValueError(f"correction matches {hit.sum()} rows: {fix}")
+            index = frame.index[hit][0]
+            frame.at[index, "block_no"] = int(fix.block_no)
+            frame.at[index, "gp_no"] = int(fix.gp_no)
+            frame.at[index, "parse_flags"] = [
+                *[f for f in frame.at[index, "parse_flags"] if f != "gp_no_unread"],
+                f"corrected_{fix.kind}",
+            ]
+    missing = folder / "missing_rows.csv"
+    if missing.exists():
+        added = []
+        for row in pd.read_csv(missing, dtype=str).itertuples():
+            pdf = ROOT / row.source_path
+            district, caste, woman = (
+                district_of(pdf),
+                row.caste_reservation,
+                int(row.woman_reserved),
+            )
+            added.append(
+                {
+                    **dict.fromkeys(MUKHIYA_COLUMNS),
+                    "state": "Jharkhand",
+                    "year": int(year),
+                    "district": district,
+                    "district_no": DISTRICTS[district],
+                    "block_no": int(row.block_no),
+                    "gram_panchayat": row.gram_panchayat,
+                    "gp_no": int(row.gp_no),
+                    "tier": "gp_head",
+                    "tier_local": "mukhiya",
+                    "reservation": LABEL_CASTE[caste]
+                    + ("Woman" if woman else "Other than Woman"),
+                    "caste_reservation": caste,
+                    "open_category": False,
+                    "woman_reserved": woman,
+                    "winner": row.winner,
+                    "reservation_raw": RAW_CASTE[caste]
+                    + (" | महिला" if woman else " | अन्य"),
+                    "parse_flags": [],
+                    "entry_method": "hand_keyed",
+                    "script": "devanagari",
+                    "source_path": row.source_path,
+                    "source_page": int(row.source_page),
+                    "page_rotation": 0,
+                }
+            )
+        frame = pd.concat([frame, pd.DataFrame(added)], ignore_index=True)
+    # block names for rows whose number changed or was keyed by hand
+    named = frame[frame["block"].notna()]
+    modes = named.groupby(["district", "block_no"])["block"].agg(lambda s: s.mode()[0])
+    sources = named.groupby(["district", "block_no"])["block_source"].agg(
+        lambda s: s.mode()[0]
+    )
+    for index in frame.index:
+        key = (frame.at[index, "district"], frame.at[index, "block_no"])
+        flags = frame.at[index, "parse_flags"]
+        refresh = any(f.startswith("corrected_") for f in flags) or (
+            frame.at[index, "entry_method"] == "hand_keyed"
+            and pd.isna(frame.at[index, "block"])
+        )
+        if refresh:
+            frame.at[index, "block"] = modes.get(key)
+            frame.at[index, "block_source"] = sources.get(key)
+    rereads = read_rereads(year)
+    for index in frame.index[frame["row_y0"].notna()]:
+        key = (
+            frame.at[index, "source_path"],
+            int(frame.at[index, "source_page"]),
+            int(frame.at[index, "row_y0"]),
+        )
+        text = rereads.get(key)
+        if text is None:
+            continue
+        flags = list(frame.at[index, "parse_flags"])
+        if pd.isna(frame.at[index, "woman_reserved"]) and woman_of(text) is not None:
+            frame.at[index, "woman_reserved"] = woman_of(text)
+            flags = [f for f in flags if f != "woman_unread"] + [
+                "woman_from_row_reread"
+            ]
+        if (
+            pd.isna(frame.at[index, "caste_reservation"])
+            and caste_of(text)[0] is not None
+        ):
+            caste, open_category = caste_of(text)
+            frame.at[index, "caste_reservation"] = caste
+            frame.at[index, "open_category"] = open_category
+            flags = [f for f in flags if f != "caste_unread"] + [
+                "caste_from_row_reread"
+            ]
+        frame.at[index, "parse_flags"] = flags
+        caste, woman = (
+            frame.at[index, "caste_reservation"],
+            frame.at[index, "woman_reserved"],
+        )
+        if pd.notna(caste) and pd.notna(woman):
+            frame.at[index, "reservation"] = LABEL_CASTE[caste] + (
+                "Woman" if woman else "Other than Woman"
+            )
+            raw_caste = (
+                "खुली श्रेणी के सीट"
+                if frame.at[index, "open_category"]
+                else RAW_CASTE[caste]
+            )
+            frame.at[index, "reservation_raw"] = raw_caste + (
+                " | महिला" if woman else " | अन्य"
+            )
+    frame["vacant"] = frame["winner"].isin(VACANT).astype(int)
+    frame.loc[frame["vacant"] == 1, "winner"] = None
+    key = ["district", "block_no", "gp_no"]
+    unread = frame["parse_flags"].map(lambda f: "post_unread_tier_from_identifier" in f)
+    read_keys = set(map(tuple, frame.loc[~unread, key].dropna().astype(str).values))
+    drop = unread & frame[key].astype(str).apply(tuple, axis=1).isin(read_keys)
+    return frame[~drop].reset_index(drop=True)
+
+
+def build(year="2022"):
+    pdfs = sorted(
+        (RAW / year).rglob("*.pdf"),
+        key=lambda p: (DISTRICTS[district_of(p)], p.as_posix()),
+    )
     mukhiya, samiti = [], []
     for pdf in pdfs:
         seats, headings = parse_document(pdf)
         names = block_names(seats, headings)
-        for row in finish(seats, names):
+        manual = (year, cache_stem(pdf)) in MANUAL
+        if manual:
+            mukhiya.extend(manual_rows(year, pdf))
+        for row in finish(seats, names, int(year)):
             row["script"] = "devanagari"
-            if row["tier_local"] == "mukhiya":
+            row["entry_method"] = "ocr"
+            if row["tier_local"] == "mukhiya" and not manual:
                 row["tier"] = "gp_head"
                 row["gram_panchayat"] = row.pop("place")
                 row["gp_no"] = row.pop("number")
@@ -769,12 +1170,12 @@ def build():
                 row["block_label"] = row.pop("place")
                 row["seat_no"] = row.pop("number")
                 samiti.append(row)
-    mukhiya = pd.DataFrame(mukhiya)[MUKHIYA_COLUMNS]
-    # Rows sharing a printed (block, GP) number are kept, not merged or
-    # dropped: which one is right takes the page image to decide.
+    mukhiya = review(pd.DataFrame(mukhiya).reindex(columns=MUKHIYA_COLUMNS), year)
+    # Rows still sharing a printed (block, GP) number are kept, not merged
+    # or dropped: which one is right takes the page image to decide.
     repeated = mukhiya.duplicated(["district", "block_no", "gp_no"], keep=False)
     mukhiya["parse_flags"] = [
-        [*flags, "duplicate_key"] if dup else flags
+        [*flags, "duplicate_key"] if dup else list(flags)
         for flags, dup in zip(mukhiya["parse_flags"], repeated, strict=True)
     ]
     samiti = pd.DataFrame(samiti)[SAMITI_COLUMNS]
@@ -796,8 +1197,9 @@ def typed(frame):
     ):
         if column in frame:
             frame[column] = frame[column].astype("Int16")
-    if "woman_reserved" in frame:
-        frame["woman_reserved"] = frame["woman_reserved"].astype("Int8")
+    for column in ("woman_reserved", "vacant"):
+        if column in frame:
+            frame[column] = frame[column].astype("Int8")
     frame["open_category"] = frame["open_category"].astype("boolean")
     for column in frame.columns:
         if frame[column].dtype == object and column != "parse_flags":
@@ -806,10 +1208,14 @@ def typed(frame):
 
 
 def main():
-    OUT.mkdir(parents=True, exist_ok=True)
-    mukhiya, samiti = build()
-    typed(mukhiya).to_parquet(OUT / "mukhiya_results.parquet", index=False)
-    typed(samiti).to_parquet(OUT / "panchayat_samiti_results.parquet", index=False)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--year", default="2022", choices=["2015", "2022"])
+    args = parser.parse_args()
+    out = DATA / args.year
+    out.mkdir(parents=True, exist_ok=True)
+    mukhiya, samiti = build(args.year)
+    typed(mukhiya).to_parquet(out / "mukhiya_results.parquet", index=False)
+    typed(samiti).to_parquet(out / "panchayat_samiti_results.parquet", index=False)
     print(f"mukhiya rows {len(mukhiya)}; panchayat samiti rows {len(samiti)}")
     print(mukhiya.groupby("district").size().to_string())
     return 0

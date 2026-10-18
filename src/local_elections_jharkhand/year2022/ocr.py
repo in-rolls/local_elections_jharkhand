@@ -17,7 +17,10 @@ ruling lines are found here too (OpenCV morphology) and stored beside the
 boxes; `parse.py` puts each box in its cell. Both live in the cache so parsing
 never needs the model.
 
-Cache: `data/interim/ocr/2022/<pdf stem>.jsonl.gz`, one JSON record per page.
+Cache: `data/interim/ocr/<year>/<pdf stem>.jsonl.gz`, one JSON record per page
+(the 2015 PDFs, nested by district folder, keep their folders in the name,
+joined by "__"). The same reader serves both years: 2015's results were also
+published as Form 23.
 While a document is being read its records go to a plain `.jsonl`, flushed per
 page, so a killed run loses at most one page; the file is gzipped once every
 page is in. Records:
@@ -26,7 +29,7 @@ page is in. Records:
      "hlines": [y, ...], "vlines": [x, ...],
      "boxes": [[text, confidence, x0, y0, x1, y1], ...]}   # pixels, top-left
 
-    python -m local_elections_jharkhand.year2022.ocr [--jobs 6] [pdf ...]
+    python -m local_elections_jharkhand.year2022.ocr [--year 2015] [--jobs 6] [pdf ...]
 """
 
 import argparse
@@ -44,7 +47,6 @@ import numpy as np
 from local_elections_jharkhand.paths import INTERIM, RAW
 
 SOURCES = RAW / "2022"
-CACHE = INTERIM / "ocr/2022"
 DPI = 200
 # Lohardaga is a faint fax-like scan in a small face; at 200 dpi Vision merges
 # adjacent rows and drops digits.
@@ -63,9 +65,9 @@ def page_count(pdf):
     raise ValueError(f"pdfinfo reports no page count for {pdf}")
 
 
-def render(pdf, page, directory):
+def render(pdf, page, directory, dpi=None):
     stem = Path(directory) / f"p{page}"
-    dpi = DPI_BY_DOCUMENT.get(pdf.stem, DPI)
+    dpi = dpi or DPI_BY_DOCUMENT.get(pdf.stem, DPI)
     subprocess.run(
         [
             "pdftoppm",
@@ -188,8 +190,19 @@ def read_page(pdf, page):
     }
 
 
+def year_of(pdf):
+    return Path(pdf).resolve().relative_to(RAW.resolve()).parts[0]
+
+
+def cache_stem(pdf):
+    """2022's gazettes sit flat in raw/2022; 2015's are nested by district
+    folder, so the folders are kept in the name, joined by "__"."""
+    relative = Path(pdf).resolve().relative_to(RAW.resolve())
+    return "__".join(relative.with_suffix("").parts[1:])
+
+
 def cache_path(pdf):
-    return CACHE / f"{pdf.stem}.jsonl.gz"
+    return INTERIM / "ocr" / year_of(pdf) / f"{cache_stem(pdf)}.jsonl.gz"
 
 
 def read_cache(pdf):
@@ -201,7 +214,8 @@ def ocr_document(pdf):
     final = cache_path(pdf)
     if final.exists():
         return pdf.name, "cached"
-    partial = CACHE / f"{pdf.stem}.jsonl"
+    partial = cache_path(pdf).with_suffix("")
+    partial.parent.mkdir(parents=True, exist_ok=True)
     done = set()
     if partial.exists():
         for line in partial.read_text(encoding="utf-8").splitlines():
@@ -236,14 +250,147 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("pdfs", nargs="*", type=Path)
     parser.add_argument("--jobs", type=int, default=6)
+    parser.add_argument("--year", default="2022", choices=["2015", "2022"])
+    parser.add_argument(
+        "--text-layer",
+        action="store_true",
+        help="after OCR, rebuild pages whose image is undecoded Kruti Dev",
+    )
     args = parser.parse_args()
-    CACHE.mkdir(parents=True, exist_ok=True)
-    pdfs = args.pdfs or sorted(SOURCES.glob("*.pdf"), key=lambda p: -p.stat().st_size)
+    pdfs = args.pdfs or sorted(
+        (RAW / args.year).rglob("*.pdf"), key=lambda p: -p.stat().st_size
+    )
     with Pool(args.jobs) as pool:
         for name, status in pool.imap_unordered(ocr_document, pdfs):
             print(f"{name}: {status}", flush=True)
+    if args.text_layer:
+        text_layer_main(args.year)
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# --- Text-layer fallback ----------------------------------------------------
+#
+# Several 2015 gazettes (all of Palamu, Dhanbad, West Singhbhum, Simdega and
+# East Singhbhum, parts of others) were exported from a word processor in the
+# Kruti Dev font without embedding it, so any renderer draws the raw Latin
+# bytes and the page image itself reads "vurknoh" where the print reads
+# अनीता देवी. No OCR can recover Devanagari from that image. The text layer
+# holds the same characters exactly, so for such pages the boxes are built
+# from it instead: pdfplumber words, merged into cells along each line,
+# decoded from Kruti Dev, and scaled to the page's pixel grid. The record's
+# `engine` says which source a page's boxes came from.
+
+KRUTI_MARKERS = ("eqf[k;k", "efgyk", "vU;", "vuqlwfpr", "vukjf{kr", "iapk;r")
+
+
+def text_layer_boxes(pdf, page_number, dpi):
+    import pdfplumber
+
+    from local_elections_jharkhand.krutidev import looks_converted, to_unicode
+
+    scale = dpi / 72
+    with pdfplumber.open(pdf) as document:
+        page = document.pages[page_number - 1]
+        words = page.extract_words(
+            x_tolerance=1.5, y_tolerance=2, keep_blank_chars=False
+        )
+        width, height = (
+            round(float(page.width) * scale),
+            round(float(page.height) * scale),
+        )
+    words.sort(key=lambda w: (round(w["top"] / 3), w["x0"]))
+    cells = []
+    for word in words:
+        last = cells[-1] if cells else None
+        if (
+            last
+            and abs(word["top"] - last["top"]) < 3
+            and 0
+            <= word["x0"] - last["x1"]
+            < 2.5 * max(word["x1"] - word["x0"], 1) / max(len(word["text"]), 1)
+        ):
+            last["text"] += " " + word["text"]
+            last["x1"], last["bottom"] = word["x1"], max(last["bottom"], word["bottom"])
+        else:
+            cells.append(dict(word))
+    boxes = []
+    for cell in cells:
+        text = cell["text"]
+        text = text if looks_converted(text) else to_unicode(text)
+        # Kruti Dev's brackets, which the converter leaves alone
+        text = text.replace("¼", "(").replace("½", ")")
+        boxes.append(
+            [
+                text,
+                1.0,
+                round(cell["x0"] * scale),
+                round(cell["top"] * scale),
+                round(cell["x1"] * scale),
+                round(cell["bottom"] * scale),
+            ]
+        )
+    return boxes, width, height
+
+
+def needs_text_layer(pdf, record):
+    if devanagari(record["boxes"]) >= 300:
+        return False
+    text = subprocess.run(
+        [
+            "pdftotext",
+            "-f",
+            str(record["page"]),
+            "-l",
+            str(record["page"]),
+            str(pdf),
+            "-",
+        ],
+        capture_output=True,
+        text=True,
+        errors="replace",
+    ).stdout
+    return sum(text.count(m) for m in KRUTI_MARKERS) >= 3
+
+
+def apply_text_layer(pdf):
+    """Rewrite the cached pages of one document that need the fallback."""
+    path = cache_path(pdf)
+    records = read_cache(pdf)
+    changed = 0
+    for record in records:
+        if record.get("engine") == "text_layer" or not needs_text_layer(pdf, record):
+            continue
+        boxes, width, height = text_layer_boxes(
+            pdf, record["page"], DPI_BY_DOCUMENT.get(pdf.stem, DPI)
+        )
+        record.update(
+            {
+                "boxes": boxes,
+                "width": width,
+                "height": height,
+                "rotation": 0,
+                "hlines": [],
+                "vlines": [],
+                "engine": "text_layer",
+            }
+        )
+        changed += 1
+    if changed:
+        with gzip.open(path, "wt", encoding="utf-8", compresslevel=9) as stream:
+            for record in records:
+                stream.write(json.dumps(record, ensure_ascii=False) + "\n")
+    return changed
+
+
+def text_layer_main(year):
+    for pdf in sorted((RAW / year).rglob("*.pdf")):
+        changed = apply_text_layer(pdf)
+        if changed:
+            print(
+                f"{pdf.relative_to(RAW)}: {changed} pages from the text layer",
+                flush=True,
+            )

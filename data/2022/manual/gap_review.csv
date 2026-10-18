@@ -1,0 +1,26 @@
+district,block_no,gp_no,finding,resolution,evidence
+Sahebganj,1,10,source_gap,none,mukhiya page 32 runs 01/09 then 01/11; ward rows for 01/10 हरप्रसाद are on page 67
+Sahebganj,7,5,source_gap,none,page 34 runs 07/04 then 07/06
+Sahebganj,7,9,source_gap,none,page 34 runs 07/08 then 07/10
+Sahebganj,9,9,source_gap,none,page 24 runs 09/08 then 09/10
+Sahebganj,9,13,source_gap,none,page 24 runs 09/12 then 09/14
+Sahebganj,9,16,source_gap,none,page 24 ends at 09/15 and page 25 starts at 09/18
+Sahebganj,9,17,source_gap,none,page 24 ends at 09/15 and page 25 starts at 09/18
+Sahebganj,3,7,source_typo,identifier_corrections.csv,page 26 prints पुआल as 02/07 between 03/06 and 03/08
+Pakur,4,2,source_gap,none,page 14 serial 1 is 04/01 and serial 2 is 04/03
+Pakur,4,20,source_gap,none,page 14 serial 18 is 04/19 and serial 19 is 04/21
+Pakur,4,25,source_gap,none,page 14 serial 22 is 04/24 and serial 23 is 04/26
+Pakur,4,21,parser_repeat,dropped,pages 43-45 ward rows (ग्राम पंचायत के सदस्य) whose post and ward number OCR lost; dropped because 04/21 has a row with मुखिया read
+Pakur,4,30,parser_repeat,dropped,as 04/21
+Pakur,4,34,parser_repeat,dropped,as 04/21
+West Singhbhum,14,10,source_typo,identifier_corrections.csv,page 37 prints बड़ा लागड़ा as 14/01 a second time after 14/09
+Deoghar,2,17,parser_gap,fixed in parse.py,page 14 prints 02/17-पोस्तवारी; OCR split the district part into another box
+East Singhbhum,2,9,parser_gap,fixed in parse.py,page 18 prints 2/9 दिघी; OCR read 9 as g
+East Singhbhum,7,2,parser_gap,missing_rows.csv,page 124 prints 7/2 खैरबनी; OCR returned no box for the identifier
+Gumla,2,6,parser_gap,identifier_corrections.csv,page 18 prints 02/06 करनी; OCR read 00
+Gumla,5,9,parser_gap,fixed in parse.py,page 21 prints 05/09 पीबो; OCR read 0g
+Gumla,7,8,parser_gap,identifier_corrections.csv,page 23 prints 07/08 नवाडीह; OCR read 07/03
+Gumla,8,15,parser_gap,identifier_corrections.csv,page 25 prints 08/15 बेलागड़ा; OCR read 06/15
+Jamtara,3,16,parser_gap,fixed in parse.py,page 11 prints 3/16 चन्द्रदीपा; OCR read /.16/
+Jamtara,5,19,parser_gap,fixed in parse.py,page 13 prints 5/19 महेशमुण्डा; OCR read /.19/
+Chatra,,,source_count,none,"the gazette prints 151 mukhiya rows against LGD 152; each block's 1..N numbering is unbroken and block tails checked on pages 77 and 82 end where the next section begins"
