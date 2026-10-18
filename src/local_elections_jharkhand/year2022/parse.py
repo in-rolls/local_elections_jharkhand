@@ -622,7 +622,9 @@ def page_headings(record):
     for box in record["boxes"]:
         match = HEADING.search(clean(box[0]))
         if match:
-            found.append((box[3], match.group(1).strip(" -")))
+            found.append(
+                (box[3], re.sub(r"^[\d\s.-]+", "", match.group(1)).strip(" -"))
+            )
     return sorted(found)
 
 
@@ -846,7 +848,9 @@ def block_names(seats, heading_blocks):
     printed, names = defaultdict(Counter), defaultdict(Counter)
     for seat in seats:
         if seat["block_in_identifier"]:
-            printed[seat["block_no"]][seat["block_in_identifier"]] += 1
+            name = re.split(r"\s*-?\s*\(", seat["block_in_identifier"])[0].strip(" .:-")
+            if name and not re.search(r"[A-Za-z0-9|]", name):
+                printed[seat["block_no"]][name] += 1
         if seat["tier_local"] == "panchayat_samiti" and seat["place"]:
             # a merged neighbour can trail the name ("गोविन्दपुर-17) XIV धनबाद")
             name = re.split(r"\s*[-(]", seat["place"])[0].strip(" .:")

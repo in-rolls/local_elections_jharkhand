@@ -105,7 +105,7 @@ Form 23.
   LGD count (Palamu 278, Godda 201, Sahebganj 166, Chatra 154) have no repeated
   keys and probably reflect 2015 boundaries; not verified. Giridih (330/344)
   still has gaps in block 4 after the strip re-read.
-- **Block names**: 336 rows (2022) and 1,310 (2015) have no printed name the
+- **Block names**: 422 rows (2022) and 1,311 (2015) have no printed name the
   parser could tie to the number; the key is the number.
 - **Vacant seats**: 3 in 2022, 11 in 2015 (`vacant = 1`).
 
@@ -146,8 +146,8 @@ Form 23.
 | `gp_numbers_run_unbroken_2022` | source: the gazette's own 1..N GP numbering within a block; each gap opened and recorded in data/2022/manual/gap_review.csv | pass | missing_numbers=10; verified_source_gaps=10; unexplained_missing=0; blocks=264 |
 | `unique_district_block_no_gp_no_2022` | internal | pass | duplicate_rows=0; blank_key_rows=0 |
 | `duplicate_keys_flagged_2022` | internal | pass | flagged_rows=0; mismatched_rows=0 |
-| `unique_district_block_gram_panchayat_2022` | internal | pass | duplicate_rows=0; blank_key_rows=337 |
-| `unique_district_block_gram_panchayat_2015` | internal | pass | duplicate_rows=0; blank_key_rows=1314 |
+| `unique_district_block_gram_panchayat_2022` | internal | pass | duplicate_rows=0; blank_key_rows=423 |
+| `unique_district_block_gram_panchayat_2015` | internal | pass | duplicate_rows=0; blank_key_rows=1315 |
 | `source_page_within_document_2022` | source: page counts of the hashed PDFs | pass | documents=24; pages_outside_document=0; blank_provenance=0 |
 | `source_page_within_document_2015` | source: page counts of the hashed PDFs | pass | documents=81; pages_outside_document=0; blank_provenance=0 |
 | `women_share_and_caste_shares` | statute: Jharkhand Panchayat Raj Act reserves at least half of seats for women; 2015 shares as the comparison | pass |  |

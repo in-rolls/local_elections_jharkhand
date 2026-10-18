@@ -4,7 +4,7 @@
     {
       "file": "2015/panchayat_samiti_results.parquet",
       "description": "One 2015 panchayat samiti seat per row",
-      "sha256": "856446d1691cdfdaec0dded57c09139e9e41a315d773aa580a95f5630d722fd7",
+      "sha256": "d9269c2758508c17609403861e8135ce80fabbb956cb829d4927bf6757ee2a61",
       "rows": 3579,
       "schema": [
         {
@@ -124,7 +124,7 @@
     {
       "file": "2015/mukhiya_results.parquet",
       "description": "One 2015 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "9351113803a6456d9a588af16e65f12d2fa9c678bce490862c2c0fb38f125c40",
+      "sha256": "8677af27bc0fcd44eef115eee6cd370e45179c7a3123f6b77f3a6463e0a23266",
       "rows": 4137,
       "schema": [
         {
@@ -248,7 +248,7 @@
     {
       "file": "2022/mukhiya_results.parquet",
       "description": "One 2022 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "447a827569e5eded71ab5b7330878e25f8a47c570bec518da009c929d09100a4",
+      "sha256": "15322c545648156d19bd45d1a52c0e7dbf4edcf0681680b1700e3c17cbccc37c",
       "rows": 4334,
       "schema": [
         {
@@ -372,7 +372,7 @@
     {
       "file": "2022/panchayat_samiti_results.parquet",
       "description": "One 2022 panchayat samiti seat per row",
-      "sha256": "a7b1e8cd40f17acaf8f0af787e2b4233ba61a9a9c1fd4e97e42cdf733d62c0e7",
+      "sha256": "d06155a9df87e6be949934a28b4b9fbd289bbd5d149ef20dcfdf9554cd2e3e60",
       "rows": 4113,
       "schema": [
         {
@@ -916,7 +916,7 @@
       "hard": true,
       "status": "pass",
       "duplicate_rows": 0,
-      "blank_key_rows": 337,
+      "blank_key_rows": 423,
       "duplicates_by_district": {}
     },
     {
@@ -925,7 +925,7 @@
       "hard": false,
       "status": "pass",
       "duplicate_rows": 0,
-      "blank_key_rows": 1314,
+      "blank_key_rows": 1315,
       "duplicates_by_district": {}
     },
     {
