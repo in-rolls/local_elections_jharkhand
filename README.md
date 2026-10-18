@@ -6,7 +6,7 @@ Seat-level records of Jharkhand's gram panchayat heads (*mukhiya*) for the 2015
 and 2022 panchayat elections: for every gram panchayat (GP), the seat's
 reservation (caste category, and whether it was reserved for a woman) and the
 person elected. Every row carries `source_path` and `source_page`, the gazette
-and the page it was read from.
+and the page it was read from, and the gazettes themselves are in `data/raw/`.
 
 Both years come from the same kind of document: **Form 23** (प्रपत्र-23,
 "निर्वाचन परिणाम का प्रकाशन", Rule 85 of the Jharkhand Panchayat Election Rules,
@@ -18,15 +18,16 @@ list is needed.
 
 ## Data
 
-| File | Each row | Source |
-| --- | --- | --- |
-| [data/2022/mukhiya_results.parquet](data/2022/mukhiya_results.parquet) | a 2022 GP mukhiya seat | 24 district Form 23 gazettes, June 2022, read with on-device OCR |
-| [data/2015/mukhiya_results.parquet](data/2015/mukhiya_results.parquet) | a 2015 GP mukhiya seat | 2015 Form 23 gazettes, parsed in [in-rolls/local_elections](https://github.com/in-rolls/local_elections) |
-| [data/2022/panchayat_samiti_results.parquet](data/2022/panchayat_samiti_results.parquet) | a 2022 panchayat samiti seat | the same 2022 gazettes (a by-product; not audited like the mukhiya table) |
+| File | Each row |
+| --- | --- |
+| [data/2022/mukhiya_results.parquet](data/2022/mukhiya_results.parquet) | a 2022 GP mukhiya seat (24 district gazettes, June 2022) |
+| [data/2015/mukhiya_results.parquet](data/2015/mukhiya_results.parquet) | a 2015 GP mukhiya seat (the 2015 gazettes, read by the same pipeline) |
+| `data/<year>/panchayat_samiti_results.parquet` | a panchayat samiti seat (a by-product; not audited) |
+| [data/raw/](data/raw/) | the 141 source PDFs themselves, pinned by SHA-256 in [MANIFEST.csv](data/raw/MANIFEST.csv) |
 
-[data/README.md](data/README.md) has the column dictionary, the row counts per
-district, and the result of every check (it is regenerated from
-[data/MANIFEST.json](data/MANIFEST.json)).
+[data/README.md](data/README.md) has the column dictionary, rows per district
+against the LGD gram panchayat count, coverage notes, and the result of every
+check (regenerated from [data/MANIFEST.json](data/MANIFEST.json)).
 
 ```python
 import pandas as pd
@@ -35,45 +36,40 @@ m22 = pd.read_parquet("data/2022/mukhiya_results.parquet")
 m22.groupby("district")["woman_reserved"].mean()
 ```
 
-The seat key in 2022 is `(district, block_no, gp_no)`, the numbers printed in
-the identifier. Block **numbers** are not comparable across years: Dhanbad
-numbers its blocks in a different order in 2015 and 2022. Link the years by
-block and GP **name** within district. The 2015↔2022 link itself is not in this
-repository.
+The seat key is `(district, block_no, gp_no)`, the numbers printed in the
+identifier. Block **numbers** are not comparable across years (Dhanbad
+renumbered its blocks); link the years by block and GP **name** within
+district. The 2015↔2022 link itself is not in this repository.
 
 ## Reproducing
 
 ```
 make sync     # environment
-make fetch    # raw PDFs (~645 MB, git-ignored) by SHA-256 from the pooled repository
-make ocr      # macOS only: Apple Vision OCR of every 2022 page, cached per page
-make data     # parse the cached OCR, port 2015, run the text-layer cross-check, write MANIFEST
-make check    # ruff lint and format, tests, and verify the tables against MANIFEST.json
+make check    # ruff, tests, source PDF hashes, and the tables against MANIFEST.json
+make data     # parse both years from the committed OCR cache, rerun the cross-checks, write MANIFEST
+make ocr      # macOS only: re-run Apple Vision OCR and the repair passes from the PDFs
 ```
 
-`make data` and `make check` need neither the PDFs nor the OCR engine: the OCR
-output is committed (`data/interim/ocr/2022/*.jsonl.gz`, one record per page
-with every text box and its coordinates), so parsing can be rerun and reviewed
-anywhere.
+`make data` and `make check` need no OCR engine: the OCR output is committed
+(`data/interim/ocr/<year>/`), one record per page with every text box and its
+coordinates, so parsing can be rerun and reviewed anywhere.
 
 ## Sources and provenance
 
-- **Raw PDFs.** The 102 PDFs (24 for 2022; the 78 documents cited by the 2015
-  table) are byte-identical to the copies committed in the public pooled
-  repository at commit `010ff38a`.
-  [data/raw/MANIFEST.csv](data/raw/MANIFEST.csv) lists each one's SHA-256, size,
-  page count and download URL. They are kept out of git for size, as in the
-  sibling Haryana and Bihar repositories.
+- **PDFs.** All 141 Form 23 PDFs (117 for 2015, 24 for 2022) are committed in
+  `data/raw/`; each is byte-identical to the copy in the public pooled
+  repository at commit `010ff38a`, which MANIFEST.csv records as its origin.
 - **OCR.** Apple's Vision text recogniser (`hi-IN`), run locally through
-  [`ocrmac`](https://pypi.org/project/ocrmac/). No network or paid service is
-  involved. Tesseract and Surya were tried first and failed on these tables;
-  the comparison is in the docstring of
-  [`year2022/ocr.py`](src/local_elections_jharkhand/year2022/ocr.py).
-- **GP counts.** The district GP counts the coverage check compares against come
-  from an LGD village-to-GP file
-  ([data/external/lgd_jharkhand_village_gp.csv](data/external/lgd_jharkhand_village_gp.csv)).
-  It holds exactly 4,345 Jharkhand GPs, which matches the State Election
-  Commission's published 2022 total of 4,345 mukhiya posts.
+  [`ocrmac`](https://pypi.org/project/ocrmac/); no network or paid service.
+  Tesseract and Surya were tried first and failed on these tables (comparison
+  in [`year2022/ocr.py`](src/local_elections_jharkhand/year2022/ocr.py)). 2015
+  pages whose Kruti Dev font was not embedded are read from the text layer.
+- **Hand-keyed and corrected rows** live in `data/2022/manual/`, each citing
+  its page; Lohardaga 2022 (66 seats) is keyed by hand because its scan defeats
+  OCR.
+- **GP counts.** The coverage reference is an LGD village-to-GP file
+  ([data/external/lgd_jharkhand_village_gp.csv](data/external/lgd_jharkhand_village_gp.csv))
+  holding exactly 4,345 Jharkhand GPs, the SEC's published 2022 mukhiya total.
 
 ## License
 
