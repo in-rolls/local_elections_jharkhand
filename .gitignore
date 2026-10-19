@@ -10,3 +10,6 @@ dist/
 *.part
 # OCR in progress; finished documents are gzipped and committed
 data/interim/ocr/2022/*.jsonl
+
+# museclient lock files
+data/inferred/muse/ledger/.lock
