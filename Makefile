@@ -1,7 +1,7 @@
 PY = .venv/bin/python
 RUFF = .venv/bin/ruff
 
-.PHONY: sync sources ocr data links manifest lint test verify check
+.PHONY: sync sources ocr data links infer manifest lint test verify check
 
 sync:
 	uv sync --frozen --all-groups
@@ -28,11 +28,16 @@ data:
 	$(PY) -m local_elections_jharkhand.year2022.parse --year 2015
 	$(PY) -m local_elections_jharkhand.year2022.parse --year 2022
 	$(PY) -m local_elections_jharkhand.year2022.text_layer
-	$(MAKE) links manifest
+	$(MAKE) links infer manifest
 
 # 2015 -> 2022 mukhiya links, blocked on the hand-coded block crosswalk
 links:
 	$(PY) -m local_elections_jharkhand.linkage.gp_links
+
+# name-based probability that each winner is a woman (data/inferred/); needs
+# the infer dependency group (uv sync --all-groups)
+infer:
+	$(PY) -m local_elections_jharkhand.infer.winner_sex
 
 manifest:
 	$(PY) -m local_elections_jharkhand.build.release manifest

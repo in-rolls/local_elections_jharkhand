@@ -41,6 +41,7 @@ def page_counts():
         return {
             f"data/raw/{row['path']}": int(row["pages"])
             for row in csv.DictReader(stream)
+            if row["pages"]  # the label files have no pages
         }
 
 

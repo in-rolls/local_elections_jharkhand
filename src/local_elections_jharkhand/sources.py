@@ -1,9 +1,11 @@
 """Verify the committed source PDFs against data/raw/MANIFEST.csv.
 
 The 141 PDFs (117 for 2015, 24 for 2022) are committed under data/raw/ as the
-official copy. MANIFEST.csv pins each by SHA-256 and records its size, page
-count and origin: every file is byte-identical to the copy committed in the
-pooled repository in-rolls/local_elections at commit 010ff38a.
+official copy, with the three recorded-sex label files the winner-sex model is
+fit on (data/raw/labels/<repo>/<commit>/..., byte-identical to those
+repositories at the pinned commits). MANIFEST.csv pins each by SHA-256 and
+records its size, page count and origin; every PDF is byte-identical to the copy
+committed in the pooled repository in-rolls/local_elections at commit 010ff38a.
 
     python -m local_elections_jharkhand.sources verify
 """
@@ -39,7 +41,7 @@ def verify():
             print(f"changed  {row['path']}")
             bad += 1
     listed = {row["path"] for row in entries()}
-    for path in sorted(RAW.rglob("*.pdf")):
+    for path in sorted(p for p in RAW.rglob("*") if p.is_file() and p != MANIFEST):
         if path.relative_to(RAW).as_posix() not in listed:
             print(f"unlisted {path.relative_to(RAW)}")
             bad += 1

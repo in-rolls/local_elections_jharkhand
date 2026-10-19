@@ -138,6 +138,8 @@ Form 23.
 | [2022/mukhiya_results.parquet](2022/mukhiya_results.parquet) | 4,334 | One 2022 mukhiya seat per row (Form 23 OCR) |
 | [2022/panchayat_samiti_results.parquet](2022/panchayat_samiti_results.parquet) | 4,113 | One 2022 panchayat samiti seat per row |
 | [linkage/gp_2015_2022.parquet](linkage/gp_2015_2022.parquet) | 3,904 | A 2015 mukhiya seat linked to its 2022 seat |
+| [inferred/winner_female_probability_2015.parquet](inferred/winner_female_probability_2015.parquet) | 4,104 | 2015 winner, P(woman) |
+| [inferred/winner_female_probability_2022.parquet](inferred/winner_female_probability_2022.parquet) | 4,330 | 2022 winner, P(woman) |
 
 ### Check results
 
@@ -156,7 +158,7 @@ Form 23.
 | `gp_name_match_2022_to_2015` | independent source: the 2015 gazettes, parsed by different code from a different year | info | threshold_ratio=85; rows_2022=4334; share_exact_or_near_in_block=0.8216; share_exact_or_near_in_district=0.8475; rows_2022_in_districts_with_2015_rows=4209; rows_2022_in_blocks_with_2015_names=4169; share_matched_in_blocks_with_2015_names=0.8542 |
 | `hand_transcription_2022` | independent: rows read by eye from the rendered page images | pass | rows=29; excluded_hand_keyed=1; unmatched=0; winner_char_agreement=0.9969; winner_exact=28; gram_panchayat_char_agreement=0.9881; gram_panchayat_exact=26; block_no_exact=29; gp_no_exact=29; caste_reservation_exact=29; woman_reserved_exact=29 |
 | `text_layer_agreement_2022` | independent: the PDFs' own Kruti Dev text layer, decoded without OCR, in the districts that have one | info | text_layer_rows=1147; found_in_ocr_table=1147; misaligned_by_text_reader=20; winner_char_agreement_aligned=0.981; gp_char_agreement_aligned=0.9802; caste_agree_all=1083/1083; caste_agree_aligned=1066/1066; woman_agree_all=1108/1124; woman_agree_aligned=1106/1107 |
-| `ported_2015_agreement` | independent: the pooled repository's 2015 parse of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans) | info | rows_new=4137; rows_ported=3972; shared_keys=3645; caste_agree=3609/3635; woman_agree=3608/3613; winner_char_agreement=0.9709; winner_exact=3257/3645 |
+| `ported_2015_agreement` | independent: the pooled repository's 2015 parse of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans) | info | rows_new=4137; rows_ported=3972; shared_keys=3645; caste_agree=3609/3635; woman_agree=3608/3613; winner_char_agreement=0.9725; winner_exact=3252/3645 |
 
 ### Rows per district against the LGD gram panchayat count
 

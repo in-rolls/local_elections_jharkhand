@@ -4,7 +4,7 @@
     {
       "file": "2015/panchayat_samiti_results.parquet",
       "description": "One 2015 panchayat samiti seat per row",
-      "sha256": "20fdac6d853bfd84347882761f1034824b7ebcc5b015356ec8c3b3cb109170ef",
+      "sha256": "cd97fe26f0374e3c1719a89c288210e423df231d92f55d93ad7cfd12dd38b9e4",
       "rows": 3579,
       "schema": [
         {
@@ -124,7 +124,7 @@
     {
       "file": "2015/mukhiya_results.parquet",
       "description": "One 2015 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "d1f8b2cec060594d1c18cb003cac336debdb85c2b7cc78b23010153b569af41b",
+      "sha256": "e4a377e1da56a67907b33df7742b8aba2bd6c5c169b7f0af4ecbddbed2759778",
       "rows": 4137,
       "schema": [
         {
@@ -248,7 +248,7 @@
     {
       "file": "2022/mukhiya_results.parquet",
       "description": "One 2022 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "13d3605ced18c41d90da47d57f405b3fe90f8653b1c659303df0e48b71ec44c6",
+      "sha256": "5fa3ee21c0f9bf477c19da938b4c6603753aded5b467ff031704219fb57e8eb1",
       "rows": 4334,
       "schema": [
         {
@@ -372,7 +372,7 @@
     {
       "file": "2022/panchayat_samiti_results.parquet",
       "description": "One 2022 panchayat samiti seat per row",
-      "sha256": "56234fb10113ab7876681af064d35131ba70070cb8343a68a2ef8cae3e15f2c9",
+      "sha256": "f987ee2bec4ec85ad6faa39bb4ddb0839a6462ee81bec5a71a093184fe854859",
       "rows": 4113,
       "schema": [
         {
@@ -492,7 +492,7 @@
     {
       "file": "linkage/gp_2015_2022.parquet",
       "description": "A 2015 mukhiya seat linked to its 2022 seat",
-      "sha256": "de546567b7a3b96bbd9c0fa5ce43d7bea4e6cb0c299202dcfeb5b7946950f24c",
+      "sha256": "8ac41eb2150bdc4df18ed0fb9b74c4cb41b99cd48bb0ca9f1ccb40dd39f2da93",
       "rows": 3904,
       "schema": [
         {
@@ -572,12 +572,212 @@
           "type": "bool"
         }
       ]
+    },
+    {
+      "file": "inferred/winner_female_probability_2015.parquet",
+      "description": "2015 winner, P(woman)",
+      "sha256": "5a04015277df5199ebcf761bb3d0cea0969f8bee5aa2fa466b4c2ea6c64abf3f",
+      "rows": 4104,
+      "schema": [
+        {
+          "name": "district",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no",
+          "type": "int16"
+        },
+        {
+          "name": "gp_no",
+          "type": "int16"
+        },
+        {
+          "name": "source_path",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        },
+        {
+          "name": "row_y0",
+          "type": "int16"
+        },
+        {
+          "name": "caste_reservation",
+          "type": "large_string"
+        },
+        {
+          "name": "woman_reserved",
+          "type": "int8"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "entry_method",
+          "type": "large_string"
+        },
+        {
+          "name": "winner",
+          "type": "large_string"
+        },
+        {
+          "name": "printed_latin",
+          "type": "bool"
+        },
+        {
+          "name": "winner_latin",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "char_score",
+          "type": "double"
+        },
+        {
+          "name": "naampy_score",
+          "type": "double"
+        },
+        {
+          "name": "naampy_abstained",
+          "type": "int64"
+        },
+        {
+          "name": "naampy_model_revision",
+          "type": "string"
+        },
+        {
+          "name": "female_marker",
+          "type": "double"
+        },
+        {
+          "name": "male_marker",
+          "type": "double"
+        },
+        {
+          "name": "winner_female_probability_from_name",
+          "type": "double"
+        },
+        {
+          "name": "winner_latin_method",
+          "type": "large_string"
+        },
+        {
+          "name": "winner_female_probability_method",
+          "type": "large_string"
+        }
+      ]
+    },
+    {
+      "file": "inferred/winner_female_probability_2022.parquet",
+      "description": "2022 winner, P(woman)",
+      "sha256": "6f99532e2921e1cc1207f8872b2321533b96af79721a042aaea2d48ad81c527d",
+      "rows": 4330,
+      "schema": [
+        {
+          "name": "district",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no",
+          "type": "int16"
+        },
+        {
+          "name": "gp_no",
+          "type": "int16"
+        },
+        {
+          "name": "source_path",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        },
+        {
+          "name": "row_y0",
+          "type": "int16"
+        },
+        {
+          "name": "caste_reservation",
+          "type": "large_string"
+        },
+        {
+          "name": "woman_reserved",
+          "type": "int8"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "entry_method",
+          "type": "large_string"
+        },
+        {
+          "name": "winner",
+          "type": "large_string"
+        },
+        {
+          "name": "printed_latin",
+          "type": "bool"
+        },
+        {
+          "name": "winner_latin",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "char_score",
+          "type": "double"
+        },
+        {
+          "name": "naampy_score",
+          "type": "double"
+        },
+        {
+          "name": "naampy_abstained",
+          "type": "int64"
+        },
+        {
+          "name": "naampy_model_revision",
+          "type": "string"
+        },
+        {
+          "name": "female_marker",
+          "type": "double"
+        },
+        {
+          "name": "male_marker",
+          "type": "double"
+        },
+        {
+          "name": "winner_female_probability_from_name",
+          "type": "double"
+        },
+        {
+          "name": "winner_latin_method",
+          "type": "large_string"
+        },
+        {
+          "name": "winner_female_probability_method",
+          "type": "large_string"
+        }
+      ]
     }
   ],
   "inputs": [
     {
       "file": "raw/MANIFEST.csv",
-      "sha256": "2c49986723c7579d86bbc43d91a6ca33faaf0b36fba467e8efce6cfe2ad45d4b"
+      "sha256": "ce7ae1ca78a1c5fe86acbf99f0b841c3963e7c48c1dd67cd1ad47789a0ee1238"
     },
     {
       "file": "2015/source/mukhiya_reservation_2015.csv",
@@ -621,7 +821,15 @@
     },
     {
       "file": "linkage/MANIFEST.json",
-      "sha256": "80a43583d5f17d3d11697d4e4803f317ddc6aaa2ade469bc419938398a11d7f8"
+      "sha256": "cc086f2f7eef222b469af9d5f539c9aefbb560c2af87c548f44d1d3909063687"
+    },
+    {
+      "file": "inferred/MANIFEST.json",
+      "sha256": "975a895a4752aee86f9ea07113b6a9922feb4777a2d592be54f6c562799de081"
+    },
+    {
+      "file": "interim/winner_sex/latin_indicate_0.10.0.parquet",
+      "sha256": "d1fd59e32d55514c2bc858d5a8a685e14162051f67c0ff89af3192bb4d8d2ff5"
     },
     {
       "file": "interim/ocr/2015/*.jsonl.gz",
@@ -1503,8 +1711,8 @@
       "shared_keys": 3645,
       "caste_agree": "3609/3635",
       "woman_agree": "3608/3613",
-      "winner_char_agreement": 0.9709,
-      "winner_exact": "3257/3645",
+      "winner_char_agreement": 0.9725,
+      "winner_exact": "3252/3645",
       "caste_disagreements_by_district": {
         "Jamtara": 25,
         "Giridih": 1

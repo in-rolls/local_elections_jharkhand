@@ -25,7 +25,9 @@ list is needed.
 | `data/<year>/panchayat_samiti_results.parquet` | a panchayat samiti seat (a by-product; not audited) |
 | [data/raw/](data/raw/) | the 141 source PDFs themselves, pinned by SHA-256 in [MANIFEST.csv](data/raw/MANIFEST.csv) |
 
-[data/README.md](data/README.md) has the column dictionary, rows per district
+[data/inferred/](data/inferred/README.md) holds a name-based probability that
+each winner is a woman (never written into the seat tables; weaker on ST seats,
+see there). [data/README.md](data/README.md) has the column dictionary, rows per district
 against the LGD gram panchayat count, coverage notes, and the result of every
 check (regenerated from [data/MANIFEST.json](data/MANIFEST.json)).
 

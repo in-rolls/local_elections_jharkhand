@@ -561,7 +561,20 @@ SERIAL = re.compile(r"^[\d\s.:;/|,]+")
 LOW_QUALITY = {"17_Lohardaga_Prapatra23"}
 
 
+# 2015 Kruti Dev text layers decode some names with a vowel sign split off by a
+# space and the e-matra one consonant late ("दवे ी" for देवी, Dhanbad).
+DETACHED_MATRA = re.compile(r"\s+([\u093e-\u094c\u0902\u0901])")
+TRAILING_SPILL = re.compile(
+    r"(?:\s+ग्राम\s+\S+)?\s+के$|(?:\s+अनुसूचित)?\s+जन\s*जाति$|\s+अनुसूचित\s+जाति$"
+)
+
+
 def clean_winner(text):
+    text = DETACHED_MATRA.sub(r"\1", text)
+    text = re.sub(r"(?<!\S)दवेी(?!\S)", "देवी", text)
+    text = TRAILING_SPILL.sub("", text.strip())
+    # a district heading fused onto a name ("जिला - साहेबगंज 13 लखन पहाड़िया")
+    text = re.sub(r"^जिला\s*-\s*\S+\s*\d*\s+", "", text)
     text = POST_SPILL.sub(" ", text)
     text = SERIAL.sub("", text)
     text = re.sub(r"\s+\d+$", "", text)

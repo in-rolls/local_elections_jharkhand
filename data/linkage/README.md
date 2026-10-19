@@ -130,10 +130,10 @@ partners within the same block group.
 
 | Links | Winner name shared |
 | --- | ---: |
-| all 3,904 | 9.3% |
-| identical folded GP names (3,505) | 9.4% |
-| fuzzy GP names (399) | 8.0% |
-| random pairs in the same block group | 0.8% |
+| all 3,904 | 9.6% |
+| identical folded GP names (3,505) | 9.7% |
+| fuzzy GP names (399) | 8.3% |
+| random pairs in the same block group | 0.9% |
 
 Fuzzy links share a winner almost as often as exact-name links, and ten times
 more often than random pairs, which is what correct fuzzy links would show.
