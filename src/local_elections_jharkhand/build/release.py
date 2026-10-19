@@ -30,6 +30,7 @@ RELEASED = {
     "2015/mukhiya_results.parquet": "One 2015 mukhiya seat per row (Form 23 OCR)",
     "2022/mukhiya_results.parquet": "One 2022 mukhiya seat per row (Form 23 OCR)",
     "2022/panchayat_samiti_results.parquet": "One 2022 panchayat samiti seat per row",
+    "linkage/gp_2015_2022.parquet": "A 2015 mukhiya seat linked to its 2022 seat",
 }
 INPUTS = [
     "raw/MANIFEST.csv",
@@ -41,6 +42,9 @@ INPUTS = [
     "2022/manual/identifier_corrections.csv",
     "2022/manual/missing_rows.csv",
     "2022/manual/gap_review.csv",
+    "linkage/block_crosswalk_2015_2022.csv",
+    "linkage/review_2015_2022.csv",
+    "linkage/MANIFEST.json",
 ]
 
 

@@ -1,7 +1,7 @@
 PY = .venv/bin/python
 RUFF = .venv/bin/ruff
 
-.PHONY: sync sources ocr data manifest lint test verify check
+.PHONY: sync sources ocr data links manifest lint test verify check
 
 sync:
 	uv sync --frozen --all-groups
@@ -28,7 +28,11 @@ data:
 	$(PY) -m local_elections_jharkhand.year2022.parse --year 2015
 	$(PY) -m local_elections_jharkhand.year2022.parse --year 2022
 	$(PY) -m local_elections_jharkhand.year2022.text_layer
-	$(MAKE) manifest
+	$(MAKE) links manifest
+
+# 2015 -> 2022 mukhiya links, blocked on the hand-coded block crosswalk
+links:
+	$(PY) -m local_elections_jharkhand.linkage.gp_links
 
 manifest:
 	$(PY) -m local_elections_jharkhand.build.release manifest

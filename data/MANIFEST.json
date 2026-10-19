@@ -4,7 +4,7 @@
     {
       "file": "2015/panchayat_samiti_results.parquet",
       "description": "One 2015 panchayat samiti seat per row",
-      "sha256": "d9269c2758508c17609403861e8135ce80fabbb956cb829d4927bf6757ee2a61",
+      "sha256": "20fdac6d853bfd84347882761f1034824b7ebcc5b015356ec8c3b3cb109170ef",
       "rows": 3579,
       "schema": [
         {
@@ -124,7 +124,7 @@
     {
       "file": "2015/mukhiya_results.parquet",
       "description": "One 2015 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "8677af27bc0fcd44eef115eee6cd370e45179c7a3123f6b77f3a6463e0a23266",
+      "sha256": "d1f8b2cec060594d1c18cb003cac336debdb85c2b7cc78b23010153b569af41b",
       "rows": 4137,
       "schema": [
         {
@@ -248,7 +248,7 @@
     {
       "file": "2022/mukhiya_results.parquet",
       "description": "One 2022 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "15322c545648156d19bd45d1a52c0e7dbf4edcf0681680b1700e3c17cbccc37c",
+      "sha256": "13d3605ced18c41d90da47d57f405b3fe90f8653b1c659303df0e48b71ec44c6",
       "rows": 4334,
       "schema": [
         {
@@ -372,7 +372,7 @@
     {
       "file": "2022/panchayat_samiti_results.parquet",
       "description": "One 2022 panchayat samiti seat per row",
-      "sha256": "d06155a9df87e6be949934a28b4b9fbd289bbd5d149ef20dcfdf9554cd2e3e60",
+      "sha256": "56234fb10113ab7876681af064d35131ba70070cb8343a68a2ef8cae3e15f2c9",
       "rows": 4113,
       "schema": [
         {
@@ -488,6 +488,90 @@
           "type": "int16"
         }
       ]
+    },
+    {
+      "file": "linkage/gp_2015_2022.parquet",
+      "description": "A 2015 mukhiya seat linked to its 2022 seat",
+      "sha256": "de546567b7a3b96bbd9c0fa5ce43d7bea4e6cb0c299202dcfeb5b7946950f24c",
+      "rows": 3904,
+      "schema": [
+        {
+          "name": "district_2015",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no_2015",
+          "type": "int16"
+        },
+        {
+          "name": "gp_no_2015",
+          "type": "int16"
+        },
+        {
+          "name": "gram_panchayat_2015",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page_2015",
+          "type": "int16"
+        },
+        {
+          "name": "district_2022",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no_2022",
+          "type": "int16"
+        },
+        {
+          "name": "gp_no_2022",
+          "type": "int16"
+        },
+        {
+          "name": "gram_panchayat_2022",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page_2022",
+          "type": "int16"
+        },
+        {
+          "name": "block_group",
+          "type": "large_string"
+        },
+        {
+          "name": "name_folded_2015",
+          "type": "large_string"
+        },
+        {
+          "name": "name_folded_2022",
+          "type": "large_string"
+        },
+        {
+          "name": "qualifiers",
+          "type": "large_string"
+        },
+        {
+          "name": "name_score",
+          "type": "double"
+        },
+        {
+          "name": "serial_agrees",
+          "type": "bool"
+        },
+        {
+          "name": "score",
+          "type": "double"
+        },
+        {
+          "name": "link_rule",
+          "type": "large_string"
+        },
+        {
+          "name": "winner_name_shared",
+          "type": "bool"
+        }
+      ]
     }
   ],
   "inputs": [
@@ -526,6 +610,18 @@
     {
       "file": "2022/manual/gap_review.csv",
       "sha256": "6d8385b1e77be2bb8fd293f8d167545f4cd706df8a79c7d30ef0baa78ad755f0"
+    },
+    {
+      "file": "linkage/block_crosswalk_2015_2022.csv",
+      "sha256": "afcdb0dff3cdbe9bbd9c3724d03133fee21b8fcb34409fe2c333504afc4ca931"
+    },
+    {
+      "file": "linkage/review_2015_2022.csv",
+      "sha256": "832459325ad58ec13717042b1aa4f50b397f3d880c524a99d61222b3aca07ccd"
+    },
+    {
+      "file": "linkage/MANIFEST.json",
+      "sha256": "80a43583d5f17d3d11697d4e4803f317ddc6aaa2ade469bc419938398a11d7f8"
     },
     {
       "file": "interim/ocr/2015/*.jsonl.gz",
@@ -916,7 +1012,7 @@
       "hard": true,
       "status": "pass",
       "duplicate_rows": 0,
-      "blank_key_rows": 423,
+      "blank_key_rows": 470,
       "duplicates_by_district": {}
     },
     {
@@ -925,7 +1021,7 @@
       "hard": false,
       "status": "pass",
       "duplicate_rows": 0,
-      "blank_key_rows": 1315,
+      "blank_key_rows": 1397,
       "duplicates_by_district": {}
     },
     {

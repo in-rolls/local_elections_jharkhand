@@ -37,9 +37,10 @@ m22.groupby("district")["woman_reserved"].mean()
 ```
 
 The seat key is `(district, block_no, gp_no)`, the numbers printed in the
-identifier. Block **numbers** are not comparable across years (Dhanbad
-renumbered its blocks); link the years by block and GP **name** within
-district. The 2015↔2022 link itself is not in this repository.
+identifier. Block numbers agree across the two years except in Latehar, where
+2022's new सरयू block shifted the numbering;
+[data/linkage/](data/linkage/README.md) holds the hand-coded block crosswalk and
+the 2015→2022 seat links (3,904, precision-first).
 
 ## Reproducing
 

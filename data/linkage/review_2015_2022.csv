@@ -1,0 +1,303 @@
+kind,band,district,block_no_2015,gp_no_2015,gram_panchayat_2015,block_no_2022,gp_no_2022,gram_panchayat_2022,name_score,decision,reason,reviewer,date
+link_sample,exact,Dumka,4.0,8,चन्दनपहाड़ी,4,8,चन्दनपहाड़ी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Ranchi,9.0,1,तारुप,9,1,तारुप,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,East Singhbhum,8.0,5,मुराकाटी,8,5,मुराकाटी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Chatra,5.0,10,बलुरी,5,10,बलुरी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Khunti,1.0,1,छाता,1,1,छाता,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Dhanbad,3.0,6,:पन,3,6,रूपन,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Ramgarh,1.0,29,सोनडीहा,1,29,सोनडीहा,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Godda,8.0,5,लीलादह,8,5,लीलादह,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Palamu,16.0,2,सेमरी,16,2,सेमरी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Bokaro,2.0,6,गोबिन्दपुर ई,2,6,गोबिन्दपुर ई,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Seraikela Kharsawan,4.0,9,घोडानेगी,4,9,घोड़ानेगी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Dhanbad,1.0,3,हरिहरपुर,1,3,हरिहरपुर,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Hazaribagh,11.0,7,बेलतु,11,7,बेलतु,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Khunti,4.0,4,तिरला,4,4,तिरला,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Giridih,10.0,2,भारतीचलकरी,10,2,भारतीचलकरी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Ranchi,10.0,11,पिठौरिया,10,11,पिठौरिया,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Hazaribagh,12.0,12,महुँगाईकला,12,12,महुँगाईकला,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Jamtara,2.0,2,कुरूवा,2,2,कुरूवा,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Ramgarh,6.0,15,चोकाद,6,15,चोकाद,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Ranchi,1.0,2,तुमाग,1,2,तुमाग,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Giridih,12.0,6,चितमाडीह,12,6,चितमाडीह,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Latehar,7.0,8,शिबला,8,8,शिबला,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Deoghar,2.0,28,रघुनाथपुर,2,28,रघुनाथपुर,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Ramgarh,6.0,8,बरियातु,6,8,बरियातु,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Lohardaga,3.0,10,टाटी,3,10,टाटी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Dhanbad,3.0,7,रामपुर,3,7,रामपुर,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Garhwa,15.0,2,कल्याणपुर,15,2,कल्याणपुर,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Dhanbad,1.0,26,सिंहदाहा,1,26,सिंहदाहा,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Khunti,2.0,3,मरचा,2,3,मरचा,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Seraikela Kharsawan,7.0,9,पान्डªा,7,9,पान्ड्रा,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Garhwa,9.0,1,कुम्बाखुर्द,9,1,कुम्बाखुर्द,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Bokaro,8.0,21,सोनाबाद,8,21,सोनाबाद,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Chatra,8.0,6,बेलखोरी,8,6,बेलखोरी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Seraikela Kharsawan,7.0,1,हुदु,7,1,हुदु,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Giridih,6.0,4,दलांगी,6,4,दलांगी,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Dhanbad,5.0,5,कुलबेड़ा,5,5,कुलबेड़ा,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,West Singhbhum,15.0,8,दिकुबालकाण्ड,15,8,दिकुबालकाण्ड,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Sahebganj,2.0,12,बच्चा,2,12,बच्चा,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,exact,Giridih,11.0,37,मोहनपुर,11,27,मोहनपुर,1.0,correct,"same name up to spelling/OCR variants, same block group; serial 37 vs 27, name unique in the block",claude,2026-10-18
+link_sample,exact,Dumka,2.0,8,बौड़िया,2,8,बौड़िया,1.0,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Giridih,4.0,39,मलुवाटाड,4,39,मलुवाटांड़,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Garhwa,4.0,4,गाड़खुर्द,4,6,गाड़ा खूर्द,0.95,correct,"same name up to spelling/OCR variants, same block group; serial 4 vs 6, name unique in the block",claude,2026-10-18
+link_sample,0.95-1.00,Dumka,9.0,6,रंगलिया,9,6,रंगालिया,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Giridih,11.0,17,परसाटांड,11,17,परसाटाड़,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Giridih,12.0,11,ताराटांड,12,11,ताराटाड़,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,20.0,2,पोचं ी,20,2,पोंची,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,3.0,19,बैरावं,3,19,बैरांव,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,East Singhbhum,3.0,3,म बागबडे,3,3,म बागबेड़ा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Hazaribagh,12.0,21,पोटगा,12,21,पोटंगा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Ranchi,18.0,9,वीरगाव,18,9,वीरगांव,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,East Singhbhum,4.0,4,शकं रदा,4,4,शंकरदा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,7.0,5,खाढे ़ी,7,5,खोढ़ी,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Dhanbad,6.0,58,महदु ा,6,58,महुदा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,East Singhbhum,3.0,7,उपू बागबडे,3,7,उपू बागबेड़ा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Seraikela Kharsawan,5.0,1,राले ाहातु,5,1,रोलाहातु,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,13.0,16,महुगा¡वा,13,16,महुगावा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Gumla,11.0,13,आरेया,11,13,आरया,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,East Singhbhum,3.0,44,उ छाटे ागोविन्दपुर,3,44,उ छोटागोविन्दपुर,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,East Singhbhum,4.0,16,हेसं लबिल,4,16,हैंसलबिल,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Godda,9.0,3,करमाटांड़,9,3,करमाटाड़,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Jamtara,2.0,13,मटटाँड़,2,13,मट्टाँड़,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Seraikela Kharsawan,8.0,2,कांण्डªा,8,2,काण्ड्रा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Ramgarh,6.0,4,मगनुपर,6,4,मगनपुर,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,East Singhbhum,4.0,31,हेसं लआमदा,4,31,हैंसलआमदा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Dumka,3.0,2,कुश्चरा,3,2,कुश्चिरा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,20.0,9,घुटुवा,20,9,घुटवा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Deoghar,5.0,10,रजपुरा,5,10,राजपुरा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Ramgarh,2.0,27,बुधबाजार इमलीगांछ,2,27,बुधबाजार इमलीगाछ,0.968,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Chatra,8.0,10,मंझगावा,8,10,मंझगावां,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,2.0,8,माके हर कला,2,8,मोकहर कला,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Khunti,4.0,2,गुटजोरा,4,2,गटजोरा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Khunti,4.0,1,फुदी,4,1,फुदा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Dhanbad,6.0,59,छत्रुटांड ़,6,59,छत्रुटाड़,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Latehar,7.0,6,सालवे,8,6,साल्वे,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,West Singhbhum,16.0,10,भनगांव,16,10,भनगाव,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,12.0,2,मझिगावं,12,2,मझिगांव,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Chatra,9.0,1,मझगावां,9,1,मंझगावा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Deoghar,9.0,25,लगवाँ,9,25,लगवॉ,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Hazaribagh,8.0,3,सलगावां,8,3,सलगांवा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,West Singhbhum,18.0,7,अंगारपदा,18,7,अगारपदा,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Deoghar,,12,कोकरीबांक,1,12,कोंकरीबांक,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Hazaribagh,9.0,12,बैहरी,9,7,बहेरी,0.95,correct,"same name up to spelling/OCR variants, same block group; serial 12 vs 7, name unique in the block",claude,2026-10-18
+link_sample,0.95-1.00,Giridih,4.0,2,चुंगलखार,4,2,चुगलखार,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,West Singhbhum,18.0,4,मझगांव,18,4,मझगाव,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Hazaribagh,11.0,12,केरेडारी,11,12,करेडारी,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,6.0,4,चराई 2,6,4,चरांई 2,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Gumla,2.0,8,नावाडीह,2,8,नवाडीह,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Garhwa,4.0,8,घटहुआँकला,4,10,घटहुआ कला,0.95,correct,"same name up to spelling/OCR variants, same block group; serial 8 vs 10, name unique in the block",claude,2026-10-18
+link_sample,0.95-1.00,Garhwa,17.0,9,कंचनपुर,17,9,कचनपुर,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.95-1.00,Palamu,3.0,17,कासे ी,3,17,कोसी,0.95,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Bokaro,1.0,13,ससबेड़ा पंठ,1,13,ससबेड़ा पं,0.941,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Deoghar,2.0,22,घुटिया बड़ा असहना,2,22,घुठियाबड़ा असहना,0.929,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Deoghar,,17,सात्तर खोरपोश,1,17,सातरखोरपोस,0.909,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Dhanbad,9.0,6,सुनसुनलिया,9,6,सुसुनलिया,0.947,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Dumka,7.0,21,ठेकचाघोंधा,7,21,ठेकचाघोंघा,0.9,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Dumka,8.0,9,धोबनाहरिणबहाल,8,9,घोबनाहरिणबहाल,0.923,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,East Singhbhum,6.0,13,उ बादिया,6,13,30 बादिया,0.923,correct,2022 OCR read उ as 30; same GP (this pair no longer links: the direction veto now blocks it),claude,2026-10-18
+link_sample,0.90-0.95,Giridih,3.0,6,बरवावबाद,3,6,बरवाबाद,0.933,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Gumla,4.0,3,बरेनगर,4,3,बरवेनगर,0.923,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Koderma,2.0,23,कुण्डीधन्वार,2,19,कुण्डीधनवार,0.9,correct,"same name up to spelling/OCR variants, same block group; serial 23 vs 19, name unique in the block",claude,2026-10-18
+link_sample,0.90-0.95,Koderma,3.0,14,पाण्डेडीह,3,14,पाण्डेयडीह,0.941,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Latehar,6.0,9,मारंगलोइया,9,9,मारंगलोईया,0.9,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Ranchi,18.0,19,मल्हानभुइयांडीह,18,19,मल्हानभुईयांडीह,0.933,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Sahebganj,1.0,11,रामपुर स्थित सकरी,1,11,रामपुर स्थित सकरीगली,0.909,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Sahebganj,2.0,4,दामिन भिट्ठा,2,4,दामिनभीठा,0.9,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Sahebganj,6.0,1,गदाई महाराजपुर दियारा,6,1,गदाय महाराजपुर दियारा,0.947,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Sahebganj,6.0,7,महासिंहपुर,6,7,महासिंगपुर,0.9,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.90-0.95,Seraikela Kharsawan,3.0,5,चिगं डापारकीडीह,3,5,चिगंड़ा पाडकीडीह,0.929,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Deoghar,3.0,3,पहारिया,3,3,पहाड़िया,0.857,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Deoghar,4.0,3,ब्रम्होतरा,4,3,ब्रहमोतरा,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Deoghar,,3,ग्वालबदिया,1,3,वालबदिया,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Dhanbad,7.0,3,धो[रा,7,3,धोखरा,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Dhanbad,7.0,9,समशिखरा,7,9,सर्मशिखरा,0.875,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Dhanbad,9.0,1,बडा आमबोना,9,1,बड़ा आम्बोना,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Dhanbad,9.0,3,एलाकेन्द्र,9,3,ऐलाकेन्द्र,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Dhanbad,10.0,9,शिवलीबाड़ी पु,10,9,शिवलीवाड़ी पुर्व,0.88,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Dumka,2.0,7,भालसुभर,2,7,भालसुमर,0.857,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Dumka,9.0,17,गोदिन्दपुर,9,17,गोविन्दपुर,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,East Singhbhum,11.0,24,ब्राहमणकुण्डी,11,24,बाह्मणकुण्डी,0.873,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Garhwa,15.0,18,दुबेमरहटिया,15,18,दुर्बमरहटिया,0.883,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Giridih,6.0,7,सिमरादाब,6,7,सिमराढाब,0.875,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Godda,8.0,15,तरखुट्टा,8,15,तरखुटा,0.857,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Gumla,6.0,8,डहुपानी,6,8,दहुपानी,0.857,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Gumla,7.0,15,पुगू,7,15,पुरगु,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Gumla,8.0,16,कुहीपाट,8,16,कुहीपाठ,0.857,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Gumla,12.0,4,टुरूण्डू,12,4,दुरूण्डू,0.857,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Hazaribagh,2.0,10,बसरिया पंचमाधव,2,10,बसरिया उर्फ पंचमाधव,0.867,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Jamtara,2.0,7,करमाटाँड़,2,7,फरमाटाँड़,0.875,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Khunti,5.0,13,कुड़ापुति,5,13,कुड़ापूर्ती,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Lohardaga,5.0,11,भटखिजरी,5,11,मटखिजरी,0.857,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Ramgarh,1.0,27,बरका चुम्बा,1,27,बड़काचुम्बा,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,Sahebganj,1.0,7,गंगा प्रसाद प मध्य,1,8,गंगा प्रसाद पूरष मध्य,0.88,incorrect,"2015 प मध्य is पश्चिम मध्य; its partner is 2022 1:7 गंगा प्रसाद पश्चिम मध्य, which the direction veto wrongly blocked before प and पूरष were read (fixed; this pair no longer links)",claude,2026-10-18
+link_sample,0.85-0.90,Sahebganj,9.0,29,बडा सोनाकर,9,25,बड़ा सोनाकड़,0.889,correct,"same name up to spelling/OCR variants, same block group; serial 29 vs 25, name unique in the block",claude,2026-10-18
+link_sample,0.85-0.90,Simdega,5.0,1,कुलूकेरा,5,1,कुल्लूकेरा,0.889,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.85-0.90,West Singhbhum,7.0,3,रायकेड़ा,7,3,रायकेरा,0.857,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Chatra,12.0,8,सरादु,12,8,सराढू,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Deoghar,2.0,25,घोंघा,2,25,घोंधा,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Deoghar,4.0,9,भौड़ाजमुआ,4,9,भौड़ाजमुवा,0.824,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Deoghar,,2,झिलुआचांदडीह,1,2,झिलुवाचांदाडीह,0.846,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Dhanbad,1.0,2,कोरकोÍा,1,2,कोरकोट्टा,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Dhanbad,9.0,5,आंकद्वारा,9,5,ऑकद्वारा,0.824,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Dhanbad,9.0,13,पाथरकुआ¡,9,13,पाथरकुऑ,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Dumka,2.0,2,सिलठा-ए,2,2,सिलटा-ए,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Dumka,6.0,14,धानपुर,6,14,थानपुर,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Dumka,8.0,15,कटलिया,8,15,कठलिया,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,East Singhbhum,4.0,11,धिरोल,4,11,घिरोल,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,East Singhbhum,8.0,2,फाँरष्े टब्लाँक,8,2,फॉरेप्टब्लॉक,0.807,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,East Singhbhum,9.0,9,नुतनगढ़,9,9,नुलनगढ़,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Garhwa,6.0,4,सोनपुरवा,6,4,सोनपुखा,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Garhwa,13.0,2,खुरी,13,2,खुर्री,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Garhwa,20.0,4,टेहरी,20,4,देहरी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Giridih,12.0,25,जरुआडीह,12,25,जरूवाडीह,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Godda,8.0,12,भठौंधा,8,12,भटौंधा,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Godda,8.0,22,धनुकटा,8,22,धेनुकट्टा,0.839,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Godda,8.0,25,अकासी,8,25,आकासी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Godda,8.0,31,सिंधबांक,8,31,सिदबांक,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Gumla,2.0,7,डुमरी,2,7,दुमरी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Gumla,4.0,5,चैनपुर,4,5,घैनपुर,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Gumla,8.0,18,आरंगी,8,18,अरंगी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Gumla,10.0,10,डुड़िया,10,10,दुड़िया,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Hazaribagh,1.0,26,बच्छइ,1,26,बच्छई,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Hazaribagh,3.0,5,तुरयो,3,5,तुईयो,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Hazaribagh,10.0,3,पुनाइ,10,3,पुनाई,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Jamtara,6.0,4,बनकाठी,6,4,बनकाटी,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Khunti,2.0,4,उडिक़,2,4,उड़िकेल,0.807,unsure,2015 name truncated by a text-layer cell break; same block and serial,claude,2026-10-18
+link_sample,0.80-0.85,Khunti,5.0,11,दिगरी,5,11,दिगड़ी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Latehar,9.0,15,डुमारो,10,15,हुमारो,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Lohardaga,2.0,6,बेटहठ,2,6,बेटहट,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Lohardaga,7.0,7,अकाशी,7,7,आकाशी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Palamu,6.0,10,करकटा,6,10,करकट्टा,0.839,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Palamu,8.0,4,कुटमू,8,4,कुटनू,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Ramgarh,1.0,20,कुजू दक्षिणी,1,20,कुज्जू दक्षिणी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Ramgarh,1.0,21,कुजू पूर्वी,1,21,कुज्जू पूर्वी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Ramgarh,1.0,24,कुजू पश्चिमी,1,24,कुज्जू पश्चिमी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Ranchi,7.0,6,कुगी,7,6,कुर्गी,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Seraikela Kharsawan,2.0,9,ओड़िया,2,9,औड़िया,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,Seraikela Kharsawan,5.0,10,बन्दाले ाहे,5,10,बंदोलोहार,0.839,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,West Singhbhum,7.0,10,लाइलोर,7,10,लाईलोर,0.833,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,West Singhbhum,15.0,7,:ईया,15,7,रूइया,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.80-0.85,West Singhbhum,16.0,13,पÍाजैंत,16,13,पट्टाजेंत,0.8,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Chatra,7.0,2,धुना,7,2,घुना,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Chatra,11.0,13,एदला,11,13,ऐदला,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Chatra,11.0,16,ईचाक,11,16,इचाक,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Dhanbad,6.0,17,जमअु ाँटांड,6,17,जमुऑटांड,0.778,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Dumka,2.0,9,लतबेखा,2,9,लतबेरवा,0.769,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Dumka,2.0,16,धोषा,2,16,धोबा,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Dumka,9.0,3,धनमाषा,9,3,धानभाषा,0.769,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,East Singhbhum,2.0,10,खडे,2,10,खेडुवा,0.75,unsure,2015 name truncated (खडे); same block and serial,claude,2026-10-18
+link_sample,0.75-0.80,East Singhbhum,6.0,4,मुर्गाघुटू,6,4,मुर्गाधुट्ठ,0.762,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,East Singhbhum,7.0,7,धोलाबडे ़ा,7,7,घोलाबेड़ा,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Garhwa,14.0,1,पढुआ,14,1,पदुआ,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Giridih,8.0,10,बगोदर पूर्वी,8,10,बगोदरडीह पूर्वी,0.769,correct,"block 8 lists identical in order; 2015 prints बगोदर पूर्वी where 2022 prints बगोदरडीह पूर्वी at the same serial, beside बगोदरडीह पश्चमी at 9 in both",claude,2026-10-18
+link_sample,0.75-0.80,Gumla,10.0,3,आताकोरा,10,3,आताकोश,0.769,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Hazaribagh,6.0,5,पदम् ा,6,5,पदमा,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Hazaribagh,12.0,20,आर्गा,12,20,आंगो,0.75,correct,block 12 lists identical in order apart from this OCR variant at serial 20,claude,2026-10-18
+link_sample,0.75-0.80,Lohardaga,5.0,3,मन्हो,5,3,गन्हो,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Lohardaga,6.0,3,बुटी,6,3,जुटी,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Lohardaga,6.0,7,बदला,6,7,चदला,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Palamu,3.0,20,जमअू,3,20,जमूआ,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,Palamu,10.0,6,ताले,10,6,तोलरा,0.75,unsure,2015 name truncated (ताले); same block and serial,claude,2026-10-18
+link_sample,0.75-0.80,Seraikela Kharsawan,3.0,3,हवे,3,3,हेबेंन,0.75,unsure,2015 name truncated (हवे); same block and serial,claude,2026-10-18
+link_sample,0.75-0.80,Seraikela Kharsawan,5.0,5,छोटासेगाइे,5,5,छोटासेगोई,0.75,correct,"same name up to spelling/OCR variants, same block group",claude,2026-10-18
+link_sample,0.75-0.80,West Singhbhum,13.0,5,तेतं,13,5,तेंतेडा,0.75,unsure,2015 name truncated (तेतं); same block and serial,claude,2026-10-18
+link_sample,0.75-0.80,West Singhbhum,16.0,1,मोगं,16,1,मोंगरा,0.75,unsure,2015 name truncated (मोगं); same block and serial,claude,2026-10-18
+near_miss,below_threshold,Dhanbad,6.0,17,जमअु ाँटांड,6,17,जमुऑटांड,0.778,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Gumla,10.0,3,आताकोरा,10,3,आताकोश,0.769,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Dumka,9.0,3,धनमाषा,9,3,धानभाषा,0.769,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Dumka,2.0,9,लतबेखा,2,9,लतबेरवा,0.769,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,East Singhbhum,6.0,4,मुर्गाघुटू,6,4,मुर्गाधुट्ठ,0.762,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Garhwa,14.0,1,पढुआ,14,1,पदुआ,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Lohardaga,6.0,7,बदला,6,7,चदला,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Lohardaga,5.0,3,मन्हो,5,3,गन्हो,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Palamu,3.0,20,जमअू,3,20,जमूआ,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,West Singhbhum,13.0,5,तेतं,13,5,तेंतेडा,0.75,unsure,2015 name truncated,claude,2026-10-18
+near_miss,below_threshold,Dumka,2.0,16,धोषा,2,16,धोबा,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,West Singhbhum,16.0,1,मोगं,16,1,मोंगरा,0.75,unsure,2015 name truncated,claude,2026-10-18
+near_miss,below_threshold,Seraikela Kharsawan,5.0,5,छोटासेगाइे,5,5,छोटासेगोई,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Seraikela Kharsawan,3.0,3,हवे,3,3,हेबेंन,0.75,unsure,2015 name truncated,claude,2026-10-18
+near_miss,below_threshold,Hazaribagh,6.0,5,पदम् ा,6,5,पदमा,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,East Singhbhum,2.0,10,खडे,2,10,खेडुवा,0.75,unsure,2015 name truncated,claude,2026-10-18
+near_miss,below_threshold,Hazaribagh,12.0,20,आर्गा,12,20,आंगो,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Chatra,11.0,16,ईचाक,11,16,इचाक,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Chatra,11.0,13,एदला,11,13,ऐदला,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,East Singhbhum,7.0,7,धोलाबडे ़ा,7,7,घोलाबेड़ा,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Chatra,7.0,2,धुना,7,2,घुना,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Palamu,10.0,6,ताले,10,6,तोलरा,0.75,unsure,2015 name truncated,claude,2026-10-18
+near_miss,below_threshold,Lohardaga,6.0,3,बुटी,6,3,जुटी,0.75,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Gumla,7.0,22,अम्बोवा,7,22,अम्बोआ,0.727,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,East Singhbhum,11.0,25,खेडुवा,11,25,खेडुआ,0.727,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Sahebganj,2.0,11,खैरवा,2,11,खैश्वा,0.727,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Giridih,7.0,73,चिरुत,7,21,चिरूवा,0.727,unsure,2015 serial 73 is an OCR misread; name plausible but not certain,claude,2026-10-18
+near_miss,below_threshold,Koderma,2.0,20,घरगाव,2,16,धरगाँव,0.727,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Dhanbad,8.0,11,सुस्¡गा,8,11,सुरूँगा,0.714,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Lohardaga,6.0,4,भड़गॉव,6,4,मड़गांव,0.7,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Hazaribagh,6.0,1,पिण्डाकाण्े,6,1,पिण्डारकोण,0.7,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Hazaribagh,2.0,12,काल्े हअु ाकला,2,12,कोल्हुआकला,0.7,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Gumla,7.0,9,बसुवा,7,9,बसुआ,0.667,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Dhanbad,6.0,19,जमअु ा,6,19,जमुआ,0.667,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,East Singhbhum,2.0,7,बिडऱ,2,7,बिड़रा,0.667,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Chatra,11.0,1,जिखा खुर्द,11,1,जिरवाखुर्द,0.667,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Lohardaga,5.0,1,हेसल,5,1,ऐसल,0.617,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,Lohardaga,1.0,3,रोरद,1,3,सेरद,0.617,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+near_miss,below_threshold,East Singhbhum,2.0,5,आेि ड़या,2,5,ओड़िया,0.617,correct,same GP up to OCR/spelling variants; same block and serial,claude,2026-10-18
+link_sample,exact,West Singhbhum,13.0,10,काठभारी,13,10,काठभारी,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Godda,5.0,1,राहा,5,1,राहा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Dhanbad,2.0,7,कोलहर,2,7,कोलहर,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Garhwa,17.0,8,रंकाकला,17,8,रंकाकला,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Palamu,15.0,16,झाबर,15,8,झाबर,1.0,correct,"identical folded name in the same block group; serial 16 vs 8, name unique in the block",claude,2026-10-18
+link_sample,exact,Ranchi,10.0,21,होचर,10,21,होचर,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Gumla,7.0,24,कलिगा,7,24,कलिगा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Ranchi,10.0,1,उरुगुटू,10,1,उरूगुटू,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Bokaro,8.0,51,पोखन्ना,8,51,पोखन्ना,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Deoghar,10.0,22,कुंजोड़ा,10,22,कुंजोडा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Dumka,6.0,1,तपसी,6,1,तपसी,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Ranchi,13.0,18,हुड़वा,13,18,हुड़वा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Giridih,5.0,3,उत्तरी डोरण्डा,5,3,उत्तरी डोरण्डा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,West Singhbhum,3.0,18,पदमपुर,3,18,पदमपुर,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Giridih,4.0,34,गोरो,4,34,गोरो,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Bokaro,4.0,11,तुरियो,4,11,तुरियो,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Bokaro,4.0,20,दुग्दा उत्तरी,4,20,दुग्दा उत्तरी,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Palamu,21.0,6,तेतराई,21,6,तेतराई,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Bokaro,9.0,7,महाल पश्चिम,9,7,महाल पश्चम,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Hazaribagh,2.0,11,दुलमाहा,2,11,दुलमाहा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Giridih,7.0,1,घुठियापेसरा,7,1,घुठियापेसरा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Hazaribagh,15.0,8,मिश्राईनमोढा,15,8,मिश्राईनमोढ़ा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Palamu,18.0,2,टरिया,18,2,टरिया,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Godda,6.0,15,चिलकारा गोविन्द,6,15,चिलकारा गोविन्द,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Palamu,10.0,2,बघमनवा,10,2,बघमनवा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Palamu,3.0,21,डंडीला,3,21,डंडीला,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Bokaro,8.0,34,ब्राह्मणद्वारिका,8,34,ब्राह्मणद्वारिका,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Seraikela Kharsawan,6.0,2,जोरडीहा,6,2,जोरडीहा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Khunti,2.0,7,तोरपा पूर्वी,2,7,तोरपा पूर्वी,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,West Singhbhum,15.0,6,जयपुर,15,6,जयपुर,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Sahebganj,6.0,9,पड़रिया,6,9,पड़रिया,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Sahebganj,6.0,23,दाहुटोला,6,23,दाहुटोला,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Seraikela Kharsawan,9.0,3,राजनगर,9,3,राजनगर,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Ramgarh,1.0,36,छोटकी डुण्डी,1,36,छोटकीडुण्डी,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Palamu,21.0,12,करार,21,12,करार,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Godda,9.0,9,चन्दना,9,9,चन्दना,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Sahebganj,4.0,1,हिरणपुर,4,1,हिरणपुर,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Khunti,6.0,4,सोसोकुटी,6,4,सोसोकुटी,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Garhwa,17.0,7,सोनदाग,17,7,सोनदाग,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Ramgarh,1.0,8,बारूघुटू मध्य,1,8,बारुघुटू मध्य,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Giridih,13.0,21,बुधुडीह,13,21,बुधुडीह,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Hazaribagh,1.0,12,करमा,1,12,करमा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Garhwa,8.0,9,बुल्का,8,9,बुल्का,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Garhwa,14.0,2,लोवादाग,14,2,लोवादाग,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Giridih,8.0,13,कुसमरजा,8,13,कुसमरजा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Dhanbad,4.0,25,माड़मा,4,25,माड़मा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Giridih,4.0,31,मेढोचपरखो,4,31,मेढ़ोचपरखो,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Ranchi,10.0,12,राडहा,10,12,राडहा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Godda,7.0,6,ढोढ़री,7,6,ढोढ़री,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Lohardaga,7.0,8,भीठा,7,8,भीठा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Ramgarh,6.0,6,बन्दा,6,6,बन्दा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Ranchi,11.0,8,ईरबा,11,8,ईरबा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Latehar,4.0,11,पल्हेया,5,11,पल्हेया,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Jamtara,6.0,5,भेलुवा,6,5,भेलुवा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Chatra,7.0,6,हलमता,7,6,हलमता,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Ranchi,1.0,12,चुरी पूर्वी,1,12,चुरी पूर्वी,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Palamu,11.0,4,राजहारा,11,4,राजहारा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Godda,8.0,11,नवडीहा,8,11,नवडीहा,1.0,correct,identical folded name in the same block group,claude,2026-10-18
+link_sample,exact,Khunti,1.0,19,लिमड़ा,1,19,लिमड़ा,1.0,correct,identical folded name in the same block group,claude,2026-10-18

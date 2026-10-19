@@ -34,7 +34,7 @@ exists there.
 | --- | --- |
 | `state`, `year`, `district` | `Jharkhand`, election year, district (English) |
 | `district_no` | the district's number in the state list (Garhwa 1 … East Singhbhum 24) |
-| `block_no` | block number printed in the identifier; per district, and **not stable across years** (Dhanbad renumbered) |
+| `block_no` | block number printed in the identifier; per district; the same across years except Latehar (see `linkage/block_crosswalk_2015_2022.csv`) |
 | `block` | block name, Devanagari, where the gazette prints it; null otherwise |
 | `block_source` | `identifier`, `panchayat_samiti_rows` (the same gazette prints number and name together), `page_heading`, or `hand_keyed` |
 | `gram_panchayat`, `gp_no` | GP name and number as printed |
@@ -105,8 +105,9 @@ Form 23.
   LGD count (Palamu 278, Godda 201, Sahebganj 166, Chatra 154) have no repeated
   keys and probably reflect 2015 boundaries; not verified. Giridih (330/344)
   still has gaps in block 4 after the strip re-read.
-- **Block names**: 422 rows (2022) and 1,311 (2015) have no printed name the
-  parser could tie to the number; the key is the number.
+- **Block names**: 469 rows (2022) and 1,393 (2015) have no printed name the
+  parser could tie to the number (a name the parser would give to two numbers
+  is dropped rather than guessed); the key is the number.
 - **Vacant seats**: 3 in 2022, 11 in 2015 (`vacant = 1`).
 
 ## Independent checks
@@ -136,6 +137,7 @@ Form 23.
 | [2015/mukhiya_results.parquet](2015/mukhiya_results.parquet) | 4,137 | One 2015 mukhiya seat per row (Form 23 OCR) |
 | [2022/mukhiya_results.parquet](2022/mukhiya_results.parquet) | 4,334 | One 2022 mukhiya seat per row (Form 23 OCR) |
 | [2022/panchayat_samiti_results.parquet](2022/panchayat_samiti_results.parquet) | 4,113 | One 2022 panchayat samiti seat per row |
+| [linkage/gp_2015_2022.parquet](linkage/gp_2015_2022.parquet) | 3,904 | A 2015 mukhiya seat linked to its 2022 seat |
 
 ### Check results
 
@@ -146,8 +148,8 @@ Form 23.
 | `gp_numbers_run_unbroken_2022` | source: the gazette's own 1..N GP numbering within a block; each gap opened and recorded in data/2022/manual/gap_review.csv | pass | missing_numbers=10; verified_source_gaps=10; unexplained_missing=0; blocks=264 |
 | `unique_district_block_no_gp_no_2022` | internal | pass | duplicate_rows=0; blank_key_rows=0 |
 | `duplicate_keys_flagged_2022` | internal | pass | flagged_rows=0; mismatched_rows=0 |
-| `unique_district_block_gram_panchayat_2022` | internal | pass | duplicate_rows=0; blank_key_rows=423 |
-| `unique_district_block_gram_panchayat_2015` | internal | pass | duplicate_rows=0; blank_key_rows=1315 |
+| `unique_district_block_gram_panchayat_2022` | internal | pass | duplicate_rows=0; blank_key_rows=470 |
+| `unique_district_block_gram_panchayat_2015` | internal | pass | duplicate_rows=0; blank_key_rows=1397 |
 | `source_page_within_document_2022` | source: page counts of the hashed PDFs | pass | documents=24; pages_outside_document=0; blank_provenance=0 |
 | `source_page_within_document_2015` | source: page counts of the hashed PDFs | pass | documents=81; pages_outside_document=0; blank_provenance=0 |
 | `women_share_and_caste_shares` | statute: Jharkhand Panchayat Raj Act reserves at least half of seats for women; 2015 shares as the comparison | pass |  |

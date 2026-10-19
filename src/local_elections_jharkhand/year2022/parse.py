@@ -628,11 +628,16 @@ def page_headings(record):
     return sorted(found)
 
 
-def heading_for(headings, y):
+def heading_for(headings, y, carried=None, block_no=None):
+    """The heading a row falls under: the last one above it on the page, or,
+    for rows above the page's first heading, the heading the previous rows of
+    the same block fell under (those rows continue that block)."""
     above = [name for top, name in headings if top <= y]
     if above:
         return above[-1]
-    return headings[0][1] if headings else None
+    if carried and carried[1] == block_no:
+        return carried[0]
+    return None
 
 
 def overlaps(a, b):
@@ -738,6 +743,7 @@ def parse_document(pdf, records=None, rewrite_headings=True):
         records = with_repairs(read_cache(pdf), pdf)
     records, block_from_file = with_file_block(records, pdf)
     heading_pages = set()
+    carried = None
     if rewrite_headings and not block_from_file:
         records, heading_pages = with_heading_block(records, pdf)
     source_path = pdf.resolve().relative_to(ROOT).as_posix()
@@ -813,7 +819,9 @@ def parse_document(pdf, records=None, rewrite_headings=True):
                 flags.append("block_not_printed")
             elif record["page"] in heading_pages:
                 flags.append("block_no_from_heading")
-            heading = heading_for(headings, fields["row_y0"])
+            heading = heading_for(headings, fields["row_y0"], carried, block_no)
+            if heading:
+                carried = (heading, block_no)
             if heading:
                 heading_blocks.setdefault(block_no, Counter())[heading] += 1
             seats.append(
@@ -858,14 +866,20 @@ def block_names(seats, heading_blocks):
                 names[seat["block_no"]][name] += 1
     out = {}
     for number, counter in printed.items():
-        out[number] = (counter.most_common(1)[0][0], "identifier")
+        name, votes = counter.most_common(1)[0]
+        if votes >= 3:  # a stray merged fragment ("जिला") is not a block name
+            out[number] = (name, "identifier")
     for number, counter in names.items():
         if number not in out:
             out[number] = (counter.most_common(1)[0][0], "panchayat_samiti_rows")
     for number, counter in heading_blocks.items():
         if number not in out:
             out[number] = (counter.most_common(1)[0][0], "page_heading")
-    return out
+    # A name given to two block numbers is wrong for at least one of them
+    # (2015 Dhanbad: headings attach one block late on pages that change
+    # block mid-page). Both are dropped: a null name is better than a wrong one.
+    counts = Counter(clean(name) for name, _ in out.values())
+    return {n: v for n, v in out.items() if counts[clean(v[0])] == 1}
 
 
 LABEL_CASTE = {
