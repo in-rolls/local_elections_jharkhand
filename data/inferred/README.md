@@ -78,3 +78,35 @@ checks.
 uv sync --all-groups
 make infer
 ```
+
+## Muse Spark, a second scorer (`muse_spark_full_name.parquet`)
+
+`infer/muse_names.py` sends every distinct winner name (6,468) once, 40 at a
+time, to `muse-spark-1.3-contributor` through
+[museclient](https://github.com/gojiplus/museclient), which caches each request
+and refuses any call that would pass the authorized cap ($2). Each row is a name
+with `muse_p_female`, `muse_cannot_decide` and `muse_method` (model, reasoning
+effort, prompt hash). Every call's request, raw response and accounting is under
+`muse/calls/`. Provider-reported cost: $0.077. One call timed out and was
+retried as a new call; its folder (`*.timeout-1`) keeps its reserve in the
+ledger in case it was charged.
+
+It is kept separate from `winner_female_probability_from_name`; nothing here
+combines them. Winners of women's seats, who must be women:
+
+| Women's seats | Character/naampy model: mean, below 0.5 | Muse: mean, below 0.5 |
+| --- | --- | --- |
+| ST, 2015 | 0.876, 87 | 0.909, 45 |
+| ST, 2022 | 0.888, 72 | 0.924, 35 |
+| non-ST, 2015 | 0.977, 14 | 0.977, 6 |
+| non-ST, 2022 | 0.976, 17 | 0.973, 13 |
+
+On ST seats Muse halves the misses; it reads Christian and Adivasi women's names
+(Margaret, Rosalia, Vishwasi) that the character model scores as men. The two
+agree on 96.6% of winners at 0.5 (correlation 0.97).
+
+```sh
+uv run python -m local_elections_jharkhand.infer.muse_names pilot --cap 2
+uv run python -m local_elections_jharkhand.infer.muse_names all --cap 2
+```
+

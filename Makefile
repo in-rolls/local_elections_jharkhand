@@ -1,7 +1,7 @@
 PY = .venv/bin/python
 RUFF = .venv/bin/ruff
 
-.PHONY: sync sources ocr data links infer manifest lint test verify check
+.PHONY: muse sync sources ocr data links infer manifest lint test verify check
 
 sync:
 	uv sync --frozen --all-groups
@@ -38,6 +38,10 @@ links:
 # the infer dependency group (uv sync --all-groups)
 infer:
 	$(PY) -m local_elections_jharkhand.infer.winner_sex
+
+# paid (Muse Spark); set CAP to the authorized total USD
+muse:
+	$(PY) -m local_elections_jharkhand.infer.muse_names all --cap $(CAP)
 
 manifest:
 	$(PY) -m local_elections_jharkhand.build.release manifest

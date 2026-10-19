@@ -28,6 +28,8 @@ infer = [
     "indicate>=0.10 ; python_full_version >= '3.13'",
     "naampy>=0.11",
     "scikit-learn>=1.7",
+    # cached, budget-capped Muse Spark calls (infer/muse_names.py)
+    "museclient @ git+https://github.com/gojiplus/museclient@7a36988",
 ]
 # Apple Vision (on-device) for reading the scans; macOS only, so parsing the
 # cached OCR does not need it.
