@@ -1,0 +1,1722 @@
+{
+  "format_version": 1,
+  "files": [
+    {
+      "file": "2015/panchayat_samiti_results.parquet",
+      "description": "One 2015 panchayat samiti seat per row",
+      "sha256": "1aceb0314ae3caf6381a6b492d53f27bf88d578ed4032437ff7907432371f914",
+      "rows": 3579,
+      "schema": [
+        {
+          "name": "state",
+          "type": "large_string"
+        },
+        {
+          "name": "year",
+          "type": "int16"
+        },
+        {
+          "name": "district",
+          "type": "large_string"
+        },
+        {
+          "name": "district_no",
+          "type": "int16"
+        },
+        {
+          "name": "block",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no",
+          "type": "int16"
+        },
+        {
+          "name": "block_source",
+          "type": "large_string"
+        },
+        {
+          "name": "block_label",
+          "type": "large_string"
+        },
+        {
+          "name": "seat_no",
+          "type": "int16"
+        },
+        {
+          "name": "tier",
+          "type": "large_string"
+        },
+        {
+          "name": "tier_local",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_label",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_open_seat",
+          "type": "bool"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "winner",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "seat_id_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "row_text_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "ocr_min_confidence",
+          "type": "double"
+        },
+        {
+          "name": "parse_flags",
+          "type": "list<element: string>"
+        },
+        {
+          "name": "entry_method",
+          "type": "large_string"
+        },
+        {
+          "name": "script",
+          "type": "large_string"
+        },
+        {
+          "name": "source_path",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        },
+        {
+          "name": "row_y0",
+          "type": "int16"
+        },
+        {
+          "name": "row_y1",
+          "type": "int16"
+        },
+        {
+          "name": "page_rotation",
+          "type": "int16"
+        }
+      ]
+    },
+    {
+      "file": "2015/mukhiya_results.parquet",
+      "description": "One 2015 mukhiya seat per row (Form 23 OCR)",
+      "sha256": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
+      "rows": 4137,
+      "schema": [
+        {
+          "name": "state",
+          "type": "large_string"
+        },
+        {
+          "name": "year",
+          "type": "int16"
+        },
+        {
+          "name": "district",
+          "type": "large_string"
+        },
+        {
+          "name": "district_no",
+          "type": "int16"
+        },
+        {
+          "name": "block",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no",
+          "type": "int16"
+        },
+        {
+          "name": "block_source",
+          "type": "large_string"
+        },
+        {
+          "name": "gram_panchayat",
+          "type": "large_string"
+        },
+        {
+          "name": "gp_no",
+          "type": "int16"
+        },
+        {
+          "name": "tier",
+          "type": "large_string"
+        },
+        {
+          "name": "tier_local",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_label",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_open_seat",
+          "type": "bool"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "winner",
+          "type": "large_string"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "reserved_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "seat_id_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "row_text_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "ocr_min_confidence",
+          "type": "double"
+        },
+        {
+          "name": "parse_flags",
+          "type": "list<element: string>"
+        },
+        {
+          "name": "entry_method",
+          "type": "large_string"
+        },
+        {
+          "name": "script",
+          "type": "large_string"
+        },
+        {
+          "name": "source_path",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        },
+        {
+          "name": "row_y0",
+          "type": "int16"
+        },
+        {
+          "name": "row_y1",
+          "type": "int16"
+        },
+        {
+          "name": "page_rotation",
+          "type": "int16"
+        }
+      ]
+    },
+    {
+      "file": "2022/mukhiya_results.parquet",
+      "description": "One 2022 mukhiya seat per row (Form 23 OCR)",
+      "sha256": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
+      "rows": 4334,
+      "schema": [
+        {
+          "name": "state",
+          "type": "large_string"
+        },
+        {
+          "name": "year",
+          "type": "int16"
+        },
+        {
+          "name": "district",
+          "type": "large_string"
+        },
+        {
+          "name": "district_no",
+          "type": "int16"
+        },
+        {
+          "name": "block",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no",
+          "type": "int16"
+        },
+        {
+          "name": "block_source",
+          "type": "large_string"
+        },
+        {
+          "name": "gram_panchayat",
+          "type": "large_string"
+        },
+        {
+          "name": "gp_no",
+          "type": "int16"
+        },
+        {
+          "name": "tier",
+          "type": "large_string"
+        },
+        {
+          "name": "tier_local",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_label",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_open_seat",
+          "type": "bool"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "winner",
+          "type": "large_string"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "reserved_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "seat_id_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "row_text_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "ocr_min_confidence",
+          "type": "large_string"
+        },
+        {
+          "name": "parse_flags",
+          "type": "list<element: string>"
+        },
+        {
+          "name": "entry_method",
+          "type": "large_string"
+        },
+        {
+          "name": "script",
+          "type": "large_string"
+        },
+        {
+          "name": "source_path",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        },
+        {
+          "name": "row_y0",
+          "type": "int16"
+        },
+        {
+          "name": "row_y1",
+          "type": "int16"
+        },
+        {
+          "name": "page_rotation",
+          "type": "int16"
+        }
+      ]
+    },
+    {
+      "file": "2022/panchayat_samiti_results.parquet",
+      "description": "One 2022 panchayat samiti seat per row",
+      "sha256": "d971a9c40329598f5cc1e531230c8d5c57cbcf41bd07e34d63c4e1b50ac2a620",
+      "rows": 4113,
+      "schema": [
+        {
+          "name": "state",
+          "type": "large_string"
+        },
+        {
+          "name": "year",
+          "type": "int16"
+        },
+        {
+          "name": "district",
+          "type": "large_string"
+        },
+        {
+          "name": "district_no",
+          "type": "int16"
+        },
+        {
+          "name": "block",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no",
+          "type": "int16"
+        },
+        {
+          "name": "block_source",
+          "type": "large_string"
+        },
+        {
+          "name": "block_label",
+          "type": "large_string"
+        },
+        {
+          "name": "seat_no",
+          "type": "int16"
+        },
+        {
+          "name": "tier",
+          "type": "large_string"
+        },
+        {
+          "name": "tier_local",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_label",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_open_seat",
+          "type": "bool"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "winner",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "seat_id_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "row_text_raw",
+          "type": "large_string"
+        },
+        {
+          "name": "ocr_min_confidence",
+          "type": "double"
+        },
+        {
+          "name": "parse_flags",
+          "type": "list<element: string>"
+        },
+        {
+          "name": "entry_method",
+          "type": "large_string"
+        },
+        {
+          "name": "script",
+          "type": "large_string"
+        },
+        {
+          "name": "source_path",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        },
+        {
+          "name": "row_y0",
+          "type": "int16"
+        },
+        {
+          "name": "row_y1",
+          "type": "int16"
+        },
+        {
+          "name": "page_rotation",
+          "type": "int16"
+        }
+      ]
+    },
+    {
+      "file": "linkage/gp_2015_2022.parquet",
+      "description": "A 2015 mukhiya seat linked to its 2022 seat",
+      "sha256": "8ac41eb2150bdc4df18ed0fb9b74c4cb41b99cd48bb0ca9f1ccb40dd39f2da93",
+      "rows": 3904,
+      "schema": [
+        {
+          "name": "district_2015",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no_2015",
+          "type": "int16"
+        },
+        {
+          "name": "gp_no_2015",
+          "type": "int16"
+        },
+        {
+          "name": "gram_panchayat_2015",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page_2015",
+          "type": "int16"
+        },
+        {
+          "name": "district_2022",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no_2022",
+          "type": "int16"
+        },
+        {
+          "name": "gp_no_2022",
+          "type": "int16"
+        },
+        {
+          "name": "gram_panchayat_2022",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page_2022",
+          "type": "int16"
+        },
+        {
+          "name": "block_group",
+          "type": "large_string"
+        },
+        {
+          "name": "name_folded_2015",
+          "type": "large_string"
+        },
+        {
+          "name": "name_folded_2022",
+          "type": "large_string"
+        },
+        {
+          "name": "qualifiers",
+          "type": "large_string"
+        },
+        {
+          "name": "name_score",
+          "type": "double"
+        },
+        {
+          "name": "serial_agrees",
+          "type": "bool"
+        },
+        {
+          "name": "score",
+          "type": "double"
+        },
+        {
+          "name": "link_rule",
+          "type": "large_string"
+        },
+        {
+          "name": "winner_name_shared",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "file": "inferred/winner_woman_probability_2015.parquet",
+      "description": "2015 winner, P(woman)",
+      "sha256": "3421730006bb42e771f2d8a1dfc2eb01018b766708ea549b5ad742ba1e2299a2",
+      "rows": 4104,
+      "schema": [
+        {
+          "name": "district",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no",
+          "type": "int16"
+        },
+        {
+          "name": "gp_no",
+          "type": "int16"
+        },
+        {
+          "name": "source_path",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        },
+        {
+          "name": "row_y0",
+          "type": "int16"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "entry_method",
+          "type": "large_string"
+        },
+        {
+          "name": "winner",
+          "type": "large_string"
+        },
+        {
+          "name": "winner_printed_in_latin",
+          "type": "bool"
+        },
+        {
+          "name": "winner_latin",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "char_score",
+          "type": "double"
+        },
+        {
+          "name": "naampy_score",
+          "type": "double"
+        },
+        {
+          "name": "naampy_abstained",
+          "type": "int64"
+        },
+        {
+          "name": "naampy_model_revision",
+          "type": "string"
+        },
+        {
+          "name": "winner_woman_name_marker",
+          "type": "double"
+        },
+        {
+          "name": "winner_man_name_marker",
+          "type": "double"
+        },
+        {
+          "name": "winner_woman_probability",
+          "type": "double"
+        },
+        {
+          "name": "winner_latin_method",
+          "type": "large_string"
+        },
+        {
+          "name": "winner_woman_probability_method",
+          "type": "large_string"
+        }
+      ]
+    },
+    {
+      "file": "inferred/winner_woman_probability_2022.parquet",
+      "description": "2022 winner, P(woman)",
+      "sha256": "e21048c3a1c3aa1beb3b1ea7e068bc5778b0bf8debb58406eee679152449dfd7",
+      "rows": 4330,
+      "schema": [
+        {
+          "name": "district",
+          "type": "large_string"
+        },
+        {
+          "name": "block_no",
+          "type": "int16"
+        },
+        {
+          "name": "gp_no",
+          "type": "int16"
+        },
+        {
+          "name": "source_path",
+          "type": "large_string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        },
+        {
+          "name": "row_y0",
+          "type": "int16"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "large_string"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "entry_method",
+          "type": "large_string"
+        },
+        {
+          "name": "winner",
+          "type": "large_string"
+        },
+        {
+          "name": "winner_printed_in_latin",
+          "type": "bool"
+        },
+        {
+          "name": "winner_latin",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "type": "string"
+        },
+        {
+          "name": "char_score",
+          "type": "double"
+        },
+        {
+          "name": "naampy_score",
+          "type": "double"
+        },
+        {
+          "name": "naampy_abstained",
+          "type": "int64"
+        },
+        {
+          "name": "naampy_model_revision",
+          "type": "string"
+        },
+        {
+          "name": "winner_woman_name_marker",
+          "type": "double"
+        },
+        {
+          "name": "winner_man_name_marker",
+          "type": "double"
+        },
+        {
+          "name": "winner_woman_probability",
+          "type": "double"
+        },
+        {
+          "name": "winner_latin_method",
+          "type": "large_string"
+        },
+        {
+          "name": "winner_woman_probability_method",
+          "type": "large_string"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "file": "raw/MANIFEST.csv",
+      "sha256": "ce7ae1ca78a1c5fe86acbf99f0b841c3963e7c48c1dd67cd1ad47789a0ee1238"
+    },
+    {
+      "file": "2015/source/mukhiya_reservation_2015.csv",
+      "sha256": "12e51bc08bf899ba373ed23716a9c6c18b42e0307090a88dba8d4d5bee2cb72d"
+    },
+    {
+      "file": "external/lgd_jharkhand_village_gp.csv",
+      "sha256": "f4b8c27c2a42c089821964aae84329c6038fba0ec7ecd4019386a59869d4a3a8"
+    },
+    {
+      "file": "checks/handcheck_2022.csv",
+      "sha256": "897fde2419af5cea482fa9ff80fd94269d079730fbbf818360c345beb1e833d9"
+    },
+    {
+      "file": "checks/text_layer_2022.csv",
+      "sha256": "79940951611c3ee845ec98f2cbe4782e49efe8f14a48d20097d8734b29ffb18f"
+    },
+    {
+      "file": "2022/manual/lohardaga_mukhiya.csv",
+      "sha256": "6ce0387c95c5cc97f9cf4e6674e076dc090203a80dbef9b5d2bc04cc84a02a21"
+    },
+    {
+      "file": "2022/manual/identifier_corrections.csv",
+      "sha256": "c5732b07bd49a5254405cd37c051c2eec3d26ee3f4798f9caeaf70f7a34786fd"
+    },
+    {
+      "file": "2022/manual/missing_rows.csv",
+      "sha256": "686f73cce7772deb9d85c1837a33b816607397b2efcaf0a4db7fb618a5e396a6"
+    },
+    {
+      "file": "2022/manual/gap_review.csv",
+      "sha256": "6d8385b1e77be2bb8fd293f8d167545f4cd706df8a79c7d30ef0baa78ad755f0"
+    },
+    {
+      "file": "linkage/block_crosswalk_2015_2022.csv",
+      "sha256": "afcdb0dff3cdbe9bbd9c3724d03133fee21b8fcb34409fe2c333504afc4ca931"
+    },
+    {
+      "file": "linkage/review_2015_2022.csv",
+      "sha256": "832459325ad58ec13717042b1aa4f50b397f3d880c524a99d61222b3aca07ccd"
+    },
+    {
+      "file": "linkage/MANIFEST.json",
+      "sha256": "588217758e9070dbf4e17efd90cb0b9fd1000fdcdd8ecbe1bdb5562665d313aa"
+    },
+    {
+      "file": "inferred/MANIFEST.json",
+      "sha256": "f457c5b8d99358fec22fd26f549457687d40884e7ddfc839de5bd316c1ac1025"
+    },
+    {
+      "file": "interim/winner_sex/latin_indicate_0.10.0.parquet",
+      "sha256": "d1fd59e32d55514c2bc858d5a8a685e14162051f67c0ff89af3192bb4d8d2ff5"
+    },
+    {
+      "file": "interim/ocr/2015/*.jsonl.gz",
+      "files": 119,
+      "sha256_of_hashes": "d4125455dd0b6f8490440486721f5b506eed0638d1fc457a51f3ed8e19b4d227"
+    },
+    {
+      "file": "interim/ocr/2022/*.jsonl.gz",
+      "files": 26,
+      "sha256_of_hashes": "f04f19133a574bb4fbeaa16eb1aa78447f770d39f63951273f05fde7fa8cf81f"
+    }
+  ],
+  "checks": [
+    {
+      "name": "coverage_vs_lgd_2022",
+      "appeals_to": "external: LGD village-to-GP file (4,345 GPs, equal to the SEC's published 2022 mukhiya total)",
+      "status": "warn",
+      "rows": 4334,
+      "published_total": 4345,
+      "districts_exact": 21,
+      "by_district": [
+        {
+          "district": "Bokaro",
+          "rows": 249,
+          "lgd_gps": 249,
+          "diff": 0
+        },
+        {
+          "district": "Chatra",
+          "rows": 151,
+          "lgd_gps": 152,
+          "diff": -1
+        },
+        {
+          "district": "Deoghar",
+          "rows": 194,
+          "lgd_gps": 194,
+          "diff": 0
+        },
+        {
+          "district": "Dhanbad",
+          "rows": 256,
+          "lgd_gps": 256,
+          "diff": 0
+        },
+        {
+          "district": "Dumka",
+          "rows": 206,
+          "lgd_gps": 206,
+          "diff": 0
+        },
+        {
+          "district": "East Singhbhum",
+          "rows": 231,
+          "lgd_gps": 231,
+          "diff": 0
+        },
+        {
+          "district": "Garhwa",
+          "rows": 189,
+          "lgd_gps": 189,
+          "diff": 0
+        },
+        {
+          "district": "Giridih",
+          "rows": 344,
+          "lgd_gps": 344,
+          "diff": 0
+        },
+        {
+          "district": "Godda",
+          "rows": 197,
+          "lgd_gps": 197,
+          "diff": 0
+        },
+        {
+          "district": "Gumla",
+          "rows": 159,
+          "lgd_gps": 159,
+          "diff": 0
+        },
+        {
+          "district": "Hazaribagh",
+          "rows": 250,
+          "lgd_gps": 250,
+          "diff": 0
+        },
+        {
+          "district": "Jamtara",
+          "rows": 118,
+          "lgd_gps": 118,
+          "diff": 0
+        },
+        {
+          "district": "Khunti",
+          "rows": 86,
+          "lgd_gps": 86,
+          "diff": 0
+        },
+        {
+          "district": "Koderma",
+          "rows": 105,
+          "lgd_gps": 105,
+          "diff": 0
+        },
+        {
+          "district": "Latehar",
+          "rows": 115,
+          "lgd_gps": 115,
+          "diff": 0
+        },
+        {
+          "district": "Lohardaga",
+          "rows": 66,
+          "lgd_gps": 66,
+          "diff": 0
+        },
+        {
+          "district": "Pakur",
+          "rows": 125,
+          "lgd_gps": 128,
+          "diff": -3
+        },
+        {
+          "district": "Palamu",
+          "rows": 265,
+          "lgd_gps": 265,
+          "diff": 0
+        },
+        {
+          "district": "Ramgarh",
+          "rows": 125,
+          "lgd_gps": 125,
+          "diff": 0
+        },
+        {
+          "district": "Ranchi",
+          "rows": 305,
+          "lgd_gps": 305,
+          "diff": 0
+        },
+        {
+          "district": "Sahebganj",
+          "rows": 155,
+          "lgd_gps": 162,
+          "diff": -7
+        },
+        {
+          "district": "Seraikela Kharsawan",
+          "rows": 132,
+          "lgd_gps": 132,
+          "diff": 0
+        },
+        {
+          "district": "Simdega",
+          "rows": 94,
+          "lgd_gps": 94,
+          "diff": 0
+        },
+        {
+          "district": "West Singhbhum",
+          "rows": 217,
+          "lgd_gps": 217,
+          "diff": 0
+        }
+      ]
+    },
+    {
+      "name": "coverage_vs_lgd_2015",
+      "appeals_to": "external: LGD village-to-GP file (4,345 GPs, equal to the SEC's published 2022 mukhiya total)",
+      "status": "warn",
+      "rows": 4137,
+      "published_total": 4345,
+      "districts_exact": 9,
+      "by_district": [
+        {
+          "district": "Bokaro",
+          "rows": 245,
+          "lgd_gps": 249,
+          "diff": -4
+        },
+        {
+          "district": "Chatra",
+          "rows": 154,
+          "lgd_gps": 152,
+          "diff": 2
+        },
+        {
+          "district": "Deoghar",
+          "rows": 194,
+          "lgd_gps": 194,
+          "diff": 0
+        },
+        {
+          "district": "Dhanbad",
+          "rows": 256,
+          "lgd_gps": 256,
+          "diff": 0
+        },
+        {
+          "district": "Dumka",
+          "rows": 206,
+          "lgd_gps": 206,
+          "diff": 0
+        },
+        {
+          "district": "East Singhbhum",
+          "rows": 230,
+          "lgd_gps": 231,
+          "diff": -1
+        },
+        {
+          "district": "Garhwa",
+          "rows": 187,
+          "lgd_gps": 189,
+          "diff": -2
+        },
+        {
+          "district": "Giridih",
+          "rows": 330,
+          "lgd_gps": 344,
+          "diff": -14
+        },
+        {
+          "district": "Godda",
+          "rows": 201,
+          "lgd_gps": 197,
+          "diff": 4
+        },
+        {
+          "district": "Gumla",
+          "rows": 158,
+          "lgd_gps": 159,
+          "diff": -1
+        },
+        {
+          "district": "Hazaribagh",
+          "rows": 253,
+          "lgd_gps": 250,
+          "diff": 3
+        },
+        {
+          "district": "Jamtara",
+          "rows": 118,
+          "lgd_gps": 118,
+          "diff": 0
+        },
+        {
+          "district": "Khunti",
+          "rows": 86,
+          "lgd_gps": 86,
+          "diff": 0
+        },
+        {
+          "district": "Koderma",
+          "rows": 107,
+          "lgd_gps": 105,
+          "diff": 2
+        },
+        {
+          "district": "Latehar",
+          "rows": 110,
+          "lgd_gps": 115,
+          "diff": -5
+        },
+        {
+          "district": "Lohardaga",
+          "rows": 66,
+          "lgd_gps": 66,
+          "diff": 0
+        },
+        {
+          "district": "Pakur",
+          "rows": 0,
+          "lgd_gps": 128,
+          "diff": -128
+        },
+        {
+          "district": "Palamu",
+          "rows": 278,
+          "lgd_gps": 265,
+          "diff": 13
+        },
+        {
+          "district": "Ramgarh",
+          "rows": 125,
+          "lgd_gps": 125,
+          "diff": 0
+        },
+        {
+          "district": "Ranchi",
+          "rows": 305,
+          "lgd_gps": 305,
+          "diff": 0
+        },
+        {
+          "district": "Sahebganj",
+          "rows": 166,
+          "lgd_gps": 162,
+          "diff": 4
+        },
+        {
+          "district": "Seraikela Kharsawan",
+          "rows": 135,
+          "lgd_gps": 132,
+          "diff": 3
+        },
+        {
+          "district": "Simdega",
+          "rows": 10,
+          "lgd_gps": 94,
+          "diff": -84
+        },
+        {
+          "district": "West Singhbhum",
+          "rows": 217,
+          "lgd_gps": 217,
+          "diff": 0
+        }
+      ]
+    },
+    {
+      "name": "gp_numbers_run_unbroken_2022",
+      "appeals_to": "source: the gazette's own 1..N GP numbering within a block; each gap opened and recorded in data/2022/manual/gap_review.csv",
+      "status": "pass",
+      "missing_numbers": 10,
+      "verified_source_gaps": 10,
+      "unexplained_missing": 0,
+      "blocks": 264,
+      "blocks_with_gaps": [
+        {
+          "district": "Pakur",
+          "block_no": 4,
+          "missing": [
+            2,
+            20,
+            25
+          ]
+        },
+        {
+          "district": "Sahebganj",
+          "block_no": 1,
+          "missing": [
+            10
+          ]
+        },
+        {
+          "district": "Sahebganj",
+          "block_no": 7,
+          "missing": [
+            5,
+            9
+          ]
+        },
+        {
+          "district": "Sahebganj",
+          "block_no": 9,
+          "missing": [
+            9,
+            13,
+            16,
+            17
+          ]
+        }
+      ],
+      "blocks_with_repeats": []
+    },
+    {
+      "name": "unique_district_block_no_gp_no_2022",
+      "appeals_to": "internal",
+      "hard": false,
+      "status": "pass",
+      "duplicate_rows": 0,
+      "blank_key_rows": 0,
+      "duplicates_by_district": {}
+    },
+    {
+      "name": "duplicate_keys_flagged_2022",
+      "appeals_to": "internal",
+      "hard": true,
+      "status": "pass",
+      "flagged_rows": 0,
+      "mismatched_rows": 0
+    },
+    {
+      "name": "unique_district_block_gram_panchayat_2022",
+      "appeals_to": "internal",
+      "hard": true,
+      "status": "pass",
+      "duplicate_rows": 0,
+      "blank_key_rows": 470,
+      "duplicates_by_district": {}
+    },
+    {
+      "name": "unique_district_block_gram_panchayat_2015",
+      "appeals_to": "internal",
+      "hard": false,
+      "status": "pass",
+      "duplicate_rows": 0,
+      "blank_key_rows": 1397,
+      "duplicates_by_district": {}
+    },
+    {
+      "name": "source_page_within_document_2022",
+      "appeals_to": "source: page counts of the hashed PDFs",
+      "hard": true,
+      "status": "pass",
+      "documents": 24,
+      "unknown_documents": [],
+      "pages_outside_document": 0,
+      "blank_provenance": 0
+    },
+    {
+      "name": "source_page_within_document_2015",
+      "appeals_to": "source: page counts of the hashed PDFs",
+      "hard": true,
+      "status": "pass",
+      "documents": 81,
+      "unknown_documents": [],
+      "pages_outside_document": 0,
+      "blank_provenance": 0
+    },
+    {
+      "name": "women_share_and_caste_shares",
+      "appeals_to": "statute: Jharkhand Panchayat Raj Act reserves at least half of seats for women; 2015 shares as the comparison",
+      "status": "pass",
+      "statewide_2022": {
+        "rows": 4334,
+        "woman": 0.5368,
+        "woman_unread": 3,
+        "SC": 0.0951,
+        "ST": 0.5174,
+        "BC": 0.0,
+        "NONE": 0.3831,
+        "RESERVED": 0.0044
+      },
+      "statewide_2015": {
+        "rows": 4137,
+        "woman": 0.5213,
+        "woman_unread": 36,
+        "SC": 0.0996,
+        "ST": 0.5018,
+        "BC": 0.1071,
+        "NONE": 0.2905,
+        "RESERVED": 0.001
+      },
+      "districts_2022_below_half_women": [],
+      "by_district": [
+        {
+          "district": "Bokaro",
+          "woman_2022": 0.5382,
+          "woman_2015": 0.5306,
+          "SC_2022": 0.1606,
+          "SC_2015": 0.1592,
+          "ST_2022": 0.1486,
+          "ST_2015": 0.151,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 249,
+          "rows_2015": 245
+        },
+        {
+          "district": "Chatra",
+          "woman_2022": 0.5695,
+          "woman_2015": 0.526,
+          "SC_2022": 0.3179,
+          "SC_2015": 0.3247,
+          "ST_2022": 0.0331,
+          "ST_2015": 0.0325,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 151,
+          "rows_2015": 154
+        },
+        {
+          "district": "Deoghar",
+          "woman_2022": 0.5515,
+          "woman_2015": 0.5361,
+          "SC_2022": 0.1237,
+          "SC_2015": 0.1237,
+          "ST_2022": 0.1443,
+          "ST_2015": 0.1443,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 194,
+          "rows_2015": 194
+        },
+        {
+          "district": "Dhanbad",
+          "woman_2022": 0.5352,
+          "woman_2015": 0.5273,
+          "SC_2022": 0.1562,
+          "SC_2015": 0.1562,
+          "ST_2022": 0.1328,
+          "ST_2015": 0.1328,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 256,
+          "rows_2015": 256
+        },
+        {
+          "district": "Dumka",
+          "woman_2022": 0.5194,
+          "woman_2015": 0.5194,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 1.0,
+          "ST_2015": 1.0,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 206,
+          "rows_2015": 206
+        },
+        {
+          "district": "East Singhbhum",
+          "woman_2022": 0.5174,
+          "woman_2015": 0.5109,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 0.9957,
+          "ST_2015": 0.9957,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 231,
+          "rows_2015": 230
+        },
+        {
+          "district": "Garhwa",
+          "woman_2022": 0.5979,
+          "woman_2015": 0.5241,
+          "SC_2022": 0.2381,
+          "SC_2015": 0.235,
+          "ST_2022": 0.1534,
+          "ST_2015": 0.1639,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 189,
+          "rows_2015": 187
+        },
+        {
+          "district": "Giridih",
+          "woman_2022": 0.5378,
+          "woman_2015": 0.5117,
+          "SC_2022": 0.1308,
+          "SC_2015": 0.1304,
+          "ST_2022": 0.1017,
+          "ST_2015": 0.1056,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 344,
+          "rows_2015": 330
+        },
+        {
+          "district": "Godda",
+          "woman_2022": 0.5357,
+          "woman_2015": 0.5274,
+          "SC_2022": 0.0812,
+          "SC_2015": 0.0796,
+          "ST_2022": 0.2944,
+          "ST_2015": 0.2886,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 197,
+          "rows_2015": 201
+        },
+        {
+          "district": "Gumla",
+          "woman_2022": 0.5157,
+          "woman_2015": 0.519,
+          "SC_2022": 0.0126,
+          "SC_2015": 0.0,
+          "ST_2022": 0.9874,
+          "ST_2015": 1.0,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 159,
+          "rows_2015": 158
+        },
+        {
+          "district": "Hazaribagh",
+          "woman_2022": 0.564,
+          "woman_2015": 0.532,
+          "SC_2022": 0.1767,
+          "SC_2015": 0.1822,
+          "ST_2022": 0.0723,
+          "ST_2015": 0.0648,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 250,
+          "rows_2015": 253
+        },
+        {
+          "district": "Jamtara",
+          "woman_2022": 0.5254,
+          "woman_2015": 0.5169,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 0.9915,
+          "ST_2015": 0.9915,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 118,
+          "rows_2015": 118
+        },
+        {
+          "district": "Khunti",
+          "woman_2022": 0.5116,
+          "woman_2015": 0.5116,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 0.7791,
+          "ST_2015": 1.0,
+          "reserved_unspecified_2022": 0.2209,
+          "rows_2022": 86,
+          "rows_2015": 86
+        },
+        {
+          "district": "Koderma",
+          "woman_2022": 0.5429,
+          "woman_2015": 0.5283,
+          "SC_2022": 0.1619,
+          "SC_2015": 0.1589,
+          "ST_2022": 0.0,
+          "ST_2015": 0.0,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 105,
+          "rows_2015": 107
+        },
+        {
+          "district": "Latehar",
+          "woman_2022": 0.5304,
+          "woman_2015": 0.5364,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 1.0,
+          "ST_2015": 1.0,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 115,
+          "rows_2015": 110
+        },
+        {
+          "district": "Lohardaga",
+          "woman_2022": 0.5303,
+          "woman_2015": 0.5303,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 1.0,
+          "ST_2015": 1.0,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 66,
+          "rows_2015": 66
+        },
+        {
+          "district": "Pakur",
+          "woman_2022": 0.512,
+          "woman_2015": null,
+          "SC_2022": 0.0,
+          "SC_2015": null,
+          "ST_2022": 0.88,
+          "ST_2015": null,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 125,
+          "rows_2015": null
+        },
+        {
+          "district": "Palamu",
+          "woman_2022": 0.5585,
+          "woman_2015": 0.5144,
+          "SC_2022": 0.2868,
+          "SC_2015": 0.2806,
+          "ST_2022": 0.0943,
+          "ST_2015": 0.0899,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 265,
+          "rows_2015": 278
+        },
+        {
+          "district": "Ramgarh",
+          "woman_2022": 0.552,
+          "woman_2015": 0.512,
+          "SC_2022": 0.12,
+          "SC_2015": 0.12,
+          "ST_2022": 0.216,
+          "ST_2015": 0.216,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 125,
+          "rows_2015": 125
+        },
+        {
+          "district": "Ranchi",
+          "woman_2022": 0.518,
+          "woman_2015": 0.518,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 1.0,
+          "ST_2015": 1.0,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 305,
+          "rows_2015": 305
+        },
+        {
+          "district": "Sahebganj",
+          "woman_2022": 0.5161,
+          "woman_2015": 0.512,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 0.8387,
+          "ST_2015": 0.8494,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 155,
+          "rows_2015": 166
+        },
+        {
+          "district": "Seraikela Kharsawan",
+          "woman_2022": 0.5227,
+          "woman_2015": 0.5185,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 1.0,
+          "ST_2015": 0.9926,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 132,
+          "rows_2015": 135
+        },
+        {
+          "district": "Simdega",
+          "woman_2022": 0.5269,
+          "woman_2015": 0.4,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 1.0,
+          "ST_2015": 1.0,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 94,
+          "rows_2015": 10
+        },
+        {
+          "district": "West Singhbhum",
+          "woman_2022": 0.5207,
+          "woman_2015": 0.5207,
+          "SC_2022": 0.0,
+          "SC_2015": 0.0,
+          "ST_2022": 1.0,
+          "ST_2015": 1.0,
+          "reserved_unspecified_2022": 0.0,
+          "rows_2022": 217,
+          "rows_2015": 217
+        }
+      ]
+    },
+    {
+      "name": "gp_name_match_2022_to_2015",
+      "appeals_to": "independent source: the 2015 gazettes, parsed by different code from a different year",
+      "status": "info",
+      "threshold_ratio": 85,
+      "rows_2022": 4334,
+      "counts": {
+        "exact_block": 3156,
+        "none": 660,
+        "near_block": 405,
+        "exact_district": 89,
+        "near_district": 23,
+        "blank_2022_name": 1
+      },
+      "share_exact_or_near_in_block": 0.8216,
+      "share_exact_or_near_in_district": 0.8475,
+      "rows_2022_in_districts_with_2015_rows": 4209,
+      "rows_2022_in_blocks_with_2015_names": 4169,
+      "share_matched_in_blocks_with_2015_names": 0.8542,
+      "near_match_examples": [
+        {
+          "district": "Garhwa",
+          "y2022": "मझिगावा",
+          "y2015": "मझिगांवा"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "करिवाडीह",
+          "y2015": "करीवाडीह"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "अरसली उत्तरी",
+          "y2015": "अरसलीउतरी"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "घटहुआ कला",
+          "y2015": "घटहुआंकला"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "चटनिया",
+          "y2015": "चटनियां"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "पुरह",
+          "y2015": "पुरहे"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "विशुनपुरा",
+          "y2015": "बिशुनपुरा"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "बहियार कलां",
+          "y2015": "बहियारकला"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "बहियार खुर्द",
+          "y2015": "बहियारखूर्द"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "मड़वनियाँ",
+          "y2015": "मडवनिया"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "सिलिदाग",
+          "y2015": "सिलीदाग"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "हारादाग कला",
+          "y2015": "हरादागकला"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "पिपरडीह",
+          "y2015": "पीपरडीह"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "कोलझीकी",
+          "y2015": "कोलझिकी"
+        },
+        {
+          "district": "Garhwa",
+          "y2022": "अम्बाखोरेया",
+          "y2015": "अम्बाखोरिया"
+        }
+      ]
+    },
+    {
+      "name": "hand_transcription_2022",
+      "appeals_to": "independent: rows read by eye from the rendered page images",
+      "status": "pass",
+      "rows": 29,
+      "excluded_hand_keyed": 1,
+      "unmatched": 0,
+      "winner_char_agreement": 0.9969,
+      "winner_exact": 28,
+      "gram_panchayat_char_agreement": 0.9881,
+      "gram_panchayat_exact": 26,
+      "block_no_exact": 29,
+      "gp_no_exact": 29,
+      "reserved_caste_exact": 29,
+      "reserved_woman_exact": 29
+    },
+    {
+      "name": "text_layer_agreement_2022",
+      "appeals_to": "independent: the PDFs' own Kruti Dev text layer, decoded without OCR, in the districts that have one",
+      "status": "info",
+      "text_layer_rows": 1147,
+      "found_in_ocr_table": 1147,
+      "misaligned_by_text_reader": 20,
+      "winner_char_agreement_aligned": 0.9832,
+      "gp_char_agreement_aligned": 0.9802,
+      "caste_agree_all": "1083/1083",
+      "caste_agree_aligned": "1066/1066",
+      "woman_agree_all": "1108/1124",
+      "woman_agree_aligned": "1106/1107",
+      "by_district": {
+        "Giridih": "344/344",
+        "Khunti": "73/73",
+        "Palamu": "265/265",
+        "Ranchi": "249/249",
+        "West Singhbhum": "216/216"
+      }
+    },
+    {
+      "name": "ported_2015_agreement",
+      "appeals_to": "independent: the pooled repository's 2015 parse of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans)",
+      "status": "info",
+      "rows_new": 4137,
+      "rows_ported": 3972,
+      "shared_keys": 3645,
+      "caste_agree": "3609/3635",
+      "woman_agree": "3608/3613",
+      "winner_char_agreement": 0.9725,
+      "winner_exact": "3252/3645",
+      "caste_disagreements_by_district": {
+        "Jamtara": 25,
+        "Giridih": 1
+      }
+    }
+  ]
+}

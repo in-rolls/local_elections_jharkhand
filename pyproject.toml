@@ -13,6 +13,7 @@ dependencies = [
     "opencv-python-headless>=4.12",
     "pandas>=2.3",
     "pdfplumber>=0.11",
+    "preclink>=1.2.0",
     "pyarrow>=21",
     "rapidfuzz>=3.14",
 ]
@@ -23,9 +24,22 @@ Issues = "https://github.com/in-rolls/local_elections_jharkhand/issues"
 
 [dependency-groups]
 dev = ["ruff>=0.14", "pytest>=8"]
+infer = [
+    "indicate>=0.10 ; python_full_version >= '3.13'",
+    "naampy>=0.11",
+    "scikit-learn>=1.7",
+    "litellm>=1.106.0",
+]
+muse = [
+    "scikit-learn>=1.7",
+    "museclient @ git+https://github.com/gojiplus/museclient@2063b1b",
+]
 # Apple Vision (on-device) for reading the scans; macOS only, so parsing the
 # cached OCR does not need it.
 ocr = ["ocrmac>=1.0 ; sys_platform == 'darwin'"]
+
+[tool.uv]
+conflicts = [[{ group = "infer" }, { group = "muse" }]]
 
 [tool.ruff]
 line-length = 88

@@ -1,28 +1,47 @@
 PY = .venv/bin/python
 RUFF = .venv/bin/ruff
 
-.PHONY: sync fetch sources ocr data manifest lint test verify check
+.PHONY: muse sync sources ocr data links infer manifest lint test verify check
 
 sync:
-	uv sync --frozen --all-groups
+	uv sync --frozen --group infer --group ocr
 
-# raw PDFs are git-ignored; fetch downloads them by hash from the pooled repo
-fetch:
-	$(PY) -m local_elections_jharkhand.sources fetch
-
+# the committed source PDFs against the SHA-256s in data/raw/MANIFEST.csv
 sources:
 	$(PY) -m local_elections_jharkhand.sources verify
 
-# Apple Vision OCR of every 2022 page (macOS; cached per page, ~30 min cold)
+# Apple Vision OCR of every page (macOS; cached per page, ~1 hour cold), the
+# Kruti Dev text-layer fallback, then the repair passes, which read the parsed
+# tables, so each year is parsed once in between
 ocr:
-	$(PY) -m local_elections_jharkhand.year2022.ocr
+	$(PY) -m local_elections_jharkhand.year2022.ocr --year 2015 --text-layer
+	$(PY) -m local_elections_jharkhand.year2022.ocr --year 2022 --text-layer
+	for y in 2015 2022; do \
+		$(PY) -m local_elections_jharkhand.year2022.parse --year $$y && \
+		$(PY) -m local_elections_jharkhand.year2022.repair --year $$y && \
+		$(PY) -m local_elections_jharkhand.year2022.parse --year $$y && \
+		$(PY) -m local_elections_jharkhand.year2022.repair --year $$y --rows; \
+	done
 
 # rebuild the released tables from the committed OCR cache and inputs
 data:
-	$(PY) -m local_elections_jharkhand.year2015
-	$(PY) -m local_elections_jharkhand.year2022.parse
+	$(PY) -m local_elections_jharkhand.year2022.parse --year 2015
+	$(PY) -m local_elections_jharkhand.year2022.parse --year 2022
 	$(PY) -m local_elections_jharkhand.year2022.text_layer
-	$(MAKE) manifest
+	$(MAKE) links infer manifest
+
+# 2015 -> 2022 mukhiya links, blocked on the hand-coded block crosswalk
+links:
+	$(PY) -m local_elections_jharkhand.linkage.gp_links
+
+# name-based probability that each winner is a woman (data/inferred/); needs
+# the infer dependency group (uv sync --group infer)
+infer:
+	$(PY) -m local_elections_jharkhand.infer.winner_sex
+
+# paid (Muse Spark); set CAP to the authorized total USD
+muse:
+	uv run --frozen --group muse python -m local_elections_jharkhand.infer.muse_names all --cap $(CAP)
 
 manifest:
 	$(PY) -m local_elections_jharkhand.build.release manifest
@@ -37,4 +56,4 @@ test:
 verify:
 	$(PY) -m local_elections_jharkhand.build.release verify
 
-check: lint test verify
+check: lint test sources verify

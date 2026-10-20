@@ -1,0 +1,6 @@
+source_path,source_page,seat_id_raw,block_no,gp_no,kind,evidence
+data/raw/2022/18_Gumla_Prapatra23.pdf,18,XVIII गुमला /02/00-करनी,2,6,ocr_misread,page prints XVIII गुमला/02/06-करनी between 02/05 and 02/07
+data/raw/2022/18_Gumla_Prapatra23.pdf,23,XVIII गुमला /07/03-नवाडीह,7,8,ocr_misread,page prints XVIII गुमला/07/08-नवाडीह between 07/07 and 07/09
+data/raw/2022/18_Gumla_Prapatra23.pdf,25,XVtll गुमला/06/15 - बेलागड़ा,8,15,ocr_misread,page prints XVIII गुमला/08/15 - बेलागड़ा between 08/14 and 08/16
+data/raw/2022/10_Sahebgunj_Prapatra23.pdf,26,x साहेबगंज / 02/07-पुआल,3,7,source_typo,printed 02/07 but sits between 03/06 and 03/08 in block 3; block 2's own 02/07 (गडरा) is on page 28
+data/raw/2022/22_WestSinghbhum_Prapatra23.pdf,37,XXII प० सिंहभूम /14/01/ बड़ा लागड़ा,14,10,source_typo,printed 14/01 a second time as the last row after 14/09; 14/10 is otherwise absent

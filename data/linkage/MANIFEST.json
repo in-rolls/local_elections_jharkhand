@@ -1,0 +1,298 @@
+{
+  "purpose": "2015 to 2022 mukhiya seat links, precision first. A link states that two GP names agree inside crosswalked blocks, not that boundaries are unchanged.",
+  "matcher": {
+    "preclink": "1.2.0",
+    "rapidfuzz": "3.14.6",
+    "name_threshold": 0.8,
+    "margin": 0.05,
+    "weights": {
+      "name": 0.97,
+      "serial": 0.03
+    }
+  },
+  "inputs": {
+    "data/2015/mukhiya_results.parquet": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
+    "data/2022/mukhiya_results.parquet": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
+    "data/linkage/block_crosswalk_2015_2022.csv": "afcdb0dff3cdbe9bbd9c3724d03133fee21b8fcb34409fe2c333504afc4ca931",
+    "data/linkage/review_2015_2022.csv": "832459325ad58ec13717042b1aa4f50b397f3d880c524a99d61222b3aca07ccd"
+  },
+  "code_sha256": "684622dff43e5d33f0db83650443b19de87f6ac214a9802d190cdf4107032834",
+  "summary": {
+    "linked": 3904,
+    "exact_folded_name_links": 3505,
+    "fuzzy_name_links": 399,
+    "excluded_2015": {
+      "no_crosswalked_block": 1,
+      "blank_name": 15,
+      "name_repeated_in_group": 0
+    },
+    "excluded_2022": {
+      "no_crosswalked_block": 125,
+      "blank_name": 1,
+      "name_repeated_in_group": 0
+    },
+    "winner_name_shared_linked": 0.0958,
+    "winner_name_shared_exact_links": 0.0973,
+    "winner_name_shared_fuzzy_links": 0.0827,
+    "winner_name_shared_random_in_group": 0.0085,
+    "precision": {
+      "bands": {
+        "0.80-0.85": {
+          "links": 44,
+          "reviewed": 44,
+          "correct": 44,
+          "precision": 1.0,
+          "ci95": [
+            0.9197,
+            1.0
+          ]
+        },
+        "0.85-0.90": {
+          "links": 26,
+          "reviewed": 25,
+          "correct": 25,
+          "precision": 1.0,
+          "ci95": [
+            0.8668,
+            1.0
+          ]
+        },
+        "0.90-0.95": {
+          "links": 17,
+          "reviewed": 17,
+          "correct": 17,
+          "precision": 1.0,
+          "ci95": [
+            0.8157,
+            1.0
+          ]
+        },
+        "0.95-1.00": {
+          "links": 312,
+          "reviewed": 50,
+          "correct": 50,
+          "precision": 1.0,
+          "ci95": [
+            0.9286,
+            1.0
+          ]
+        },
+        "exact": {
+          "links": 3505,
+          "reviewed": 100,
+          "correct": 100,
+          "precision": 1.0,
+          "ci95": [
+            0.963,
+            1.0
+          ]
+        }
+      },
+      "reviewed_links": 263,
+      "reviewed_still_linked": 236,
+      "estimate_stratified": 1.0,
+      "lower_bound_stratified": 0.9585,
+      "near_misses_reviewed": 39,
+      "near_misses_correct": 33
+    },
+    "by_district": [
+      {
+        "district": "Bokaro",
+        "gps_2015": 245,
+        "gps_2022": 249,
+        "linkable_2015": 244,
+        "linkable_2022": 249,
+        "linked": 243
+      },
+      {
+        "district": "Chatra",
+        "gps_2015": 154,
+        "gps_2022": 151,
+        "linkable_2015": 154,
+        "linkable_2022": 151,
+        "linked": 146
+      },
+      {
+        "district": "Deoghar",
+        "gps_2015": 194,
+        "gps_2022": 194,
+        "linkable_2015": 194,
+        "linkable_2022": 194,
+        "linked": 191
+      },
+      {
+        "district": "Dhanbad",
+        "gps_2015": 256,
+        "gps_2022": 256,
+        "linkable_2015": 256,
+        "linkable_2022": 256,
+        "linked": 243
+      },
+      {
+        "district": "Dumka",
+        "gps_2015": 206,
+        "gps_2022": 206,
+        "linkable_2015": 206,
+        "linkable_2022": 206,
+        "linked": 203
+      },
+      {
+        "district": "East Singhbhum",
+        "gps_2015": 230,
+        "gps_2022": 231,
+        "linkable_2015": 230,
+        "linkable_2022": 231,
+        "linked": 209
+      },
+      {
+        "district": "Garhwa",
+        "gps_2015": 187,
+        "gps_2022": 189,
+        "linkable_2015": 187,
+        "linkable_2022": 189,
+        "linked": 182
+      },
+      {
+        "district": "Giridih",
+        "gps_2015": 330,
+        "gps_2022": 344,
+        "linkable_2015": 330,
+        "linkable_2022": 344,
+        "linked": 312
+      },
+      {
+        "district": "Godda",
+        "gps_2015": 201,
+        "gps_2022": 197,
+        "linkable_2015": 201,
+        "linkable_2022": 197,
+        "linked": 194
+      },
+      {
+        "district": "Gumla",
+        "gps_2015": 158,
+        "gps_2022": 159,
+        "linkable_2015": 158,
+        "linkable_2022": 159,
+        "linked": 155
+      },
+      {
+        "district": "Hazaribagh",
+        "gps_2015": 253,
+        "gps_2022": 250,
+        "linkable_2015": 253,
+        "linkable_2022": 250,
+        "linked": 220
+      },
+      {
+        "district": "Jamtara",
+        "gps_2015": 118,
+        "gps_2022": 118,
+        "linkable_2015": 118,
+        "linkable_2022": 118,
+        "linked": 102
+      },
+      {
+        "district": "Khunti",
+        "gps_2015": 86,
+        "gps_2022": 86,
+        "linkable_2015": 74,
+        "linkable_2022": 86,
+        "linked": 73
+      },
+      {
+        "district": "Koderma",
+        "gps_2015": 107,
+        "gps_2022": 105,
+        "linkable_2015": 104,
+        "linkable_2022": 105,
+        "linked": 95
+      },
+      {
+        "district": "Latehar",
+        "gps_2015": 110,
+        "gps_2022": 115,
+        "linkable_2015": 110,
+        "linkable_2022": 115,
+        "linked": 108
+      },
+      {
+        "district": "Lohardaga",
+        "gps_2015": 66,
+        "gps_2022": 66,
+        "linkable_2015": 66,
+        "linkable_2022": 66,
+        "linked": 60
+      },
+      {
+        "district": "Pakur",
+        "gps_2015": 0,
+        "gps_2022": 125,
+        "linkable_2015": 0,
+        "linkable_2022": 0,
+        "linked": 0
+      },
+      {
+        "district": "Palamu",
+        "gps_2015": 278,
+        "gps_2022": 265,
+        "linkable_2015": 278,
+        "linkable_2022": 265,
+        "linked": 245
+      },
+      {
+        "district": "Ramgarh",
+        "gps_2015": 125,
+        "gps_2022": 125,
+        "linkable_2015": 125,
+        "linkable_2022": 125,
+        "linked": 123
+      },
+      {
+        "district": "Ranchi",
+        "gps_2015": 305,
+        "gps_2022": 305,
+        "linkable_2015": 305,
+        "linkable_2022": 305,
+        "linked": 304
+      },
+      {
+        "district": "Sahebganj",
+        "gps_2015": 166,
+        "gps_2022": 155,
+        "linkable_2015": 166,
+        "linkable_2022": 155,
+        "linked": 148
+      },
+      {
+        "district": "Seraikela Kharsawan",
+        "gps_2015": 135,
+        "gps_2022": 132,
+        "linkable_2015": 135,
+        "linkable_2022": 132,
+        "linked": 128
+      },
+      {
+        "district": "Simdega",
+        "gps_2015": 10,
+        "gps_2022": 94,
+        "linkable_2015": 10,
+        "linkable_2022": 93,
+        "linked": 10
+      },
+      {
+        "district": "West Singhbhum",
+        "gps_2015": 217,
+        "gps_2022": 217,
+        "linkable_2015": 217,
+        "linkable_2022": 217,
+        "linked": 210
+      }
+    ],
+    "file": {
+      "path": "gp_2015_2022.parquet",
+      "rows": 3904,
+      "sha256": "8ac41eb2150bdc4df18ed0fb9b74c4cb41b99cd48bb0ca9f1ccb40dd39f2da93"
+    }
+  }
+}

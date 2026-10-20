@@ -1,0 +1,186 @@
+{
+  "purpose": "Name-based probability that an elected mukhiya is a woman, for aggregate use only.",
+  "packages": {
+    "naampy": "0.11.0",
+    "indicate": "0.10.0",
+    "scikit-learn": "1.9.1"
+  },
+  "inputs": {
+    "data/2015/mukhiya_results.parquet": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
+    "data/2022/mukhiya_results.parquet": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
+    "local_elections_up@42fb6190469688fd558596460aef44282e37f6d2:data/2021/gram_panchayat_head_candidate_record.parquet": "3f6e3e1cba08bd6cc012a445369f2f360b20a67bce1e7a022657d06d8263e0bd",
+    "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2016/candidates.parquet": "0b73373fce5b29292c61399b3308d44b95f850f17127f5c2e6bfef3e162f65ca",
+    "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2021/candidates.parquet": "8e6fda01045edf245cc0c7d46665f3496c5e41323775a3900300a9ae0b9537be"
+  },
+  "code_sha256": "ad9810b8c1f79094f65b1cb55aacaef6ee70c2677fd3ee0204ca9233ef95432d",
+  "validation": {
+    "labels": {
+      "uttar_pradesh": {
+        "distinct_names": 82135,
+        "female_share": 0.4084
+      },
+      "bihar": {
+        "distinct_names": 224091,
+        "female_share": 0.3037
+      }
+    },
+    "out_of_state_unseen_names": {
+      "bihar->uttar_pradesh": {
+        "char_model": {
+          "n": 4000,
+          "auc": 0.9487,
+          "log_loss": 0.3255,
+          "brier": 0.0908,
+          "accuracy_at_0.5": 0.8802
+        },
+        "naampy_alone": {
+          "n": 4000,
+          "auc": 0.922,
+          "log_loss": 0.3485,
+          "brier": 0.104,
+          "accuracy_at_0.5": 0.8698
+        },
+        "combined": {
+          "n": 4000,
+          "auc": 0.9649,
+          "log_loss": 0.3239,
+          "brier": 0.0953,
+          "accuracy_at_0.5": 0.868
+        },
+        "combined_without_char_model": {
+          "n": 4000,
+          "auc": 0.9489,
+          "log_loss": 0.3454,
+          "brier": 0.101,
+          "accuracy_at_0.5": 0.8645
+        },
+        "naampy_abstained_share": 0.016
+      },
+      "uttar_pradesh->bihar": {
+        "char_model": {
+          "n": 4000,
+          "auc": 0.9783,
+          "log_loss": 0.2091,
+          "brier": 0.0567,
+          "accuracy_at_0.5": 0.9257
+        },
+        "naampy_alone": {
+          "n": 4000,
+          "auc": 0.9271,
+          "log_loss": 0.3144,
+          "brier": 0.094,
+          "accuracy_at_0.5": 0.8768
+        },
+        "combined": {
+          "n": 4000,
+          "auc": 0.9872,
+          "log_loss": 0.1695,
+          "brier": 0.048,
+          "accuracy_at_0.5": 0.9365
+        },
+        "combined_without_char_model": {
+          "n": 4000,
+          "auc": 0.9799,
+          "log_loss": 0.1858,
+          "brier": 0.0511,
+          "accuracy_at_0.5": 0.9355
+        },
+        "naampy_abstained_share": 0.0165
+      }
+    },
+    "calibration_combined_held_out": [
+      {
+        "bin": "(-0.001, 0.1]",
+        "n": 4244,
+        "mean_probability": 0.0202,
+        "female_share": 0.0337
+      },
+      {
+        "bin": "(0.1, 0.3]",
+        "n": 797,
+        "mean_probability": 0.1778,
+        "female_share": 0.2146
+      },
+      {
+        "bin": "(0.3, 0.5]",
+        "n": 406,
+        "mean_probability": 0.3941,
+        "female_share": 0.5443
+      },
+      {
+        "bin": "(0.5, 0.7]",
+        "n": 321,
+        "mean_probability": 0.6042,
+        "female_share": 0.6822
+      },
+      {
+        "bin": "(0.7, 0.9]",
+        "n": 488,
+        "mean_probability": 0.8088,
+        "female_share": 0.8279
+      },
+      {
+        "bin": "(0.9, 1.0]",
+        "n": 1744,
+        "mean_probability": 0.9803,
+        "female_share": 0.965
+      }
+    ],
+    "combiner_coefficients": {
+      "intercept": -0.3758,
+      "char_logit": 0.3661,
+      "naampy_logit": 0.6181,
+      "naampy_abstained": -2.1099,
+      "winner_woman_name_marker": 3.8429,
+      "winner_man_name_marker": -0.8244
+    },
+    "jharkhand": {
+      "2015": {
+        "winners_scored": 4104,
+        "naampy_abstained_share": 0.0095,
+        "all": {
+          "women_seat_winners": 2118,
+          "women_seat_winners_mean_probability": 0.9265,
+          "women_seat_winners_below_0.5": 101,
+          "open_seat_winners": 1950,
+          "open_seat_winners_mean_probability": 0.2116
+        },
+        "st": {
+          "women_seat_winners": 1056,
+          "women_seat_winners_mean_probability": 0.8762,
+          "women_seat_winners_below_0.5": 87,
+          "open_seat_winners": 991,
+          "open_seat_winners_mean_probability": 0.2943
+        }
+      },
+      "2022": {
+        "winners_scored": 4330,
+        "naampy_abstained_share": 0.0102,
+        "all": {
+          "women_seat_winners": 2322,
+          "women_seat_winners_mean_probability": 0.9313,
+          "women_seat_winners_below_0.5": 89,
+          "open_seat_winners": 2005,
+          "open_seat_winners_mean_probability": 0.2093
+        },
+        "st": {
+          "women_seat_winners": 1182,
+          "women_seat_winners_mean_probability": 0.8881,
+          "women_seat_winners_below_0.5": 72,
+          "open_seat_winners": 1056,
+          "open_seat_winners_mean_probability": 0.2705
+        }
+      }
+    }
+  },
+  "files": {
+    "winner_woman_probability_2015.parquet": {
+      "rows": 4104,
+      "sha256": "3421730006bb42e771f2d8a1dfc2eb01018b766708ea549b5ad742ba1e2299a2"
+    },
+    "winner_woman_probability_2022.parquet": {
+      "rows": 4330,
+      "sha256": "e21048c3a1c3aa1beb3b1ea7e068bc5778b0bf8debb58406eee679152449dfd7"
+    }
+  }
+}

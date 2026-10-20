@@ -1,0 +1,31 @@
+sample,source_path,source_page,row_y0,block_no,gp_no,gram_panchayat,winner,reserved_caste,reserved_woman
+0,data/raw/2022/15_Bokaro_Prapatra23.pdf,128,1005,1,4,बड़की चिदरी,वीणा देवी,NONE,1
+1,data/raw/2022/9_Godda_Prapatra23.pdf,64,811,4,4,सरभंगा,रिंकु देवी,SC,1
+2,data/raw/2022/14_Dhanbad_Prapatra23.pdf,11,659,6,9,रंगुनी,अनिता देवी,NONE,1
+3,data/raw/2022/23_Seraikela_Prapatra23.pdf,25,751,6,4,दलाईकेला,संचारी तिर्की,ST,0
+4,data/raw/2022/4_Chatra_Prapatra23.pdf,80,554,7,6,हलमता,आरती देवी,NONE,1
+5,data/raw/2022/14_Dhanbad_Prapatra23.pdf,8,1736,1,21,लेदाटाँड़,छबी महतो,NONE,1
+6,data/raw/2022/8_Deoghar_Prapatra23.pdf,21,1043,9,7,बभनगामा,इन्द्रदेव प्रसाद सिंह,NONE,0
+7,data/raw/2022/14_Dhanbad_Prapatra23.pdf,8,1939,1,26,सिंहदाहा,शांति देवी,SC,1
+8,data/raw/2022/24_EastSinghbhum_Prapatra23.pdf,168,482,11,14,मानुषमुड़िया,राम मुर्मू,ST,0
+9,data/raw/2022/12_Dumka_Prapatra 23.pdf,25,1370,5,22,केशियाबहाल,सुनीराम मराण्डी,ST,0
+10,data/raw/2022/17_Lohardaga_Prapatra23.pdf,4,2685,3,14,ककरगढ़,चेमनी टोप्पो,ST,0
+11,data/raw/2022/23_Seraikela_Prapatra23.pdf,29,1083,9,9,जोनबनी,नमिता सोरेन,ST,1
+12,data/raw/2022/7_Giridih_Prapatra23.pdf,32,1579,11,5,अलगुन्दा,भागिरथ मंडल,NONE,0
+13,data/raw/2022/9_Godda_Prapatra23.pdf,64,1369,4,14,कुशमहरा,कुन्ति देवी,SC,1
+14,data/raw/2022/1_Garhwa_Prapatra23.pdf,16,479,14,9,ओखरगाड़ा पूर्वी,अजीज अंसारी,NONE,0
+15,data/raw/2022/4_Chatra_Prapatra23.pdf,79,911,5,24,कोबना,बब्लु कुमार,NONE,0
+16,data/raw/2022/18_Gumla_Prapatra23.pdf,26,1103,9,13,बरगांव दक्षिणी,शोभा देवी,ST,1
+17,data/raw/2022/23_Seraikela_Prapatra23.pdf,27,1083,8,9,बीरबांस,संगीता हाँसदा,ST,1
+18,data/raw/2022/22_WestSinghbhum_Prapatra23.pdf,34,834,11,4,डिलियामार्चा,दामु बानरा,ST,0
+19,data/raw/2022/7_Giridih_Prapatra23.pdf,30,870,8,16,अलगडीहा,जुलेखा खातून,NONE,1
+20,data/raw/2022/18_Gumla_Prapatra23.pdf,23,1331,7,16,खोरा,लालो कुमारी लकड़ा,ST,0
+21,data/raw/2022/4_Chatra_Prapatra23.pdf,77,1434,3,6,कटिया,मिसी देवी,NONE,1
+22,data/raw/2022/4_Chatra_Prapatra23.pdf,82,844,12,9,गाडीलौंग,सबिदा खातुन,NONE,1
+23,data/raw/2022/8_Deoghar_Prapatra23.pdf,18,1322,6,13,गड़िया,सीमा देवी,NONE,1
+24,data/raw/2022/20_Ranchi_Prapatra23.pdf,58,1020,15,3,होटलो,गिरीबाला देवी,ST,1
+25,data/raw/2022/14_Dhanbad_Prapatra23.pdf,10,1086,5,14,कंचनपुर,बाबूराम हेम्ब्रम,ST,0
+26,data/raw/2022/6_Koderma_Prapatra23.pdf,10,1473,1,11,खुट्टा,फुलवा देवी,NONE,1
+27,data/raw/2022/13_Jamtara_Prapatra23.pdf,9,1716,1,20,पोस्ता,वीरेन्द्र प्रताप हेम्ब्रम,ST,0
+28,data/raw/2022/24_EastSinghbhum_Prapatra23.pdf,124,1145,7,8,कांटाशोल,डोमन हाँसदा,ST,0
+29,data/raw/2022/21_Simdega_Prapatra23.pdf,81,1207,8,5,जलडेगा,बलमनी लूगून,ST,1
