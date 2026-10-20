@@ -4,7 +4,7 @@ RUFF = .venv/bin/ruff
 .PHONY: muse sync sources ocr data links infer manifest lint test verify check
 
 sync:
-	uv sync --frozen --all-groups
+	uv sync --frozen --group infer --group ocr
 
 # the committed source PDFs against the SHA-256s in data/raw/MANIFEST.csv
 sources:
@@ -35,13 +35,13 @@ links:
 	$(PY) -m local_elections_jharkhand.linkage.gp_links
 
 # name-based probability that each winner is a woman (data/inferred/); needs
-# the infer dependency group (uv sync --all-groups)
+# the infer dependency group (uv sync --group infer)
 infer:
 	$(PY) -m local_elections_jharkhand.infer.winner_sex
 
 # paid (Muse Spark); set CAP to the authorized total USD
 muse:
-	$(PY) -m local_elections_jharkhand.infer.muse_names all --cap $(CAP)
+	uv run --frozen --group muse python -m local_elections_jharkhand.infer.muse_names all --cap $(CAP)
 
 manifest:
 	$(PY) -m local_elections_jharkhand.build.release manifest

@@ -57,6 +57,11 @@ make ocr      # macOS only: re-run Apple Vision OCR and the repair passes from t
 (`data/interim/ocr/<year>/`), one record per page with every text box and its
 coordinates, so parsing can be rerun and reviewed anywhere.
 
+The `infer` and `muse` dependency groups use different OpenAI SDK major versions
+and must be installed separately. `make sync` installs the local inference and
+OCR environment. `make muse CAP=<authorized USD budget>` selects the Muse
+environment; run `make sync` again before using the local inference commands.
+
 ## Sources and provenance
 
 - **PDFs.** All 141 Form 23 PDFs (117 for 2015, 24 for 2022) are committed in
