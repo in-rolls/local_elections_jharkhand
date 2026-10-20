@@ -1,4 +1,4 @@
-name,y,size,state,winner_latin,first_name,char_score,char_logit,naampy_score,naampy_abstained,naampy_logit,naampy_model_revision,female_marker,male_marker,direction
+name,y,size,state,winner_latin,first_name,char_score,char_logit,naampy_score,naampy_abstained,naampy_logit,naampy_model_revision,winner_woman_name_marker,winner_man_name_marker,direction
 अर्जुमन्द खानम,0,1,uttar_pradesh,arjumand khanam,arjumand,0.18276015293753822,-1.4977579687160736,0.007366749923676252,0,-4.903384638905297,72d5ec16d3ede38e3627504a108b69ffd114c813,0,0,bihar->uttar_pradesh
 रिज्वान अह्माद,0,1,uttar_pradesh,rijwan ahmad,rijwan,0.0031861876376135484,-5.745738900470066,0.24919895827770233,0,-1.102889085555954,72d5ec16d3ede38e3627504a108b69ffd114c813,0,0,bihar->uttar_pradesh
 उदयपाल सिंह,0,3,uttar_pradesh,udaypal singh,udaypal,0.0025842221466840388,-5.955743159665472,0.004984662402421236,0,-5.296392473274008,72d5ec16d3ede38e3627504a108b69ffd114c813,0,1,bihar->uttar_pradesh

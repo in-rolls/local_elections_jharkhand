@@ -12,7 +12,7 @@
     "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2016/candidates.parquet": "0b73373fce5b29292c61399b3308d44b95f850f17127f5c2e6bfef3e162f65ca",
     "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2021/candidates.parquet": "8e6fda01045edf245cc0c7d46665f3496c5e41323775a3900300a9ae0b9537be"
   },
-  "code_sha256": "102777b4f6bfb759734f00c435188e727ba6b030c42a11052d0f23d291fd8057",
+  "code_sha256": "ad9810b8c1f79094f65b1cb55aacaef6ee70c2677fd3ee0204ca9233ef95432d",
   "validation": {
     "labels": {
       "uttar_pradesh": {
@@ -131,8 +131,8 @@
       "char_logit": 0.3661,
       "naampy_logit": 0.6181,
       "naampy_abstained": -2.1099,
-      "female_marker": 3.8429,
-      "male_marker": -0.8244
+      "winner_woman_name_marker": 3.8429,
+      "winner_man_name_marker": -0.8244
     },
     "jharkhand": {
       "2015": {
@@ -176,11 +176,11 @@
   "files": {
     "winner_woman_probability_2015.parquet": {
       "rows": 4104,
-      "sha256": "c6b4ee63f4a426013d2b6825eb72d57ee858349d777112255532d7f64ca59acd"
+      "sha256": "3421730006bb42e771f2d8a1dfc2eb01018b766708ea549b5ad742ba1e2299a2"
     },
     "winner_woman_probability_2022.parquet": {
       "rows": 4330,
-      "sha256": "47651838aad9590cd6c04f02dba098d5c2205db6fe71a9394b5e1ea94a03b665"
+      "sha256": "e21048c3a1c3aa1beb3b1ea7e068bc5778b0bf8debb58406eee679152449dfd7"
     }
   }
 }

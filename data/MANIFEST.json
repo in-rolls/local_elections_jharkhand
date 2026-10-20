@@ -576,7 +576,7 @@
     {
       "file": "inferred/winner_woman_probability_2015.parquet",
       "description": "2015 winner, P(woman)",
-      "sha256": "c6b4ee63f4a426013d2b6825eb72d57ee858349d777112255532d7f64ca59acd",
+      "sha256": "3421730006bb42e771f2d8a1dfc2eb01018b766708ea549b5ad742ba1e2299a2",
       "rows": 4104,
       "schema": [
         {
@@ -624,7 +624,7 @@
           "type": "large_string"
         },
         {
-          "name": "printed_latin",
+          "name": "winner_printed_in_latin",
           "type": "bool"
         },
         {
@@ -652,11 +652,11 @@
           "type": "string"
         },
         {
-          "name": "female_marker",
+          "name": "winner_woman_name_marker",
           "type": "double"
         },
         {
-          "name": "male_marker",
+          "name": "winner_man_name_marker",
           "type": "double"
         },
         {
@@ -676,7 +676,7 @@
     {
       "file": "inferred/winner_woman_probability_2022.parquet",
       "description": "2022 winner, P(woman)",
-      "sha256": "47651838aad9590cd6c04f02dba098d5c2205db6fe71a9394b5e1ea94a03b665",
+      "sha256": "e21048c3a1c3aa1beb3b1ea7e068bc5778b0bf8debb58406eee679152449dfd7",
       "rows": 4330,
       "schema": [
         {
@@ -724,7 +724,7 @@
           "type": "large_string"
         },
         {
-          "name": "printed_latin",
+          "name": "winner_printed_in_latin",
           "type": "bool"
         },
         {
@@ -752,11 +752,11 @@
           "type": "string"
         },
         {
-          "name": "female_marker",
+          "name": "winner_woman_name_marker",
           "type": "double"
         },
         {
-          "name": "male_marker",
+          "name": "winner_man_name_marker",
           "type": "double"
         },
         {
@@ -825,7 +825,7 @@
     },
     {
       "file": "inferred/MANIFEST.json",
-      "sha256": "00181e4d83c147955035b30016b81c061cb52605b374e8cdafaaf710a38abcdf"
+      "sha256": "26cceccf126f0660a011a9446d28994311ce3fcad803c4182f03aba289e56df8"
     },
     {
       "file": "interim/winner_sex/latin_indicate_0.10.0.parquet",

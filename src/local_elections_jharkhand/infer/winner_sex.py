@@ -123,8 +123,8 @@ STACK = [
     "char_logit",
     "naampy_logit",
     "naampy_abstained",
-    "female_marker",
-    "male_marker",
+    "winner_woman_name_marker",
+    "winner_man_name_marker",
 ]
 # for winners printed in Latin script, which the Devanagari character model cannot read
 STACK_LATIN = STACK[1:]
@@ -266,8 +266,8 @@ def features(names, char_scores, latin=None):
                 abstained, 0.0, logit(np.nan_to_num(score, nan=0.5))
             ),
             "naampy_model_revision": est["model_revision"].to_numpy(),
-            "female_marker": [int(x in FEMALE_MARKERS) for x in last],
-            "male_marker": [int(x in MALE_MARKERS) for x in last],
+            "winner_woman_name_marker": [int(x in FEMALE_MARKERS) for x in last],
+            "winner_man_name_marker": [int(x in MALE_MARKERS) for x in last],
         }
     )
 
@@ -334,11 +334,11 @@ def winners():
         )
     d = pd.concat(frames, ignore_index=True)
     d["name"] = d["winner"].map(clean)
-    d["printed_latin"] = d["winner"].str.match(LATIN) & (d["name"] == "")
+    d["winner_printed_in_latin"] = d["winner"].str.match(LATIN) & (d["name"] == "")
     keep = (
         (d["vacant"] != 1)
         & ~d["winner"].str.match(PLACEHOLDER)
-        & ((d["name"].str.len() > 1) | d["printed_latin"])
+        & ((d["name"].str.len() > 1) | d["winner_printed_in_latin"])
     )
     return d[keep].reset_index(drop=True)
 
@@ -432,7 +432,7 @@ def build():
 
     char = char_model(pd.concat(states.values(), ignore_index=True))
     w = winners()
-    deva, lat = w[~w["printed_latin"]], w[w["printed_latin"]]
+    deva, lat = w[~w["winner_printed_in_latin"]], w[w["winner_printed_in_latin"]]
     f = pd.concat(
         [
             features(deva["name"].tolist(), char(deva["name"])).set_axis(deva.index),
@@ -452,14 +452,16 @@ def build():
             f.loc[lat.index, STACK_LATIN]
         )[:, 1]
     table["winner_latin_method"] = np.where(
-        table["printed_latin"], "source", f"indicate {version('indicate')} model"
+        table["winner_printed_in_latin"],
+        "source",
+        f"indicate {version('indicate')} model",
     )
     labels = (
         "fit on UP 2021 pradhan and Bihar 2016/2021 recorded candidate sex; "
         "combiner fit on out-of-state names"
     )
     table["winner_woman_probability_method"] = np.where(
-        table["printed_latin"],
+        table["winner_printed_in_latin"],
         f"logit(naampy {version('naampy')} on printed Latin first name "
         f"+ last-word markers); {labels}",
         f"logit(char-ngram on Devanagari name + naampy {version('naampy')} on indicate "
