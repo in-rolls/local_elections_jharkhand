@@ -4,7 +4,7 @@
     {
       "file": "2015/panchayat_samiti_results.parquet",
       "description": "One 2015 panchayat samiti seat per row",
-      "sha256": "cd97fe26f0374e3c1719a89c288210e423df231d92f55d93ad7cfd12dd38b9e4",
+      "sha256": "bb4275e80f00c920ae960aeb6c9440837da6d0804d31cb35ae0e39d7211a56e2",
       "rows": 3579,
       "schema": [
         {
@@ -52,11 +52,11 @@
           "type": "large_string"
         },
         {
-          "name": "reservation",
+          "name": "reserved_label",
           "type": "large_string"
         },
         {
-          "name": "caste_reservation",
+          "name": "reserved_caste",
           "type": "large_string"
         },
         {
@@ -64,7 +64,7 @@
           "type": "bool"
         },
         {
-          "name": "woman_reserved",
+          "name": "reserved_woman",
           "type": "int8"
         },
         {
@@ -72,7 +72,7 @@
           "type": "large_string"
         },
         {
-          "name": "reservation_raw",
+          "name": "reserved_raw",
           "type": "large_string"
         },
         {
@@ -124,7 +124,7 @@
     {
       "file": "2015/mukhiya_results.parquet",
       "description": "One 2015 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "e4a377e1da56a67907b33df7742b8aba2bd6c5c169b7f0af4ecbddbed2759778",
+      "sha256": "87e81bc2027131785440a3d719570cb25223556b24b2b940ed003e6c36cb42f6",
       "rows": 4137,
       "schema": [
         {
@@ -172,11 +172,11 @@
           "type": "large_string"
         },
         {
-          "name": "reservation",
+          "name": "reserved_label",
           "type": "large_string"
         },
         {
-          "name": "caste_reservation",
+          "name": "reserved_caste",
           "type": "large_string"
         },
         {
@@ -184,7 +184,7 @@
           "type": "bool"
         },
         {
-          "name": "woman_reserved",
+          "name": "reserved_woman",
           "type": "int8"
         },
         {
@@ -196,7 +196,7 @@
           "type": "int8"
         },
         {
-          "name": "reservation_raw",
+          "name": "reserved_raw",
           "type": "large_string"
         },
         {
@@ -248,7 +248,7 @@
     {
       "file": "2022/mukhiya_results.parquet",
       "description": "One 2022 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "5fa3ee21c0f9bf477c19da938b4c6603753aded5b467ff031704219fb57e8eb1",
+      "sha256": "9797a87e26dd77a8d3442f841e0d8a80b6e2c0044537aeb0b6680350db1b8a8e",
       "rows": 4334,
       "schema": [
         {
@@ -296,11 +296,11 @@
           "type": "large_string"
         },
         {
-          "name": "reservation",
+          "name": "reserved_label",
           "type": "large_string"
         },
         {
-          "name": "caste_reservation",
+          "name": "reserved_caste",
           "type": "large_string"
         },
         {
@@ -308,7 +308,7 @@
           "type": "bool"
         },
         {
-          "name": "woman_reserved",
+          "name": "reserved_woman",
           "type": "int8"
         },
         {
@@ -320,7 +320,7 @@
           "type": "int8"
         },
         {
-          "name": "reservation_raw",
+          "name": "reserved_raw",
           "type": "large_string"
         },
         {
@@ -372,7 +372,7 @@
     {
       "file": "2022/panchayat_samiti_results.parquet",
       "description": "One 2022 panchayat samiti seat per row",
-      "sha256": "f987ee2bec4ec85ad6faa39bb4ddb0839a6462ee81bec5a71a093184fe854859",
+      "sha256": "88718515ce1b206046245a328878ed57a0d47b091e8d221130f841a5469bd314",
       "rows": 4113,
       "schema": [
         {
@@ -420,11 +420,11 @@
           "type": "large_string"
         },
         {
-          "name": "reservation",
+          "name": "reserved_label",
           "type": "large_string"
         },
         {
-          "name": "caste_reservation",
+          "name": "reserved_caste",
           "type": "large_string"
         },
         {
@@ -432,7 +432,7 @@
           "type": "bool"
         },
         {
-          "name": "woman_reserved",
+          "name": "reserved_woman",
           "type": "int8"
         },
         {
@@ -440,7 +440,7 @@
           "type": "large_string"
         },
         {
-          "name": "reservation_raw",
+          "name": "reserved_raw",
           "type": "large_string"
         },
         {
@@ -574,9 +574,9 @@
       ]
     },
     {
-      "file": "inferred/winner_female_probability_2015.parquet",
+      "file": "inferred/winner_woman_probability_2015.parquet",
       "description": "2015 winner, P(woman)",
-      "sha256": "5a04015277df5199ebcf761bb3d0cea0969f8bee5aa2fa466b4c2ea6c64abf3f",
+      "sha256": "c6b4ee63f4a426013d2b6825eb72d57ee858349d777112255532d7f64ca59acd",
       "rows": 4104,
       "schema": [
         {
@@ -604,11 +604,11 @@
           "type": "int16"
         },
         {
-          "name": "caste_reservation",
+          "name": "reserved_caste",
           "type": "large_string"
         },
         {
-          "name": "woman_reserved",
+          "name": "reserved_woman",
           "type": "int8"
         },
         {
@@ -660,7 +660,7 @@
           "type": "double"
         },
         {
-          "name": "winner_female_probability_from_name",
+          "name": "winner_woman_probability",
           "type": "double"
         },
         {
@@ -668,15 +668,15 @@
           "type": "large_string"
         },
         {
-          "name": "winner_female_probability_method",
+          "name": "winner_woman_probability_method",
           "type": "large_string"
         }
       ]
     },
     {
-      "file": "inferred/winner_female_probability_2022.parquet",
+      "file": "inferred/winner_woman_probability_2022.parquet",
       "description": "2022 winner, P(woman)",
-      "sha256": "6f99532e2921e1cc1207f8872b2321533b96af79721a042aaea2d48ad81c527d",
+      "sha256": "47651838aad9590cd6c04f02dba098d5c2205db6fe71a9394b5e1ea94a03b665",
       "rows": 4330,
       "schema": [
         {
@@ -704,11 +704,11 @@
           "type": "int16"
         },
         {
-          "name": "caste_reservation",
+          "name": "reserved_caste",
           "type": "large_string"
         },
         {
-          "name": "woman_reserved",
+          "name": "reserved_woman",
           "type": "int8"
         },
         {
@@ -760,7 +760,7 @@
           "type": "double"
         },
         {
-          "name": "winner_female_probability_from_name",
+          "name": "winner_woman_probability",
           "type": "double"
         },
         {
@@ -768,7 +768,7 @@
           "type": "large_string"
         },
         {
-          "name": "winner_female_probability_method",
+          "name": "winner_woman_probability_method",
           "type": "large_string"
         }
       ]
@@ -789,15 +789,15 @@
     },
     {
       "file": "checks/handcheck_2022.csv",
-      "sha256": "2b9fc27c5d32d7fcbf796bf61bd68e4e3d6496d64795509a04bd2ef071a2b2fc"
+      "sha256": "897fde2419af5cea482fa9ff80fd94269d079730fbbf818360c345beb1e833d9"
     },
     {
       "file": "checks/text_layer_2022.csv",
-      "sha256": "1cf2d17b893819186913ca3eb43830766dcbc1bd008517427031dae2760c4d06"
+      "sha256": "79940951611c3ee845ec98f2cbe4782e49efe8f14a48d20097d8734b29ffb18f"
     },
     {
       "file": "2022/manual/lohardaga_mukhiya.csv",
-      "sha256": "8351017a1a1d9e691c9e059de4827fdeea66bfa68f5fb8cfdff1c0583d918161"
+      "sha256": "6ce0387c95c5cc97f9cf4e6674e076dc090203a80dbef9b5d2bc04cc84a02a21"
     },
     {
       "file": "2022/manual/identifier_corrections.csv",
@@ -805,7 +805,7 @@
     },
     {
       "file": "2022/manual/missing_rows.csv",
-      "sha256": "ebbe6f739940e6e3a2824cf8d51839c78804d9da5096aedc049f8d22649cf87d"
+      "sha256": "686f73cce7772deb9d85c1837a33b816607397b2efcaf0a4db7fb618a5e396a6"
     },
     {
       "file": "2022/manual/gap_review.csv",
@@ -821,11 +821,11 @@
     },
     {
       "file": "linkage/MANIFEST.json",
-      "sha256": "cc086f2f7eef222b469af9d5f539c9aefbb560c2af87c548f44d1d3909063687"
+      "sha256": "91774770ef65f969860571814b9869b95bac26e9700af60dd2bac96cb4fd0724"
     },
     {
       "file": "inferred/MANIFEST.json",
-      "sha256": "975a895a4752aee86f9ea07113b6a9922feb4777a2d592be54f6c562799de081"
+      "sha256": "00181e4d83c147955035b30016b81c061cb52605b374e8cdafaaf710a38abcdf"
     },
     {
       "file": "interim/winner_sex/latin_indicate_0.10.0.parquet",
@@ -1678,8 +1678,8 @@
       "gram_panchayat_exact": 26,
       "block_no_exact": 29,
       "gp_no_exact": 29,
-      "caste_reservation_exact": 29,
-      "woman_reserved_exact": 29
+      "reserved_caste_exact": 29,
+      "reserved_woman_exact": 29
     },
     {
       "name": "text_layer_agreement_2022",
@@ -1688,7 +1688,7 @@
       "text_layer_rows": 1147,
       "found_in_ocr_table": 1147,
       "misaligned_by_text_reader": 20,
-      "winner_char_agreement_aligned": 0.981,
+      "winner_char_agreement_aligned": 0.9832,
       "gp_char_agreement_aligned": 0.9802,
       "caste_agree_all": "1083/1083",
       "caste_agree_aligned": "1066/1066",

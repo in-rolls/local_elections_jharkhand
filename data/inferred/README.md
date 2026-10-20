@@ -6,8 +6,8 @@ tables (`data/<year>/mukhiya_results.parquet` has no inferred column).
 
 | File | Row | What is inferred |
 | --- | --- | --- |
-| `winner_female_probability_2015.parquet` | an elected 2015 mukhiya | `winner_female_probability_from_name` |
-| `winner_female_probability_2022.parquet` | an elected 2022 mukhiya | `winner_female_probability_from_name` |
+| `winner_woman_probability_2015.parquet` | an elected 2015 mukhiya | `winner_woman_probability` |
+| `winner_woman_probability_2022.parquet` | an elected 2022 mukhiya | `winner_woman_probability` |
 
 Rows are keyed like the seat tables and the link file: `district`, `block_no`,
 `gp_no`, `source_path`, `source_page`, plus `row_y0` (the row's position on the
@@ -91,7 +91,7 @@ effort, prompt hash). Every call's request, raw response and accounting is under
 retried as a new call; its folder (`*.timeout-1`) keeps its reserve in the
 ledger in case it was charged.
 
-It is kept separate from `winner_female_probability_from_name`; nothing here
+It is kept separate from `winner_woman_probability`; nothing here
 combines them. Winners of women's seats, who must be women:
 
 | Women's seats | Character/naampy model: mean, below 0.5 | Muse: mean, below 0.5 |

@@ -90,7 +90,7 @@ LABELS = {
             "data/2021/candidates.parquet": (
                 "8e6fda01045edf245cc0c7d46665f3496c5e41323775a3900300a9ae0b9537be",
                 "candidate_name",
-                "candidate_gender",
+                "candidate_gender",  # old-name: as named in the pinned Bihar file
             ),
         },
     },
@@ -324,8 +324,8 @@ def winners():
                 {
                     "year": year,
                     **{k: d[k] for k in KEY},
-                    "caste_reservation": d["caste_reservation"],
-                    "woman_reserved": d["woman_reserved"],
+                    "reserved_caste": d["reserved_caste"],
+                    "reserved_woman": d["reserved_woman"],
                     "vacant": d["vacant"],
                     "entry_method": d["entry_method"],
                     "winner": d["winner"].fillna("").astype(str).str.strip(),
@@ -345,11 +345,11 @@ def winners():
 
 def target_checks(g):
     """Winners of women's seats must be women; ST seats reported apart."""
-    prob = "winner_female_probability_from_name"
+    prob = "winner_woman_probability"
     # unread reservations count as neither kind of seat
-    women = (g["woman_reserved"] == 1).fillna(False)
-    other = (g["woman_reserved"] == 0).fillna(False).to_numpy(dtype=bool)
-    st = (g["caste_reservation"] == "ST").fillna(False)
+    women = (g["reserved_woman"] == 1).fillna(False)
+    other = (g["reserved_woman"] == 0).fillna(False).to_numpy(dtype=bool)
+    st = (g["reserved_caste"] == "ST").fillna(False)
     out = {
         "winners_scored": len(g),
         "naampy_abstained_share": round(float(g["naampy_abstained"].mean()), 4),
@@ -444,7 +444,7 @@ def build():
         ]
     ).sort_index()
     table = pd.concat([w.drop(columns=["name"]), f], axis=1)
-    prob = "winner_female_probability_from_name"
+    prob = "winner_woman_probability"
     table[prob] = np.nan
     table.loc[deva.index, prob] = combiner.predict_proba(f.loc[deva.index, STACK])[:, 1]
     if len(lat):
@@ -458,7 +458,7 @@ def build():
         "fit on UP 2021 pradhan and Bihar 2016/2021 recorded candidate sex; "
         "combiner fit on out-of-state names"
     )
-    table["winner_female_probability_method"] = np.where(
+    table["winner_woman_probability_method"] = np.where(
         table["printed_latin"],
         f"logit(naampy {version('naampy')} on printed Latin first name "
         f"+ last-word markers); {labels}",
@@ -473,7 +473,7 @@ def build():
     OUT.mkdir(parents=True, exist_ok=True)
     files = {}
     for year, g in table.groupby("year"):
-        path = OUT / f"winner_female_probability_{year}.parquet"
+        path = OUT / f"winner_woman_probability_{year}.parquet"
         if g.duplicated(KEY).any():
             raise SystemExit(f"{year}: inferred sex repeats a seat key")
         g.drop(columns=["year"]).to_parquet(path, index=False)

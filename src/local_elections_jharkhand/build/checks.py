@@ -177,13 +177,13 @@ def provenance(frame, year):
 
 
 def shares(frame):
-    known = frame[frame["woman_reserved"].notna()]
+    known = frame[frame["reserved_woman"].notna()]
     out = {
         "rows": len(frame),
-        "woman": round(float(known["woman_reserved"].astype(int).mean()), 4),
-        "woman_unread": int(frame["woman_reserved"].isna().sum()),
+        "woman": round(float(known["reserved_woman"].astype(int).mean()), 4),
+        "woman_unread": int(frame["reserved_woman"].isna().sum()),
     }
-    caste = frame["caste_reservation"].value_counts(normalize=True)
+    caste = frame["reserved_caste"].value_counts(normalize=True)
     for value in ("SC", "ST", "BC", "NONE", "RESERVED"):
         out[value] = round(float(caste.get(value, 0.0)), 4)
     return out
@@ -333,7 +333,7 @@ def char_agreement(a, b):
     return fuzz.ratio(a, b) / 100
 
 
-EXACT_FIELDS = ["block_no", "gp_no", "caste_reservation", "woman_reserved"]
+EXACT_FIELDS = ["block_no", "gp_no", "reserved_caste", "reserved_woman"]
 
 
 def handcheck(m2022):
@@ -374,8 +374,8 @@ def handcheck(m2022):
     exact = {
         "block_no": ("block_no_true", "block_no"),
         "gp_no": ("gp_no_true", "gp_no"),
-        "caste_reservation": ("caste_reservation_true", "caste_reservation"),
-        "woman_reserved": ("woman_reserved_true", "woman_reserved"),
+        "reserved_caste": ("reserved_caste_true", "reserved_caste"),
+        "reserved_woman": ("reserved_woman_true", "reserved_woman"),
     }
     report = {
         "rows": len(truth),
@@ -472,6 +472,14 @@ def ported_2015(m2015):
     same PDFs (kept in data/2015/source/ as a cross-check, not an output).
     Two readings by different code; matched on (district, block, GP number)."""
     old = pd.read_csv(PORTED_2015, dtype=str)
+    # a frozen copy, kept byte for byte, so it still carries the pooled
+    # schema's names from before the reserved_* rename
+    old = old.rename(
+        columns={
+            "caste_reservation": "reserved_caste",  # old-name
+            "woman_reserved": "reserved_woman",  # old-name
+        }
+    )
     old["district"] = old["district"].replace(DISTRICT_2015)
     numbers = old["seat_id_raw"].map(printed_numbers)
     old["block_key"] = pd.to_numeric(old["block_no"]).fillna(
@@ -489,18 +497,18 @@ def ported_2015(m2015):
         block_key=new["block_no"].astype(float), gp_key=new["gp_no"].astype(float)
     )
     both = new.merge(old, on=["district", "block_key", "gp_key"], suffixes=("", "_old"))
-    caste = both[both["caste_reservation"].notna()]
-    woman = both[both["woman_reserved"].notna()]
+    caste = both[both["reserved_caste"].notna()]
+    woman = both[both["reserved_woman"].notna()]
     names = [
         char_agreement(a, b)
         for a, b in zip(both["winner"], both["winner_old"], strict=True)
     ]
-    disagree = caste[caste["caste_reservation"] != caste["caste_reservation_old"]]
+    disagree = caste[caste["reserved_caste"] != caste["reserved_caste_old"]]
     caste_same = len(caste) - len(disagree)
     woman_same = int(
         (
-            woman["woman_reserved"].astype(int)
-            == woman["woman_reserved_old"].astype(int)
+            woman["reserved_woman"].astype(int)
+            == woman["reserved_woman_old"].astype(int)
         ).sum()
     )
     return {

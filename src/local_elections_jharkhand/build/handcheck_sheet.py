@@ -28,8 +28,8 @@ FIELDS = [
     "gp_no",
     "gram_panchayat",
     "winner",
-    "caste_reservation",
-    "woman_reserved",
+    "reserved_caste",
+    "reserved_woman",
 ]
 
 

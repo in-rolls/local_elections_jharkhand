@@ -1,4 +1,4 @@
-sample,source_path,source_page,row_y0,block_no,gp_no,gram_panchayat,winner,caste_reservation,woman_reserved
+sample,source_path,source_page,row_y0,block_no,gp_no,gram_panchayat,winner,reserved_caste,reserved_woman
 0,data/raw/2022/15_Bokaro_Prapatra23.pdf,128,1005,1,4,बड़की चिदरी,वीणा देवी,NONE,1
 1,data/raw/2022/9_Godda_Prapatra23.pdf,64,811,4,4,सरभंगा,रिंकु देवी,SC,1
 2,data/raw/2022/14_Dhanbad_Prapatra23.pdf,11,659,6,9,रंगुनी,अनिता देवी,NONE,1

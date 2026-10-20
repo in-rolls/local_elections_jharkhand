@@ -39,10 +39,10 @@ exists there.
 | `block_source` | `identifier`, `panchayat_samiti_rows` (the same gazette prints number and name together), `page_heading`, or `hand_keyed` |
 | `gram_panchayat`, `gp_no` | GP name and number as printed |
 | `tier`, `tier_local` | `gp_head`, `mukhiya` |
-| `caste_reservation` | `ST`, `SC`, `BC` (2015 only: पिछड़ा वर्ग), `NONE`, or `RESERVED` (bare आरक्षित with no category: Khunti 2022, 19 rows; 4 OCR readings in 2015) |
-| `open_category` | 2022's "खुली श्रेणी के सीट (Open Category Seat)", the former BC seats; `caste_reservation` is `NONE` |
-| `woman_reserved` | 1 महिला, 0 अन्य, null when unread |
-| `reservation`, `reservation_raw` | pooled label (`ST Woman`, …) and the two cells in standard Devanagari |
+| `reserved_caste` | `ST`, `SC`, `BC` (2015 only: पिछड़ा वर्ग), `NONE`, or `RESERVED` (bare आरक्षित with no category: Khunti 2022, 19 rows; 4 OCR readings in 2015) |
+| `open_category` | 2022's "खुली श्रेणी के सीट (Open Category Seat)", the former BC seats; `reserved_caste` is `NONE` |
+| `reserved_woman` | 1 महिला, 0 अन्य, null when unread |
+| `reserved_label`, `reserved_raw` | pooled label (`ST Woman`, …) and the two cells in standard Devanagari |
 | `winner` | elected person as printed; null when unread or vacant |
 | `vacant` | 1 where the gazette prints रिक्त (vacant) for the winner |
 | `seat_id_raw`, `row_text_raw` | the identifier cell and the rest of the row as read, unaltered |
@@ -138,8 +138,8 @@ Form 23.
 | [2022/mukhiya_results.parquet](2022/mukhiya_results.parquet) | 4,334 | One 2022 mukhiya seat per row (Form 23 OCR) |
 | [2022/panchayat_samiti_results.parquet](2022/panchayat_samiti_results.parquet) | 4,113 | One 2022 panchayat samiti seat per row |
 | [linkage/gp_2015_2022.parquet](linkage/gp_2015_2022.parquet) | 3,904 | A 2015 mukhiya seat linked to its 2022 seat |
-| [inferred/winner_female_probability_2015.parquet](inferred/winner_female_probability_2015.parquet) | 4,104 | 2015 winner, P(woman) |
-| [inferred/winner_female_probability_2022.parquet](inferred/winner_female_probability_2022.parquet) | 4,330 | 2022 winner, P(woman) |
+| [inferred/winner_woman_probability_2015.parquet](inferred/winner_woman_probability_2015.parquet) | 4,104 | 2015 winner, P(woman) |
+| [inferred/winner_woman_probability_2022.parquet](inferred/winner_woman_probability_2022.parquet) | 4,330 | 2022 winner, P(woman) |
 
 ### Check results
 
@@ -156,8 +156,8 @@ Form 23.
 | `source_page_within_document_2015` | source: page counts of the hashed PDFs | pass | documents=81; pages_outside_document=0; blank_provenance=0 |
 | `women_share_and_caste_shares` | statute: Jharkhand Panchayat Raj Act reserves at least half of seats for women; 2015 shares as the comparison | pass |  |
 | `gp_name_match_2022_to_2015` | independent source: the 2015 gazettes, parsed by different code from a different year | info | threshold_ratio=85; rows_2022=4334; share_exact_or_near_in_block=0.8216; share_exact_or_near_in_district=0.8475; rows_2022_in_districts_with_2015_rows=4209; rows_2022_in_blocks_with_2015_names=4169; share_matched_in_blocks_with_2015_names=0.8542 |
-| `hand_transcription_2022` | independent: rows read by eye from the rendered page images | pass | rows=29; excluded_hand_keyed=1; unmatched=0; winner_char_agreement=0.9969; winner_exact=28; gram_panchayat_char_agreement=0.9881; gram_panchayat_exact=26; block_no_exact=29; gp_no_exact=29; caste_reservation_exact=29; woman_reserved_exact=29 |
-| `text_layer_agreement_2022` | independent: the PDFs' own Kruti Dev text layer, decoded without OCR, in the districts that have one | info | text_layer_rows=1147; found_in_ocr_table=1147; misaligned_by_text_reader=20; winner_char_agreement_aligned=0.981; gp_char_agreement_aligned=0.9802; caste_agree_all=1083/1083; caste_agree_aligned=1066/1066; woman_agree_all=1108/1124; woman_agree_aligned=1106/1107 |
+| `hand_transcription_2022` | independent: rows read by eye from the rendered page images | pass | rows=29; excluded_hand_keyed=1; unmatched=0; winner_char_agreement=0.9969; winner_exact=28; gram_panchayat_char_agreement=0.9881; gram_panchayat_exact=26; block_no_exact=29; gp_no_exact=29; reserved_caste_exact=29; reserved_woman_exact=29 |
+| `text_layer_agreement_2022` | independent: the PDFs' own Kruti Dev text layer, decoded without OCR, in the districts that have one | info | text_layer_rows=1147; found_in_ocr_table=1147; misaligned_by_text_reader=20; winner_char_agreement_aligned=0.9832; gp_char_agreement_aligned=0.9802; caste_agree_all=1083/1083; caste_agree_aligned=1066/1066; woman_agree_all=1108/1124; woman_agree_aligned=1106/1107 |
 | `ported_2015_agreement` | independent: the pooled repository's 2015 parse of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans) | info | rows_new=4137; rows_ported=3972; shared_keys=3645; caste_agree=3609/3635; woman_agree=3608/3613; winner_char_agreement=0.9725; winner_exact=3252/3645 |
 
 ### Rows per district against the LGD gram panchayat count
