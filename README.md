@@ -35,7 +35,7 @@ check (regenerated from [data/MANIFEST.json](data/MANIFEST.json)).
 import pandas as pd
 
 m22 = pd.read_parquet("data/2022/mukhiya_results.parquet")
-m22.groupby("district")["woman_reserved"].mean()
+m22.groupby("district")["reserved_woman"].mean()
 ```
 
 The seat key is `(district, block_no, gp_no)`, the numbers printed in the

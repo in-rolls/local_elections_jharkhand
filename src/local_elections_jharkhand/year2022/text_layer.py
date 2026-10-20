@@ -101,8 +101,8 @@ def build():
                 "gp_no",
                 "winner",
                 "gram_panchayat",
-                "caste_reservation",
-                "woman_reserved",
+                "reserved_caste",
+                "reserved_woman",
                 "source_page",
             ]
         ],
@@ -120,13 +120,13 @@ def build():
         fuzz.ratio(norm_name(a), norm_name(b)) / 100
         for a, b in zip(merged["gp_text"], merged["gram_panchayat"], strict=True)
     ]
-    merged["caste_agree"] = (
-        merged["caste_text"] == merged["caste_reservation"]
-    ).astype(int)
+    merged["caste_agree"] = (merged["caste_text"] == merged["reserved_caste"]).astype(
+        int
+    )
     merged["woman_agree"] = (
         (
             merged["woman_text"].astype("Int64")
-            == merged["woman_reserved"].astype("Int64")
+            == merged["reserved_woman"].astype("Int64")
         )
         .fillna(False)
         .astype(int)

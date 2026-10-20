@@ -1,4 +1,4 @@
-serial,source_page,block_no,block,gp_no,gram_panchayat,winner,caste_reservation,woman_reserved
+serial,source_page,block_no,block,gp_no,gram_panchayat,winner,reserved_caste,reserved_woman
 90,3,1,पेशरार,1,सीरम,भगवत खेरवार,ST,0
 91,3,1,पेशरार,2,पेशरार,रंजीता नगेसिया,ST,1
 92,3,1,पेशरार,3,सेरद,शीलवन्ती उराँव,ST,1

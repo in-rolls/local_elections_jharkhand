@@ -94,7 +94,7 @@ def score(client, names):
 def winners():
     frames = []
     for year in (2015, 2022):
-        d = pd.read_parquet(OUT / f"winner_female_probability_{year}.parquet")
+        d = pd.read_parquet(OUT / f"winner_woman_probability_{year}.parquet")
         d["name"] = d["winner"].map(clean)
         d["year"] = year
         frames.append(d)
@@ -110,7 +110,7 @@ def pilot(client):
     ]
     lab = pd.concat(picks)
     w = winners()
-    st_women = w[(w.caste_reservation == "ST") & (w.woman_reserved == 1)]
+    st_women = w[(w.reserved_caste == "ST") & (w.reserved_woman == 1)]
     st_women = st_women.drop_duplicates("name")
     st_women = st_women.iloc[rng.choice(len(st_women), 40, replace=False)]
     names = list(dict.fromkeys(list(lab.name) + list(st_women.name)))
@@ -132,13 +132,13 @@ def pilot(client):
         "below 0.5:",
         int((st_women.muse < 0.5).sum()),
         "| current model mean",
-        round(st_women.winner_female_probability_from_name.mean(), 3),
+        round(st_women.winner_woman_probability.mean(), 3),
         "below 0.5:",
-        int((st_women.winner_female_probability_from_name < 0.5).sum()),
+        int((st_women.winner_woman_probability < 0.5).sum()),
     )
     print(
         st_women[
-            ["name", "winner_latin", "muse", "winner_female_probability_from_name"]
+            ["name", "winner_latin", "muse", "winner_woman_probability"]
         ].to_string()
     )
 

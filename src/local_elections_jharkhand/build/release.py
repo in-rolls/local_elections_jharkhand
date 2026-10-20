@@ -31,8 +31,8 @@ RELEASED = {
     "2022/mukhiya_results.parquet": "One 2022 mukhiya seat per row (Form 23 OCR)",
     "2022/panchayat_samiti_results.parquet": "One 2022 panchayat samiti seat per row",
     "linkage/gp_2015_2022.parquet": "A 2015 mukhiya seat linked to its 2022 seat",
-    "inferred/winner_female_probability_2015.parquet": "2015 winner, P(woman)",
-    "inferred/winner_female_probability_2022.parquet": "2022 winner, P(woman)",
+    "inferred/winner_woman_probability_2015.parquet": "2015 winner, P(woman)",
+    "inferred/winner_woman_probability_2022.parquet": "2022 winner, P(woman)",
 }
 INPUTS = [
     "raw/MANIFEST.csv",

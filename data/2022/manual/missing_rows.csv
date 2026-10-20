@@ -1,2 +1,2 @@
-source_path,source_page,block_no,block,gp_no,gram_panchayat,winner,caste_reservation,woman_reserved,evidence
+source_path,source_page,block_no,block,gp_no,gram_panchayat,winner,reserved_caste,reserved_woman,evidence
 data/raw/2022/24_EastSinghbhum_Prapatra23.pdf,124,7,,2,खैरबनी,सुरेन्द्र नाथ हेम्ब्रम,ST,0,printed second row of page 124; OCR returned no box for its identifier

@@ -204,7 +204,7 @@ def reread_rows(year):
     table = pd.read_parquet(DATA / str(year) / "mukhiya_results.parquet")
     wanted = table[
         (table["entry_method"] == "ocr")
-        & (table["woman_reserved"].isna() | table["caste_reservation"].isna())
+        & (table["reserved_woman"].isna() | table["reserved_caste"].isna())
         & table["row_y0"].notna()
     ]
     done = read_rereads(year)

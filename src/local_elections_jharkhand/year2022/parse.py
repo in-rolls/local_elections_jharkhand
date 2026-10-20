@@ -142,7 +142,7 @@ def district_of(pdf):
 
 
 def caste_of(text):
-    """(caste_reservation, open_category) from the column-3 text.
+    """(reserved_caste, open_category) from the column-3 text.
 
     अनारक्षित (unreserved) and आरक्षित (reserved, category not printed, as
     Khunti does) differ only in their opening अन, and a fuzzy match of OCR's
@@ -846,9 +846,9 @@ def parse_document(pdf, records=None, rewrite_headings=True):
                     "number": number,
                     "place": clean(place) if place else None,
                     "winner": fields["winner"],
-                    "caste_reservation": caste,
+                    "reserved_caste": caste,
                     "open_category": open_category,
-                    "woman_reserved": woman,
+                    "reserved_woman": woman,
                     "seat_id_raw": fields["seat_text"],
                     "row_text_raw": fields["caste_text"],
                     "ocr_min_confidence": fields["confidence"],
@@ -915,7 +915,7 @@ def finish(seats, names, year=2022):
     rows = []
     for seat in seats:
         name, source = names.get(seat["block_no"], (None, None))
-        caste, woman = seat["caste_reservation"], seat["woman_reserved"]
+        caste, woman = seat["reserved_caste"], seat["reserved_woman"]
         reservation = None
         if caste is not None and woman is not None:
             reservation = LABEL_CASTE[caste] + (
@@ -936,8 +936,8 @@ def finish(seats, names, year=2022):
                 "block_no": seat["block_no"],
                 "block_source": source,
                 **seat,
-                "reservation": reservation,
-                "reservation_raw": raw,
+                "reserved_label": reservation,
+                "reserved_raw": raw,
             }
         )
     return rows
@@ -955,13 +955,13 @@ MUKHIYA_COLUMNS = [
     "gp_no",
     "tier",
     "tier_local",
-    "reservation",
-    "caste_reservation",
+    "reserved_label",
+    "reserved_caste",
     "open_category",
-    "woman_reserved",
+    "reserved_woman",
     "winner",
     "vacant",
-    "reservation_raw",
+    "reserved_raw",
     "seat_id_raw",
     "row_text_raw",
     "ocr_min_confidence",
@@ -994,8 +994,8 @@ def manual_rows(year, pdf):
     district = district_of(pdf)
     rows = []
     for row in frame.itertuples():
-        block_no, woman = int(row.block_no), int(row.woman_reserved)
-        caste = row.caste_reservation
+        block_no, woman = int(row.block_no), int(row.reserved_woman)
+        caste = row.reserved_caste
         # block names keyed from the same gazette's samiti rows (pages 1-3)
         block, source = row.block, "hand_keyed"
         rows.append(
@@ -1011,14 +1011,13 @@ def manual_rows(year, pdf):
                 "gp_no": int(row.gp_no),
                 "tier": "gp_head",
                 "tier_local": "mukhiya",
-                "reservation": LABEL_CASTE[caste]
+                "reserved_label": LABEL_CASTE[caste]
                 + ("Woman" if woman else "Other than Woman"),
-                "caste_reservation": caste,
+                "reserved_caste": caste,
                 "open_category": False,
-                "woman_reserved": woman,
+                "reserved_woman": woman,
                 "winner": row.winner,
-                "reservation_raw": RAW_CASTE[caste]
-                + (" | महिला" if woman else " | अन्य"),
+                "reserved_raw": RAW_CASTE[caste] + (" | महिला" if woman else " | अन्य"),
                 "seat_id_raw": None,
                 "row_text_raw": None,
                 "ocr_min_confidence": None,
@@ -1076,8 +1075,8 @@ def review(frame, year):
             pdf = ROOT / row.source_path
             district, caste, woman = (
                 district_of(pdf),
-                row.caste_reservation,
-                int(row.woman_reserved),
+                row.reserved_caste,
+                int(row.reserved_woman),
             )
             added.append(
                 {
@@ -1091,13 +1090,13 @@ def review(frame, year):
                     "gp_no": int(row.gp_no),
                     "tier": "gp_head",
                     "tier_local": "mukhiya",
-                    "reservation": LABEL_CASTE[caste]
+                    "reserved_label": LABEL_CASTE[caste]
                     + ("Woman" if woman else "Other than Woman"),
-                    "caste_reservation": caste,
+                    "reserved_caste": caste,
                     "open_category": False,
-                    "woman_reserved": woman,
+                    "reserved_woman": woman,
                     "winner": row.winner,
-                    "reservation_raw": RAW_CASTE[caste]
+                    "reserved_raw": RAW_CASTE[caste]
                     + (" | महिला" if woman else " | अन्य"),
                     "parse_flags": [],
                     "entry_method": "hand_keyed",
@@ -1135,28 +1134,25 @@ def review(frame, year):
         if text is None:
             continue
         flags = list(frame.at[index, "parse_flags"])
-        if pd.isna(frame.at[index, "woman_reserved"]) and woman_of(text) is not None:
-            frame.at[index, "woman_reserved"] = woman_of(text)
+        if pd.isna(frame.at[index, "reserved_woman"]) and woman_of(text) is not None:
+            frame.at[index, "reserved_woman"] = woman_of(text)
             flags = [f for f in flags if f != "woman_unread"] + [
                 "woman_from_row_reread"
             ]
-        if (
-            pd.isna(frame.at[index, "caste_reservation"])
-            and caste_of(text)[0] is not None
-        ):
+        if pd.isna(frame.at[index, "reserved_caste"]) and caste_of(text)[0] is not None:
             caste, open_category = caste_of(text)
-            frame.at[index, "caste_reservation"] = caste
+            frame.at[index, "reserved_caste"] = caste
             frame.at[index, "open_category"] = open_category
             flags = [f for f in flags if f != "caste_unread"] + [
                 "caste_from_row_reread"
             ]
         frame.at[index, "parse_flags"] = flags
         caste, woman = (
-            frame.at[index, "caste_reservation"],
-            frame.at[index, "woman_reserved"],
+            frame.at[index, "reserved_caste"],
+            frame.at[index, "reserved_woman"],
         )
         if pd.notna(caste) and pd.notna(woman):
-            frame.at[index, "reservation"] = LABEL_CASTE[caste] + (
+            frame.at[index, "reserved_label"] = LABEL_CASTE[caste] + (
                 "Woman" if woman else "Other than Woman"
             )
             raw_caste = (
@@ -1164,7 +1160,7 @@ def review(frame, year):
                 if frame.at[index, "open_category"]
                 else RAW_CASTE[caste]
             )
-            frame.at[index, "reservation_raw"] = raw_caste + (
+            frame.at[index, "reserved_raw"] = raw_caste + (
                 " | महिला" if woman else " | अन्य"
             )
     frame["vacant"] = frame["winner"].isin(VACANT).astype(int)
@@ -1228,7 +1224,7 @@ def typed(frame):
     ):
         if column in frame:
             frame[column] = frame[column].astype("Int16")
-    for column in ("woman_reserved", "vacant"):
+    for column in ("reserved_woman", "vacant"):
         if column in frame:
             frame[column] = frame[column].astype("Int8")
     frame["open_category"] = frame["open_category"].astype("boolean")
