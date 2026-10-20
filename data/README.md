@@ -40,7 +40,7 @@ exists there.
 | `gram_panchayat`, `gp_no` | GP name and number as printed |
 | `tier`, `tier_local` | `gp_head`, `mukhiya` |
 | `reserved_caste` | `ST`, `SC`, `BC` (2015 only: पिछड़ा वर्ग), `NONE`, or `RESERVED` (bare आरक्षित with no category: Khunti 2022, 19 rows; 4 OCR readings in 2015) |
-| `open_category` | 2022's "खुली श्रेणी के सीट (Open Category Seat)", the former BC seats; `reserved_caste` is `NONE` |
+| `reserved_open_seat` | 2022's "खुली श्रेणी के सीट (Open Category Seat)", the former BC seats; `reserved_caste` is `NONE` |
 | `reserved_woman` | 1 महिला, 0 अन्य, null when unread |
 | `reserved_label`, `reserved_raw` | pooled label (`ST Woman`, …) and the two cells in standard Devanagari |
 | `winner` | elected person as printed; null when unread or vacant |

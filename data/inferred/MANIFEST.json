@@ -6,8 +6,8 @@
     "scikit-learn": "1.9.1"
   },
   "inputs": {
-    "data/2015/mukhiya_results.parquet": "87e81bc2027131785440a3d719570cb25223556b24b2b940ed003e6c36cb42f6",
-    "data/2022/mukhiya_results.parquet": "9797a87e26dd77a8d3442f841e0d8a80b6e2c0044537aeb0b6680350db1b8a8e",
+    "data/2015/mukhiya_results.parquet": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
+    "data/2022/mukhiya_results.parquet": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
     "local_elections_up@42fb6190469688fd558596460aef44282e37f6d2:data/2021/gram_panchayat_head_candidate_record.parquet": "3f6e3e1cba08bd6cc012a445369f2f360b20a67bce1e7a022657d06d8263e0bd",
     "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2016/candidates.parquet": "0b73373fce5b29292c61399b3308d44b95f850f17127f5c2e6bfef3e162f65ca",
     "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2021/candidates.parquet": "8e6fda01045edf245cc0c7d46665f3496c5e41323775a3900300a9ae0b9537be"

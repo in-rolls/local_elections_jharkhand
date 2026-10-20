@@ -142,7 +142,7 @@ def district_of(pdf):
 
 
 def caste_of(text):
-    """(reserved_caste, open_category) from the column-3 text.
+    """(reserved_caste, reserved_open_seat) from the column-3 text.
 
     अनारक्षित (unreserved) and आरक्षित (reserved, category not printed, as
     Khunti does) differ only in their opening अन, and a fuzzy match of OCR's
@@ -815,7 +815,7 @@ def parse_document(pdf, records=None, rewrite_headings=True):
                 # a GP number OCR read as 00; the row is kept, the number is not
                 number = None
                 flags.append("gp_no_unread")
-            caste, open_category = caste_of(fields["caste_text"])
+            caste, reserved_open_seat = caste_of(fields["caste_text"])
             woman = woman_of(fields["caste_text"])
             if caste is None:
                 flags.append("caste_unread")
@@ -847,7 +847,7 @@ def parse_document(pdf, records=None, rewrite_headings=True):
                     "place": clean(place) if place else None,
                     "winner": fields["winner"],
                     "reserved_caste": caste,
-                    "open_category": open_category,
+                    "reserved_open_seat": reserved_open_seat,
                     "reserved_woman": woman,
                     "seat_id_raw": fields["seat_text"],
                     "row_text_raw": fields["caste_text"],
@@ -923,9 +923,9 @@ def finish(seats, names, year=2022):
             )
         raw = None
         if caste is not None and woman is not None:
-            raw = ("खुली श्रेणी के सीट" if seat["open_category"] else RAW_CASTE[caste]) + (
-                " | महिला" if woman else " | अन्य"
-            )
+            raw = (
+                "खुली श्रेणी के सीट" if seat["reserved_open_seat"] else RAW_CASTE[caste]
+            ) + (" | महिला" if woman else " | अन्य")
         rows.append(
             {
                 "state": "Jharkhand",
@@ -957,7 +957,7 @@ MUKHIYA_COLUMNS = [
     "tier_local",
     "reserved_label",
     "reserved_caste",
-    "open_category",
+    "reserved_open_seat",
     "reserved_woman",
     "winner",
     "vacant",
@@ -1014,7 +1014,7 @@ def manual_rows(year, pdf):
                 "reserved_label": LABEL_CASTE[caste]
                 + ("Woman" if woman else "Other than Woman"),
                 "reserved_caste": caste,
-                "open_category": False,
+                "reserved_open_seat": False,
                 "reserved_woman": woman,
                 "winner": row.winner,
                 "reserved_raw": RAW_CASTE[caste] + (" | महिला" if woman else " | अन्य"),
@@ -1093,7 +1093,7 @@ def review(frame, year):
                     "reserved_label": LABEL_CASTE[caste]
                     + ("Woman" if woman else "Other than Woman"),
                     "reserved_caste": caste,
-                    "open_category": False,
+                    "reserved_open_seat": False,
                     "reserved_woman": woman,
                     "winner": row.winner,
                     "reserved_raw": RAW_CASTE[caste]
@@ -1140,9 +1140,9 @@ def review(frame, year):
                 "woman_from_row_reread"
             ]
         if pd.isna(frame.at[index, "reserved_caste"]) and caste_of(text)[0] is not None:
-            caste, open_category = caste_of(text)
+            caste, reserved_open_seat = caste_of(text)
             frame.at[index, "reserved_caste"] = caste
-            frame.at[index, "open_category"] = open_category
+            frame.at[index, "reserved_open_seat"] = reserved_open_seat
             flags = [f for f in flags if f != "caste_unread"] + [
                 "caste_from_row_reread"
             ]
@@ -1157,7 +1157,7 @@ def review(frame, year):
             )
             raw_caste = (
                 "खुली श्रेणी के सीट"
-                if frame.at[index, "open_category"]
+                if frame.at[index, "reserved_open_seat"]
                 else RAW_CASTE[caste]
             )
             frame.at[index, "reserved_raw"] = raw_caste + (
@@ -1227,7 +1227,7 @@ def typed(frame):
     for column in ("reserved_woman", "vacant"):
         if column in frame:
             frame[column] = frame[column].astype("Int8")
-    frame["open_category"] = frame["open_category"].astype("boolean")
+    frame["reserved_open_seat"] = frame["reserved_open_seat"].astype("boolean")
     for column in frame.columns:
         if frame[column].dtype == object and column != "parse_flags":
             frame[column] = frame[column].astype("string")

@@ -4,7 +4,7 @@
     {
       "file": "2015/panchayat_samiti_results.parquet",
       "description": "One 2015 panchayat samiti seat per row",
-      "sha256": "bb4275e80f00c920ae960aeb6c9440837da6d0804d31cb35ae0e39d7211a56e2",
+      "sha256": "1aceb0314ae3caf6381a6b492d53f27bf88d578ed4032437ff7907432371f914",
       "rows": 3579,
       "schema": [
         {
@@ -60,7 +60,7 @@
           "type": "large_string"
         },
         {
-          "name": "open_category",
+          "name": "reserved_open_seat",
           "type": "bool"
         },
         {
@@ -124,7 +124,7 @@
     {
       "file": "2015/mukhiya_results.parquet",
       "description": "One 2015 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "87e81bc2027131785440a3d719570cb25223556b24b2b940ed003e6c36cb42f6",
+      "sha256": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
       "rows": 4137,
       "schema": [
         {
@@ -180,7 +180,7 @@
           "type": "large_string"
         },
         {
-          "name": "open_category",
+          "name": "reserved_open_seat",
           "type": "bool"
         },
         {
@@ -248,7 +248,7 @@
     {
       "file": "2022/mukhiya_results.parquet",
       "description": "One 2022 mukhiya seat per row (Form 23 OCR)",
-      "sha256": "9797a87e26dd77a8d3442f841e0d8a80b6e2c0044537aeb0b6680350db1b8a8e",
+      "sha256": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
       "rows": 4334,
       "schema": [
         {
@@ -304,7 +304,7 @@
           "type": "large_string"
         },
         {
-          "name": "open_category",
+          "name": "reserved_open_seat",
           "type": "bool"
         },
         {
@@ -372,7 +372,7 @@
     {
       "file": "2022/panchayat_samiti_results.parquet",
       "description": "One 2022 panchayat samiti seat per row",
-      "sha256": "88718515ce1b206046245a328878ed57a0d47b091e8d221130f841a5469bd314",
+      "sha256": "d971a9c40329598f5cc1e531230c8d5c57cbcf41bd07e34d63c4e1b50ac2a620",
       "rows": 4113,
       "schema": [
         {
@@ -428,7 +428,7 @@
           "type": "large_string"
         },
         {
-          "name": "open_category",
+          "name": "reserved_open_seat",
           "type": "bool"
         },
         {
@@ -821,11 +821,11 @@
     },
     {
       "file": "linkage/MANIFEST.json",
-      "sha256": "91774770ef65f969860571814b9869b95bac26e9700af60dd2bac96cb4fd0724"
+      "sha256": "588217758e9070dbf4e17efd90cb0b9fd1000fdcdd8ecbe1bdb5562665d313aa"
     },
     {
       "file": "inferred/MANIFEST.json",
-      "sha256": "26cceccf126f0660a011a9446d28994311ce3fcad803c4182f03aba289e56df8"
+      "sha256": "f457c5b8d99358fec22fd26f549457687d40884e7ddfc839de5bd316c1ac1025"
     },
     {
       "file": "interim/winner_sex/latin_indicate_0.10.0.parquet",
