@@ -15,11 +15,17 @@ from collections import Counter
 import pandas as pd
 from rapidfuzz import fuzz, process
 
-from local_elections_jharkhand.paths import DATA, RAW
+from local_elections_jharkhand.paths import (
+    BUILD,
+    CHECKS,
+    FETCH_LOG,
+    REFERENCE,
+    RELEASE,
+)
 
-LGD = DATA / "external/lgd_jharkhand_village_gp.csv"
-HANDCHECK = DATA / "checks/handcheck_2022.csv"
-KRUTI_CHECK = DATA / "checks/text_layer_2022.csv"
+LGD = REFERENCE / "lgd/lgd_jharkhand_village_gp.csv"
+HANDCHECK = CHECKS / "handcheck_2022.csv"
+KRUTI_CHECK = CHECKS / "text_layer_2022.csv"
 
 LGD_DISTRICT = {
     "East Singhbum": "East Singhbhum",
@@ -37,11 +43,11 @@ def lgd_counts():
 
 
 def page_counts():
-    with (RAW / "MANIFEST.csv").open(encoding="utf-8", newline="") as stream:
+    with FETCH_LOG.open(encoding="utf-8", newline="") as stream:
         return {
-            f"data/raw/{row['path']}": int(row["pages"])
+            row["path"]: int(row["pages"])
             for row in csv.DictReader(stream)
-            if row["pages"]  # the label files have no pages
+            if row["pages"]  # only the PDFs have pages
         }
 
 
@@ -90,7 +96,7 @@ def gp_sequence(frame):
             repeats.append(
                 {"district": district, "block_no": int(block_no), "gp_no": doubled}
             )
-    review = DATA / "2022/manual/gap_review.csv"
+    review = CHECKS / "gap_review_2022.csv"
     source_gaps = set()
     if review.exists():
         ledger = pd.read_csv(review, dtype=str)
@@ -107,7 +113,7 @@ def gp_sequence(frame):
     return {
         "name": "gp_numbers_run_unbroken_2022",
         "appeals_to": "source: the gazette's own 1..N GP numbering within a block; "
-        "each gap opened and recorded in data/2022/manual/gap_review.csv",
+        "each gap opened and recorded in data/checks/gap_review_2022.csv",
         "status": "pass" if not unexplained and not repeats else "warn",
         "missing_numbers": sum(len(g["missing"]) for g in gaps),
         "verified_source_gaps": len(source_gaps),
@@ -450,7 +456,7 @@ def text_layer():
     }
 
 
-PORTED_2015 = DATA / "2015/source/mukhiya_reservation_2015.csv"
+PORTED_2015 = BUILD / "members_2015_mukhiya.parquet"
 CLOSING_NUMBER = re.compile(r"\(\s*(\d+)\s*\)\s*$")
 
 
@@ -468,18 +474,11 @@ def printed_numbers(text):
 
 
 def ported_2015(m2015):
-    """The re-read 2015 table against the pooled repository's parse of the
-    same PDFs (kept in data/2015/source/ as a cross-check, not an output).
-    Two readings by different code; matched on (district, block, GP number)."""
-    old = pd.read_csv(PORTED_2015, dtype=str)
-    # a frozen copy, kept byte for byte, so it still carries the pooled
-    # schema's names from before the reserved_* rename
-    old = old.rename(
-        columns={
-            "caste_reservation": "reserved_caste",  # old-name
-            "woman_reserved": "reserved_woman",  # old-name
-        }
-    )
+    """The Form 23 table against parse/members_2015.py's reading of the same
+    PDFs (its mukhiya rows, kept in data/build/ as a cross-check, not an
+    output). Two readings by different code; matched on (district, block, GP
+    number)."""
+    old = pd.read_parquet(PORTED_2015)
     old["district"] = old["district"].replace(DISTRICT_2015)
     numbers = old["seat_id_raw"].map(printed_numbers)
     old["block_key"] = pd.to_numeric(old["block_no"]).fillna(
@@ -513,11 +512,11 @@ def ported_2015(m2015):
     )
     return {
         "name": "ported_2015_agreement",
-        "appeals_to": "independent: the pooled repository's 2015 parse of the same "
+        "appeals_to": "independent: parse/members_2015.py's reading of the same "
         "PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans)",
         "status": "info",
         "rows_new": len(m2015),
-        "rows_ported": len(pd.read_csv(PORTED_2015, dtype=str)),
+        "rows_ported": len(pd.read_parquet(PORTED_2015)),
         "shared_keys": len(both),
         "caste_agree": f"{caste_same}/{len(caste)}",
         "woman_agree": f"{woman_same}/{len(woman)}",
@@ -527,6 +526,42 @@ def ported_2015(m2015):
         .value_counts()
         .to_dict(),
     }
+
+
+# The State Election Commission's published 2015 seat totals.
+PUBLISHED_2015 = {"panchayat_samiti": 5423, "zila_parishad": 545}
+MEMBER_TIERS = ("ward_member", "panchayat_samiti", "zila_parishad")
+
+
+def members_2015():
+    """The 2015 ward member, panchayat samiti and zila parishad tables.
+
+    Half of every tier's seats are reserved for women, so a share far from
+    one half means the woman column is being misread (hard). Seats against the
+    published totals say how much of each tier the gazettes held.
+    """
+    out = []
+    for tier in MEMBER_TIERS:
+        frame = pd.read_parquet(RELEASE / f"2015/{tier}_results.parquet")
+        share = float(frame["reserved_woman"].mean())
+        published = PUBLISHED_2015.get(tier)
+        out.append(
+            {
+                "name": f"women_share_{tier}_2015",
+                "appeals_to": "law: Jharkhand reserves half of its panchayat "
+                "seats for women",
+                "hard": True,
+                "status": "pass" if abs(share - 0.5) <= 0.04 else "fail",
+                "rows": len(frame),
+                "districts": int(frame["district"].nunique()),
+                "woman": round(share, 4),
+                "published_seats": published,
+                "share_of_published": round(len(frame) / published, 4)
+                if published
+                else None,
+            }
+        )
+    return out
 
 
 def run_all(m2015, m2022):
@@ -545,4 +580,5 @@ def run_all(m2015, m2022):
         handcheck(m2022),
         text_layer(),
         ported_2015(m2015),
+        *members_2015(),
     ]

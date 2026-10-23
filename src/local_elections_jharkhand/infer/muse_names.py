@@ -12,8 +12,8 @@ call that would pass the authorized cap, and records provider-reported cost.
 `pilot` scores 40 labelled names (recorded sex, UP and Bihar; 20 women, 20 men)
 and 40 winners of Jharkhand ST women's seats (women by law) and reports how the
 model does on both. `all` scores every unique winner name and writes
-data/inferred/muse_spark_full_name.parquet. Calls and their accounting are kept
-under data/inferred/muse/ so the scores can be traced to the exact request.
+data/release/inferred/muse_spark_full_name.parquet. Calls and their accounting are kept
+under data/build/muse/ so the scores can be traced to the exact request.
 """
 
 import argparse
@@ -23,9 +23,10 @@ import numpy as np
 import pandas as pd
 from museclient import Client
 
-from local_elections_jharkhand.infer.winner_sex import DATA, OUT, clean, labelled
+from local_elections_jharkhand.infer.winner_sex import OUT, clean, labelled
+from local_elections_jharkhand.paths import BUILD, ROOT
 
-WORKDIR = OUT / "muse"
+WORKDIR = BUILD / "muse"
 RESULT = OUT / "muse_spark_full_name.parquet"
 BATCH = 40
 SEED = 20261019
@@ -156,7 +157,7 @@ def score_all(client):
         for n, (p, c) in got.items()
     ]
     pd.DataFrame(rows).to_parquet(RESULT, index=False)
-    print(f"wrote {RESULT.relative_to(DATA.parent)}: {len(rows)} of {len(names)} names")
+    print(f"wrote {RESULT.relative_to(ROOT)}: {len(rows)} of {len(names)} names")
 
 
 def main():

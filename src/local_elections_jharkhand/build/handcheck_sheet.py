@@ -19,8 +19,8 @@ import cv2
 import numpy as np
 import pandas as pd
 
-from local_elections_jharkhand.paths import DATA, ROOT
-from local_elections_jharkhand.year2022.ocr import DPI, DPI_BY_DOCUMENT
+from local_elections_jharkhand.extract.ocr_vision import DPI, DPI_BY_DOCUMENT
+from local_elections_jharkhand.paths import RELEASE, ROOT
 
 SEED = 20221018
 FIELDS = [
@@ -61,7 +61,7 @@ def main():
     parser.add_argument("--n", type=int, default=30)
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
-    table = pd.read_parquet(DATA / "2022/mukhiya_results.parquet")
+    table = pd.read_parquet(RELEASE / "2022/mukhiya_results.parquet")
     sample = table.sample(args.n, random_state=SEED).reset_index(drop=True)
     strips = []
     for index, row in sample.iterrows():

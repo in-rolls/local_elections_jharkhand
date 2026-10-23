@@ -7,7 +7,7 @@ for one district's printing must not silently re-read another's.
 
 import pytest
 
-from local_elections_jharkhand.year2022.parse import (
+from local_elections_jharkhand.parse.form23 import (
     caste_of,
     clean_winner,
     post_of,

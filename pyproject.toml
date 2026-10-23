@@ -37,6 +37,10 @@ muse = [
 # Apple Vision (on-device) for reading the scans; macOS only, so parsing the
 # cached OCR does not need it.
 ocr = ["ocrmac>=1.0 ; sys_platform == 'darwin'"]
+# Surya through savitr, for the 2015 scans (extract/ocr_surya_2015.py); Apple
+# Silicon only. The parser reads the committed cache, so only regenerating it
+# needs this group.
+surya = ["savitr==0.3.0"]
 
 [tool.uv]
 conflicts = [[{ group = "infer" }, { group = "muse" }]]

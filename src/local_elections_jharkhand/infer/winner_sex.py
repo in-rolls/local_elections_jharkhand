@@ -11,7 +11,7 @@ combiner, metrics and validation are unchanged. What changed:
 - the label files are read from data/raw/labels/<repo>/<commit>/, where they
   are committed byte-identical to the pinned commits (fetched from GitHub at
   that commit, and checked, if absent), instead of from a sibling checkout;
-- the romanization cache is committed under data/interim/winner_sex/;
+- the romanization cache is committed under data/build/winner_sex/;
 - the last-word markers add the Jharkhand forms found by tabulating indicate's
   romanization of these winners (below);
 - the target checks are Jharkhand's: Form 23 prints the seat's reservation,
@@ -21,7 +21,7 @@ combiner, metrics and validation are unchanged. What changed:
   Santal names.
 
 Form 23 records no winner sex, so it is inferred from the printed Devanagari
-name and kept apart from the source tables: outputs live in data/inferred/ and
+name and kept apart from the source tables: outputs live in data/release/inferred/ and
 are never written into the seat tables.
 
 Three pieces of evidence, combined by a logistic regression:
@@ -53,14 +53,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import brier_score_loss, log_loss, roc_auc_score
 
-from local_elections_jharkhand.paths import DATA
+from local_elections_jharkhand.paths import BUILD, RAW, RELEASE, ROOT
 
-OUT = DATA / "inferred"
-CACHE = DATA / "interim" / "winner_sex"
-LABEL_ROOT = DATA / "raw" / "labels"
+OUT = RELEASE / "inferred"
+CACHE = BUILD / "winner_sex"
+LABEL_ROOT = RAW / "labels"
 SOURCES = {
-    2015: DATA / "2015" / "mukhiya_results.parquet",
-    2022: DATA / "2022" / "mukhiya_results.parquet",
+    2015: RELEASE / "2015/mukhiya_results.parquet",
+    2022: RELEASE / "2022/mukhiya_results.parquet",
 }
 # the seat tables' key plus where the row sits on its page: (district,
 # block_no, gp_no) repeats on the rows the tables flag duplicate_key
@@ -492,7 +492,7 @@ def build():
         ),
         "packages": {p: version(p) for p in ("naampy", "indicate", "scikit-learn")},
         "inputs": {
-            **{str(p.relative_to(DATA.parent)): sha(p) for p in SOURCES.values()},
+            **{str(p.relative_to(ROOT)): sha(p) for p in SOURCES.values()},
             **label_inputs,
         },
         "code_sha256": sha(__file__),

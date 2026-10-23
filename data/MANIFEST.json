@@ -2,128 +2,8 @@
   "format_version": 1,
   "files": [
     {
-      "file": "2015/panchayat_samiti_results.parquet",
-      "description": "One 2015 panchayat samiti seat per row",
-      "sha256": "1aceb0314ae3caf6381a6b492d53f27bf88d578ed4032437ff7907432371f914",
-      "rows": 3579,
-      "schema": [
-        {
-          "name": "state",
-          "type": "large_string"
-        },
-        {
-          "name": "year",
-          "type": "int16"
-        },
-        {
-          "name": "district",
-          "type": "large_string"
-        },
-        {
-          "name": "district_no",
-          "type": "int16"
-        },
-        {
-          "name": "block",
-          "type": "large_string"
-        },
-        {
-          "name": "block_no",
-          "type": "int16"
-        },
-        {
-          "name": "block_source",
-          "type": "large_string"
-        },
-        {
-          "name": "block_label",
-          "type": "large_string"
-        },
-        {
-          "name": "seat_no",
-          "type": "int16"
-        },
-        {
-          "name": "tier",
-          "type": "large_string"
-        },
-        {
-          "name": "tier_local",
-          "type": "large_string"
-        },
-        {
-          "name": "reserved_label",
-          "type": "large_string"
-        },
-        {
-          "name": "reserved_caste",
-          "type": "large_string"
-        },
-        {
-          "name": "reserved_open_seat",
-          "type": "bool"
-        },
-        {
-          "name": "reserved_woman",
-          "type": "int8"
-        },
-        {
-          "name": "winner",
-          "type": "large_string"
-        },
-        {
-          "name": "reserved_raw",
-          "type": "large_string"
-        },
-        {
-          "name": "seat_id_raw",
-          "type": "large_string"
-        },
-        {
-          "name": "row_text_raw",
-          "type": "large_string"
-        },
-        {
-          "name": "ocr_min_confidence",
-          "type": "double"
-        },
-        {
-          "name": "parse_flags",
-          "type": "list<element: string>"
-        },
-        {
-          "name": "entry_method",
-          "type": "large_string"
-        },
-        {
-          "name": "script",
-          "type": "large_string"
-        },
-        {
-          "name": "source_path",
-          "type": "large_string"
-        },
-        {
-          "name": "source_page",
-          "type": "int16"
-        },
-        {
-          "name": "row_y0",
-          "type": "int16"
-        },
-        {
-          "name": "row_y1",
-          "type": "int16"
-        },
-        {
-          "name": "page_rotation",
-          "type": "int16"
-        }
-      ]
-    },
-    {
-      "file": "2015/mukhiya_results.parquet",
-      "description": "One 2015 mukhiya seat per row (Form 23 OCR)",
+      "file": "release/2015/mukhiya_results.parquet",
+      "description": "A 2015 mukhiya seat (Form 23 OCR)",
       "sha256": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
       "rows": 4137,
       "schema": [
@@ -246,8 +126,284 @@
       ]
     },
     {
-      "file": "2022/mukhiya_results.parquet",
-      "description": "One 2022 mukhiya seat per row (Form 23 OCR)",
+      "file": "release/2015/ward_member_results.parquet",
+      "description": "A 2015 gram panchayat ward seat",
+      "sha256": "6a65af319c465996c32c3e2737d0aadbad9ed1d3b581fd210c92a8c1a90d807e",
+      "rows": 19843,
+      "schema": [
+        {
+          "name": "state",
+          "type": "string"
+        },
+        {
+          "name": "year",
+          "type": "int16"
+        },
+        {
+          "name": "district",
+          "type": "string"
+        },
+        {
+          "name": "block",
+          "type": "string"
+        },
+        {
+          "name": "block_no",
+          "type": "string"
+        },
+        {
+          "name": "gram_panchayat",
+          "type": "string"
+        },
+        {
+          "name": "gp_no",
+          "type": "string"
+        },
+        {
+          "name": "ward_no",
+          "type": "string"
+        },
+        {
+          "name": "seat_no",
+          "type": "string"
+        },
+        {
+          "name": "seat_id_raw",
+          "type": "string"
+        },
+        {
+          "name": "seat_from_image",
+          "type": "bool"
+        },
+        {
+          "name": "tier",
+          "type": "string"
+        },
+        {
+          "name": "tier_local",
+          "type": "string"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "string"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "reserved_raw",
+          "type": "string"
+        },
+        {
+          "name": "winner",
+          "type": "string"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "script",
+          "type": "string"
+        },
+        {
+          "name": "source_path",
+          "type": "string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        }
+      ]
+    },
+    {
+      "file": "release/2015/panchayat_samiti_results.parquet",
+      "description": "One 2015 panchayat samiti seat per row",
+      "sha256": "4e957c5cf0567094c40d7d47f9f8fb951aa556c43695852460119414dbc3a5bf",
+      "rows": 5171,
+      "schema": [
+        {
+          "name": "state",
+          "type": "string"
+        },
+        {
+          "name": "year",
+          "type": "int16"
+        },
+        {
+          "name": "district",
+          "type": "string"
+        },
+        {
+          "name": "block",
+          "type": "string"
+        },
+        {
+          "name": "block_no",
+          "type": "string"
+        },
+        {
+          "name": "gram_panchayat",
+          "type": "string"
+        },
+        {
+          "name": "gp_no",
+          "type": "string"
+        },
+        {
+          "name": "ward_no",
+          "type": "string"
+        },
+        {
+          "name": "seat_no",
+          "type": "string"
+        },
+        {
+          "name": "seat_id_raw",
+          "type": "string"
+        },
+        {
+          "name": "seat_from_image",
+          "type": "bool"
+        },
+        {
+          "name": "tier",
+          "type": "string"
+        },
+        {
+          "name": "tier_local",
+          "type": "string"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "string"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "reserved_raw",
+          "type": "string"
+        },
+        {
+          "name": "winner",
+          "type": "string"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "script",
+          "type": "string"
+        },
+        {
+          "name": "source_path",
+          "type": "string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        }
+      ]
+    },
+    {
+      "file": "release/2015/zila_parishad_results.parquet",
+      "description": "A 2015 zila parishad seat",
+      "sha256": "aef457bea75ff6339e89132dcd0f8ae4784a4fd3a35129ee4802482e5d1837fe",
+      "rows": 226,
+      "schema": [
+        {
+          "name": "state",
+          "type": "string"
+        },
+        {
+          "name": "year",
+          "type": "int16"
+        },
+        {
+          "name": "district",
+          "type": "string"
+        },
+        {
+          "name": "block",
+          "type": "string"
+        },
+        {
+          "name": "block_no",
+          "type": "string"
+        },
+        {
+          "name": "gram_panchayat",
+          "type": "string"
+        },
+        {
+          "name": "gp_no",
+          "type": "string"
+        },
+        {
+          "name": "ward_no",
+          "type": "string"
+        },
+        {
+          "name": "seat_no",
+          "type": "string"
+        },
+        {
+          "name": "seat_id_raw",
+          "type": "string"
+        },
+        {
+          "name": "seat_from_image",
+          "type": "bool"
+        },
+        {
+          "name": "tier",
+          "type": "string"
+        },
+        {
+          "name": "tier_local",
+          "type": "string"
+        },
+        {
+          "name": "reserved_caste",
+          "type": "string"
+        },
+        {
+          "name": "reserved_woman",
+          "type": "int8"
+        },
+        {
+          "name": "reserved_raw",
+          "type": "string"
+        },
+        {
+          "name": "winner",
+          "type": "string"
+        },
+        {
+          "name": "vacant",
+          "type": "int8"
+        },
+        {
+          "name": "script",
+          "type": "string"
+        },
+        {
+          "name": "source_path",
+          "type": "string"
+        },
+        {
+          "name": "source_page",
+          "type": "int16"
+        }
+      ]
+    },
+    {
+      "file": "release/2022/mukhiya_results.parquet",
+      "description": "A 2022 mukhiya seat (Form 23 OCR)",
       "sha256": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
       "rows": 4334,
       "schema": [
@@ -370,7 +526,7 @@
       ]
     },
     {
-      "file": "2022/panchayat_samiti_results.parquet",
+      "file": "release/2022/panchayat_samiti_results.parquet",
       "description": "One 2022 panchayat samiti seat per row",
       "sha256": "d971a9c40329598f5cc1e531230c8d5c57cbcf41bd07e34d63c4e1b50ac2a620",
       "rows": 4113,
@@ -490,7 +646,7 @@
       ]
     },
     {
-      "file": "linkage/gp_2015_2022.parquet",
+      "file": "release/linkage/gp_2015_2022.parquet",
       "description": "A 2015 mukhiya seat linked to its 2022 seat",
       "sha256": "8ac41eb2150bdc4df18ed0fb9b74c4cb41b99cd48bb0ca9f1ccb40dd39f2da93",
       "rows": 3904,
@@ -574,7 +730,7 @@
       ]
     },
     {
-      "file": "inferred/winner_woman_probability_2015.parquet",
+      "file": "release/inferred/winner_woman_probability_2015.parquet",
       "description": "2015 winner, P(woman)",
       "sha256": "3421730006bb42e771f2d8a1dfc2eb01018b766708ea549b5ad742ba1e2299a2",
       "rows": 4104,
@@ -674,7 +830,7 @@
       ]
     },
     {
-      "file": "inferred/winner_woman_probability_2022.parquet",
+      "file": "release/inferred/winner_woman_probability_2022.parquet",
       "description": "2022 winner, P(woman)",
       "sha256": "e21048c3a1c3aa1beb3b1ea7e068bc5778b0bf8debb58406eee679152449dfd7",
       "rows": 4330,
@@ -776,16 +932,44 @@
   ],
   "inputs": [
     {
-      "file": "raw/MANIFEST.csv",
-      "sha256": "ce7ae1ca78a1c5fe86acbf99f0b841c3963e7c48c1dd67cd1ad47789a0ee1238"
+      "file": "raw/fetch_log.csv",
+      "sha256": "209e773877c72bbdedb9d8c0648d87109b115fb98590438f9a482f08e1b48b97"
     },
     {
-      "file": "2015/source/mukhiya_reservation_2015.csv",
-      "sha256": "12e51bc08bf899ba373ed23716a9c6c18b42e0307090a88dba8d4d5bee2cb72d"
-    },
-    {
-      "file": "external/lgd_jharkhand_village_gp.csv",
+      "file": "reference/lgd/lgd_jharkhand_village_gp.csv",
       "sha256": "f4b8c27c2a42c089821964aae84329c6038fba0ec7ecd4019386a59869d4a3a8"
+    },
+    {
+      "file": "manual/2022/lohardaga_mukhiya.csv",
+      "sha256": "6ce0387c95c5cc97f9cf4e6674e076dc090203a80dbef9b5d2bc04cc84a02a21"
+    },
+    {
+      "file": "manual/2022/identifier_corrections.csv",
+      "sha256": "c5732b07bd49a5254405cd37c051c2eec3d26ee3f4798f9caeaf70f7a34786fd"
+    },
+    {
+      "file": "manual/2022/missing_rows.csv",
+      "sha256": "686f73cce7772deb9d85c1837a33b816607397b2efcaf0a4db7fb618a5e396a6"
+    },
+    {
+      "file": "manual/block_crosswalk_2015_2022.csv",
+      "sha256": "afcdb0dff3cdbe9bbd9c3724d03133fee21b8fcb34409fe2c333504afc4ca931"
+    },
+    {
+      "file": "manual/linkage_review_2015_2022.csv",
+      "sha256": "832459325ad58ec13717042b1aa4f50b397f3d880c524a99d61222b3aca07ccd"
+    },
+    {
+      "file": "extracted/image_seats_2015.csv",
+      "sha256": "6de021ff2561cd9a4b62507a9d34ea9afa9e25cee71e28c7c454355a160cadc5"
+    },
+    {
+      "file": "build/members_2015_mukhiya.parquet",
+      "sha256": "98946f4e7984f888a611a5f8d1321720e473842c0dd6807c84edb3ccdb803f12"
+    },
+    {
+      "file": "build/winner_sex/latin_indicate_0.10.0.parquet",
+      "sha256": "d1fd59e32d55514c2bc858d5a8a685e14162051f67c0ff89af3192bb4d8d2ff5"
     },
     {
       "file": "checks/handcheck_2022.csv",
@@ -796,50 +980,31 @@
       "sha256": "79940951611c3ee845ec98f2cbe4782e49efe8f14a48d20097d8734b29ffb18f"
     },
     {
-      "file": "2022/manual/lohardaga_mukhiya.csv",
-      "sha256": "6ce0387c95c5cc97f9cf4e6674e076dc090203a80dbef9b5d2bc04cc84a02a21"
-    },
-    {
-      "file": "2022/manual/identifier_corrections.csv",
-      "sha256": "c5732b07bd49a5254405cd37c051c2eec3d26ee3f4798f9caeaf70f7a34786fd"
-    },
-    {
-      "file": "2022/manual/missing_rows.csv",
-      "sha256": "686f73cce7772deb9d85c1837a33b816607397b2efcaf0a4db7fb618a5e396a6"
-    },
-    {
-      "file": "2022/manual/gap_review.csv",
+      "file": "checks/gap_review_2022.csv",
       "sha256": "6d8385b1e77be2bb8fd293f8d167545f4cd706df8a79c7d30ef0baa78ad755f0"
     },
     {
-      "file": "linkage/block_crosswalk_2015_2022.csv",
-      "sha256": "afcdb0dff3cdbe9bbd9c3724d03133fee21b8fcb34409fe2c333504afc4ca931"
+      "file": "release/linkage/MANIFEST.json",
+      "sha256": "661e28908f473240859f9faea46e99824e21ccb308e38786aeb33cb864ec20c2"
     },
     {
-      "file": "linkage/review_2015_2022.csv",
-      "sha256": "832459325ad58ec13717042b1aa4f50b397f3d880c524a99d61222b3aca07ccd"
+      "file": "release/inferred/MANIFEST.json",
+      "sha256": "d42e212f7b8f32c74efc8a9d8c8813042a3b11bf55cd70dacdd6101575f61e85"
     },
     {
-      "file": "linkage/MANIFEST.json",
-      "sha256": "588217758e9070dbf4e17efd90cb0b9fd1000fdcdd8ecbe1bdb5562665d313aa"
-    },
-    {
-      "file": "inferred/MANIFEST.json",
-      "sha256": "f457c5b8d99358fec22fd26f549457687d40884e7ddfc839de5bd316c1ac1025"
-    },
-    {
-      "file": "interim/winner_sex/latin_indicate_0.10.0.parquet",
-      "sha256": "d1fd59e32d55514c2bc858d5a8a685e14162051f67c0ff89af3192bb4d8d2ff5"
-    },
-    {
-      "file": "interim/ocr/2015/*.jsonl.gz",
+      "file": "extracted/ocr_vision/2015/*.jsonl.gz",
       "files": 119,
       "sha256_of_hashes": "d4125455dd0b6f8490440486721f5b506eed0638d1fc457a51f3ed8e19b4d227"
     },
     {
-      "file": "interim/ocr/2022/*.jsonl.gz",
+      "file": "extracted/ocr_vision/2022/*.jsonl.gz",
       "files": 26,
       "sha256_of_hashes": "f04f19133a574bb4fbeaa16eb1aa78447f770d39f63951273f05fde7fa8cf81f"
+    },
+    {
+      "file": "extracted/ocr_surya_2015/*.txt",
+      "files": 117,
+      "sha256_of_hashes": "ebe63795b052f9a3d305e8959103455cc1045baefc249e20d201572b2ce69083"
     }
   ],
   "checks": [
@@ -1153,7 +1318,7 @@
     },
     {
       "name": "gp_numbers_run_unbroken_2022",
-      "appeals_to": "source: the gazette's own 1..N GP numbering within a block; each gap opened and recorded in data/2022/manual/gap_review.csv",
+      "appeals_to": "source: the gazette's own 1..N GP numbering within a block; each gap opened and recorded in data/checks/gap_review_2022.csv",
       "status": "pass",
       "missing_numbers": 10,
       "verified_source_gaps": 10,
@@ -1704,19 +1869,52 @@
     },
     {
       "name": "ported_2015_agreement",
-      "appeals_to": "independent: the pooled repository's 2015 parse of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans)",
+      "appeals_to": "independent: parse/members_2015.py's reading of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans)",
       "status": "info",
       "rows_new": 4137,
-      "rows_ported": 3972,
-      "shared_keys": 3645,
-      "caste_agree": "3609/3635",
-      "woman_agree": "3608/3613",
-      "winner_char_agreement": 0.9725,
-      "winner_exact": "3252/3645",
+      "rows_ported": 3974,
+      "shared_keys": 3647,
+      "caste_agree": "3611/3637",
+      "woman_agree": "3610/3615",
+      "winner_char_agreement": 0.9729,
+      "winner_exact": "3285/3647",
       "caste_disagreements_by_district": {
         "Jamtara": 25,
         "Giridih": 1
       }
+    },
+    {
+      "name": "women_share_ward_member_2015",
+      "appeals_to": "law: Jharkhand reserves half of its panchayat seats for women",
+      "hard": true,
+      "status": "pass",
+      "rows": 19843,
+      "districts": 11,
+      "woman": 0.5273,
+      "published_seats": null,
+      "share_of_published": null
+    },
+    {
+      "name": "women_share_panchayat_samiti_2015",
+      "appeals_to": "law: Jharkhand reserves half of its panchayat seats for women",
+      "hard": true,
+      "status": "pass",
+      "rows": 5171,
+      "districts": 24,
+      "woman": 0.5219,
+      "published_seats": 5423,
+      "share_of_published": 0.9535
+    },
+    {
+      "name": "women_share_zila_parishad_2015",
+      "appeals_to": "law: Jharkhand reserves half of its panchayat seats for women",
+      "hard": true,
+      "status": "pass",
+      "rows": 226,
+      "districts": 11,
+      "woman": 0.531,
+      "published_seats": 545,
+      "share_of_published": 0.4147
     }
   ]
 }

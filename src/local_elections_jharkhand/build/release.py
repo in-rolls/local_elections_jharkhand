@@ -21,35 +21,50 @@ import pandas as pd
 import pyarrow.parquet as pq
 
 from local_elections_jharkhand.build import checks
-from local_elections_jharkhand.paths import DATA, ROOT
+from local_elections_jharkhand.paths import DATA, RELEASE, ROOT
 
 MANIFEST = DATA / "MANIFEST.json"
 README = DATA / "README.md"
 RELEASED = {
-    "2015/panchayat_samiti_results.parquet": "One 2015 panchayat samiti seat per row",
-    "2015/mukhiya_results.parquet": "One 2015 mukhiya seat per row (Form 23 OCR)",
-    "2022/mukhiya_results.parquet": "One 2022 mukhiya seat per row (Form 23 OCR)",
-    "2022/panchayat_samiti_results.parquet": "One 2022 panchayat samiti seat per row",
-    "linkage/gp_2015_2022.parquet": "A 2015 mukhiya seat linked to its 2022 seat",
-    "inferred/winner_woman_probability_2015.parquet": "2015 winner, P(woman)",
-    "inferred/winner_woman_probability_2022.parquet": "2022 winner, P(woman)",
+    "release/2015/mukhiya_results.parquet": "A 2015 mukhiya seat (Form 23 OCR)",
+    "release/2015/ward_member_results.parquet": "A 2015 gram panchayat ward seat",
+    "release/2015/panchayat_samiti_results.parquet": (
+        "One 2015 panchayat samiti seat per row"
+    ),
+    "release/2015/zila_parishad_results.parquet": "A 2015 zila parishad seat",
+    "release/2022/mukhiya_results.parquet": "A 2022 mukhiya seat (Form 23 OCR)",
+    "release/2022/panchayat_samiti_results.parquet": (
+        "One 2022 panchayat samiti seat per row"
+    ),
+    "release/linkage/gp_2015_2022.parquet": (
+        "A 2015 mukhiya seat linked to its 2022 seat"
+    ),
+    "release/inferred/winner_woman_probability_2015.parquet": "2015 winner, P(woman)",
+    "release/inferred/winner_woman_probability_2022.parquet": "2022 winner, P(woman)",
 }
 INPUTS = [
-    "raw/MANIFEST.csv",
-    "2015/source/mukhiya_reservation_2015.csv",
-    "external/lgd_jharkhand_village_gp.csv",
+    "raw/fetch_log.csv",
+    "reference/lgd/lgd_jharkhand_village_gp.csv",
+    "manual/2022/lohardaga_mukhiya.csv",
+    "manual/2022/identifier_corrections.csv",
+    "manual/2022/missing_rows.csv",
+    "manual/block_crosswalk_2015_2022.csv",
+    "manual/linkage_review_2015_2022.csv",
+    "extracted/image_seats_2015.csv",
+    "build/members_2015_mukhiya.parquet",
+    "build/winner_sex/latin_indicate_0.10.0.parquet",
     "checks/handcheck_2022.csv",
     "checks/text_layer_2022.csv",
-    "2022/manual/lohardaga_mukhiya.csv",
-    "2022/manual/identifier_corrections.csv",
-    "2022/manual/missing_rows.csv",
-    "2022/manual/gap_review.csv",
-    "linkage/block_crosswalk_2015_2022.csv",
-    "linkage/review_2015_2022.csv",
-    "linkage/MANIFEST.json",
-    "inferred/MANIFEST.json",
-    "interim/winner_sex/latin_indicate_0.10.0.parquet",
+    "checks/gap_review_2022.csv",
+    "release/linkage/MANIFEST.json",
+    "release/inferred/MANIFEST.json",
 ]
+# Caches of many files, recorded as a count and a hash of their hashes.
+CACHES = {
+    "extracted/ocr_vision/2015": "*.jsonl.gz",
+    "extracted/ocr_vision/2022": "*.jsonl.gz",
+    "extracted/ocr_surya_2015": "*.txt",
+}
 
 
 def digest(path):
@@ -75,14 +90,14 @@ def inputs():
         path = DATA / relative
         if path.exists():
             out.append({"file": relative, "sha256": digest(path)})
-    for year in ("2015", "2022"):
-        ocr = sorted((DATA / f"interim/ocr/{year}").glob("*.jsonl.gz"))
+    for folder, pattern in CACHES.items():
+        files = sorted((DATA / folder).glob(pattern))
         out.append(
             {
-                "file": f"interim/ocr/{year}/*.jsonl.gz",
-                "files": len(ocr),
+                "file": f"{folder}/{pattern}",
+                "files": len(files),
                 "sha256_of_hashes": hashlib.sha256(
-                    "".join(digest(p) for p in ocr).encode()
+                    "".join(digest(p) for p in files).encode()
                 ).hexdigest(),
             }
         )
@@ -90,8 +105,8 @@ def inputs():
 
 
 def load():
-    m2015 = pd.read_parquet(DATA / "2015/mukhiya_results.parquet")
-    m2022 = pd.read_parquet(DATA / "2022/mukhiya_results.parquet")
+    m2015 = pd.read_parquet(RELEASE / "2015/mukhiya_results.parquet")
+    m2022 = pd.read_parquet(RELEASE / "2022/mukhiya_results.parquet")
     return m2015, m2022
 
 

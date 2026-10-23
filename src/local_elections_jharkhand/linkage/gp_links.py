@@ -5,7 +5,7 @@ who wins in 2022. A wrong link adds noise and can bias that comparison; a
 missing link only costs sample. So a doubtful pair is left unlinked.
 
 Blocking. A pair is a candidate only inside a block the hand-coded crosswalk
-(data/linkage/block_crosswalk_2015_2022.csv) says is the same in both years.
+(data/manual/block_crosswalk_2015_2022.csv) says is the same in both years.
 Its edges are joined into connected components, so a split (Latehar 2015
 blocks 1 and 2 gave GPs to 2022's new block 4) forms one group; preclink's
 Crosswalk maps each year's block key to its component. Blocks the crosswalk
@@ -45,7 +45,7 @@ other: some 2015 text-layer cells cut names off ("तेतं" for तेंत
 Decision: name threshold, then preclink's margin filter (a left GP whose best
 and second-best candidates score within MARGIN is dropped), then the
 Hungarian one-to-one assignment. NAME_THRESHOLD was chosen from the hand
-review in data/linkage/review_2015_2022.csv.
+review in data/manual/linkage_review_2015_2022.csv.
 
     python -m local_elections_jharkhand.linkage.gp_links
 """
@@ -65,14 +65,14 @@ from preclink import Pipeline
 from preclink.block.crosswalk import Crosswalk
 from rapidfuzz import fuzz
 
-from local_elections_jharkhand.paths import DATA
+from local_elections_jharkhand.paths import MANUAL, RELEASE, ROOT
 
-CROSSWALK = DATA / "linkage/block_crosswalk_2015_2022.csv"
-REVIEW = DATA / "linkage/review_2015_2022.csv"
-OUT = DATA / "linkage"
+CROSSWALK = MANUAL / "block_crosswalk_2015_2022.csv"
+REVIEW = MANUAL / "linkage_review_2015_2022.csv"
+OUT = RELEASE / "linkage"
 SOURCES = {
-    2015: DATA / "2015/mukhiya_results.parquet",
-    2022: DATA / "2022/mukhiya_results.parquet",
+    2015: RELEASE / "2015/mukhiya_results.parquet",
+    2022: RELEASE / "2022/mukhiya_results.parquet",
 }
 
 NAME_WEIGHT, SERIAL_WEIGHT = 0.97, 0.03
@@ -489,7 +489,7 @@ def main():
             "weights": {"name": NAME_WEIGHT, "serial": SERIAL_WEIGHT},
         },
         "inputs": {
-            str(p.relative_to(DATA.parent)): sha(p)
+            str(p.relative_to(ROOT)): sha(p)
             for p in [
                 *SOURCES.values(),
                 CROSSWALK,
