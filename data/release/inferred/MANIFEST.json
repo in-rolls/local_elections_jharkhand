@@ -2,12 +2,12 @@
   "purpose": "Name-based probability that an elected mukhiya is a woman, for aggregate use only.",
   "packages": {
     "naampy": "0.11.0",
-    "indicate": "0.10.0",
+    "indicate": "0.12.0",
     "scikit-learn": "1.9.1"
   },
   "inputs": {
-    "data/release/2015/mukhiya_results.parquet": "3dfb9b4f100734c4021012742a94eeb83ff197eee66e1f3da25792940af3e446",
-    "data/release/2022/mukhiya_results.parquet": "fafef1c7fc082d0d2c5d0f86a47b60c797a5f5ae4febc917c73dcf8167eb9926",
+    "data/release/2015/mukhiya_results.parquet": "dcd87613248412a99e728f8eb3473a3eb20334e18990adb710a2e68cd8b011d4",
+    "data/release/2022/mukhiya_results.parquet": "5d20090c5238e8a09a5837215bcb11074c0254f07a738e53c6dc59d9bc050a67",
     "local_elections_up@42fb6190469688fd558596460aef44282e37f6d2:data/2021/gram_panchayat_head_candidate_record.parquet": "3f6e3e1cba08bd6cc012a445369f2f360b20a67bce1e7a022657d06d8263e0bd",
     "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2016/candidates.parquet": "0b73373fce5b29292c61399b3308d44b95f850f17127f5c2e6bfef3e162f65ca",
     "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2021/candidates.parquet": "8e6fda01045edf245cc0c7d46665f3496c5e41323775a3900300a9ae0b9537be"
@@ -176,11 +176,11 @@
   "files": {
     "winner_woman_probability_2015.parquet": {
       "rows": 4109,
-      "sha256": "cdbf5e9786d5d6e6b1e8bc53a66896d1e41e1da17fe06c924748f10a6b576810"
+      "sha256": "f5aefca9713a69ff42e192bd0c944d3c17dc02d0924c3607435833f1a458aa80"
     },
     "winner_woman_probability_2022.parquet": {
       "rows": 4330,
-      "sha256": "c500ffa15c4808067432b57156070dd78b09e420237bcc17427806ac82daa9c9"
+      "sha256": "04684314bb9491b983bf222f424d64a4582fd6de075d4274c9da37dd8c657746"
     }
   }
 }

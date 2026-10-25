@@ -16,6 +16,7 @@ import hashlib
 import json
 import re
 import sys
+from importlib.metadata import version
 
 import pandas as pd
 import pyarrow.parquet as pq
@@ -52,7 +53,8 @@ INPUTS = [
     "manual/linkage_review_2015_2022.csv",
     "extracted/image_seats_2015.csv",
     "build/members_2015_mukhiya.parquet",
-    "build/winner_sex/latin_indicate_0.10.0.parquet",
+    # the romanization cache is named for the indicate version that wrote it
+    f"build/winner_sex/latin_indicate_{version('indicate')}.parquet",
     "checks/handcheck_2022.csv",
     "checks/text_layer_2022.csv",
     "checks/gap_review_2022.csv",

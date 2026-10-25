@@ -233,4 +233,4 @@ def split_unopposed(name):
     if not isinstance(name, str) or not name:
         return name, None
     bare = re.sub(r"\s+", " ", UNOPPOSED.sub(" ", name)).strip()
-    return bare, (True if bare != name.strip() else None)
+    return bare, (True if UNOPPOSED.search(name) else None)

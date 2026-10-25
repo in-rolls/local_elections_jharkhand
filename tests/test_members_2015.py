@@ -172,3 +172,5 @@ def test_unopposed_mark_leaves_the_name():
         "पद्मवती देवी (उर्फ पद्मवती हेम्ब्रम)",
         None,
     )
+    # spacing alone is not the mark
+    assert split_unopposed("राम  कुमार") == ("राम कुमार", None)

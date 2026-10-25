@@ -4,7 +4,7 @@
     {
       "file": "release/2015/mukhiya_results.parquet",
       "description": "A 2015 mukhiya seat (Form 23 OCR)",
-      "sha256": "3dfb9b4f100734c4021012742a94eeb83ff197eee66e1f3da25792940af3e446",
+      "sha256": "dcd87613248412a99e728f8eb3473a3eb20334e18990adb710a2e68cd8b011d4",
       "rows": 4142,
       "schema": [
         {
@@ -420,7 +420,7 @@
     {
       "file": "release/2022/mukhiya_results.parquet",
       "description": "A 2022 mukhiya seat (Form 23 OCR)",
-      "sha256": "fafef1c7fc082d0d2c5d0f86a47b60c797a5f5ae4febc917c73dcf8167eb9926",
+      "sha256": "5d20090c5238e8a09a5837215bcb11074c0254f07a738e53c6dc59d9bc050a67",
       "rows": 4334,
       "schema": [
         {
@@ -548,7 +548,7 @@
     {
       "file": "release/2022/panchayat_samiti_results.parquet",
       "description": "One 2022 panchayat samiti seat per row",
-      "sha256": "c66807d606b379193a310c35099ed27574e167cf5d99e611532aee043f02c41d",
+      "sha256": "96774cbcc0957c000c7927c81c361b341b9341b2e1c241cb0c012ff79447d53f",
       "rows": 4113,
       "schema": [
         {
@@ -672,7 +672,7 @@
     {
       "file": "release/linkage/gp_2015_2022.parquet",
       "description": "A 2015 mukhiya seat linked to its 2022 seat",
-      "sha256": "a8810f95d8760e73f4a659501ba4fd9f025b49f51806b0ced1392738de61e0b6",
+      "sha256": "2244d486d114a69096a97dbb62197be214eadd5db2a834de76e9801b4001dd40",
       "rows": 3938,
       "schema": [
         {
@@ -756,7 +756,7 @@
     {
       "file": "release/inferred/winner_woman_probability_2015.parquet",
       "description": "2015 winner, P(woman)",
-      "sha256": "cdbf5e9786d5d6e6b1e8bc53a66896d1e41e1da17fe06c924748f10a6b576810",
+      "sha256": "f5aefca9713a69ff42e192bd0c944d3c17dc02d0924c3607435833f1a458aa80",
       "rows": 4109,
       "schema": [
         {
@@ -856,7 +856,7 @@
     {
       "file": "release/inferred/winner_woman_probability_2022.parquet",
       "description": "2022 winner, P(woman)",
-      "sha256": "c500ffa15c4808067432b57156070dd78b09e420237bcc17427806ac82daa9c9",
+      "sha256": "04684314bb9491b983bf222f424d64a4582fd6de075d4274c9da37dd8c657746",
       "rows": 4330,
       "schema": [
         {
@@ -992,8 +992,8 @@
       "sha256": "f3441aaea4f3a70797dd4b8f63bce29486d203446e03640045a2f2f19e9725f0"
     },
     {
-      "file": "build/winner_sex/latin_indicate_0.10.0.parquet",
-      "sha256": "e7f60059c8b2fc145a6fe9c5de8b2191ae312f65a9b094c56af3755337dc38ac"
+      "file": "build/winner_sex/latin_indicate_0.12.0.parquet",
+      "sha256": "787ab366b06ade9f6fa8f0e8bf7f8f6fa2d060fd4eb3527192f0bac5afe6de80"
     },
     {
       "file": "checks/handcheck_2022.csv",
@@ -1009,11 +1009,11 @@
     },
     {
       "file": "release/linkage/MANIFEST.json",
-      "sha256": "4b0fbad6a01dda1ea519911229c4145a13845844c4a43b388f1c39d245e3e666"
+      "sha256": "0f28fe40b89f211cb046ccfc85996bd407ffa99e1ff1fec3a58e43a7243387d8"
     },
     {
       "file": "release/inferred/MANIFEST.json",
-      "sha256": "3cebb6d56d4b24c2afd615da3c8cac6c9b2f3871cd05b89f6a21725fb3a2e76c"
+      "sha256": "36003bb9fc02d8143d292b0bb6134b076cea28c739c853a774ef09ff7766bcec"
     },
     {
       "file": "extracted/ocr_vision/2015/*.jsonl.gz",
