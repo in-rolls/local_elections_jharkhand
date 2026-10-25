@@ -51,9 +51,11 @@ from local_elections_jharkhand.parse.reservation_text import (
     caste_of,
     is_header_text,
     is_vacant,
+    split_unopposed,
     woman_of,
 )
 from local_elections_jharkhand.paths import DATA, RAW, ROOT
+from local_elections_jharkhand.pdf_text import text_of
 
 LOGGER = logging.getLogger(__name__)
 
@@ -385,6 +387,27 @@ def split_seat_id(text, tier):
 
 def clean(cell):
     return re.sub(r"\s+", " ", (cell or "").replace("\n", " ")).strip()
+
+
+def cell_texts(page, table):
+    """A found table's cells, each read by text_of. None for a merged cell."""
+    rows = []
+    for row in table.rows:
+        cells = []
+        for box in row.cells:
+            if box is None:
+                cells.append(None)
+                continue
+            x0, top, x1, bottom = box
+            inside = [
+                c
+                for c in page.chars
+                if x0 <= (c["x0"] + c["x1"]) / 2 < x1
+                and top <= (c["top"] + c["bottom"]) / 2 < bottom
+            ]
+            cells.append(text_of(inside))
+        rows.append(cells)
+    return rows
 
 
 def stamp(row, path, page):
@@ -775,10 +798,7 @@ def stacked_pages(path):
     Dev the typeset districts use.
     """
     with pdfplumber.open(str(path)) as pdf:
-        pages = [
-            (page.page_number, page.extract_text(layout=True) or "")
-            for page in pdf.pages
-        ]
+        pages = [(page.page_number, text_of(page.chars)) for page in pdf.pages]
     # Readability, not length. Chatra and the Godda blocks carry 86,000 to
     # 375,000 characters of a third legacy font - neither Kruti Dev nor Unicode
     # - which decodes to "grgo-s r€-.Ff{ 6rzr rorRrf,". Testing the length let
@@ -870,7 +890,7 @@ def parse_pdf(path, district):
                 block = clean(found.group(1))
             before = len(rows)
             for table in page.find_tables():
-                for raw in table.extract():
+                for raw in cell_texts(page, table):
                     cells = [clean(c) for c in raw]
                     if len(cells) < 5:
                         continue
@@ -926,9 +946,15 @@ def page_key(row):
     """
     return (
         row.get("tier_local"),
-        (row.get("seat_id_raw") or "").strip(),
+        # The table reader keeps the district's roman numeral cell
+        # ("XXIV iwohZ flagHkwe@11@..."), the line reader does not; the rest of
+        # the identifier is the seat.
+        ROMAN_LEAD.sub("", (row.get("seat_id_raw") or "").strip()),
         (row.get("winner") or "").strip(),
     )
+
+
+ROMAN_LEAD = re.compile(r"^[IVXL]+\s+")
 
 
 def union(table, text):
@@ -1092,7 +1118,7 @@ def ocr_rows(text, path, district, page_number):
 def _from_text(page, path, district, block):
     """Read a page that has no ruled table, using the post token as the anchor."""
     out = []
-    for line in (page.extract_text(layout=True) or "").split("\n"):
+    for line in text_of(page.chars).split("\n"):
         found = RE_TEXT_ROW.match(clean(line))
         if not found:
             continue
@@ -1229,6 +1255,7 @@ def main():
             if value and not krutidev.looks_converted(value):
                 row[column] = krutidev.to_unicode(value)
                 converted += 1
+        row["winner"], row["unopposed"] = split_unopposed(row.get("winner"))
         # Describes what the row holds, not what this loop attempted. A value
         # the converter could not turn into Devanagari - a stray Latin token,
         # an empty page - must not be labelled as though it had been.
@@ -1296,6 +1323,7 @@ SCHEMA = pa.schema(
         ("reserved_woman", pa.int8()),
         ("reserved_raw", pa.string()),
         ("winner", pa.string()),
+        ("unopposed", pa.bool_()),
         ("vacant", pa.int8()),
         ("script", pa.string()),
         ("source_path", pa.string()),

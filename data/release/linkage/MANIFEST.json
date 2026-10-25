@@ -11,16 +11,16 @@
     }
   },
   "inputs": {
-    "data/release/2015/mukhiya_results.parquet": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
-    "data/release/2022/mukhiya_results.parquet": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
+    "data/release/2015/mukhiya_results.parquet": "3dfb9b4f100734c4021012742a94eeb83ff197eee66e1f3da25792940af3e446",
+    "data/release/2022/mukhiya_results.parquet": "fafef1c7fc082d0d2c5d0f86a47b60c797a5f5ae4febc917c73dcf8167eb9926",
     "data/manual/block_crosswalk_2015_2022.csv": "afcdb0dff3cdbe9bbd9c3724d03133fee21b8fcb34409fe2c333504afc4ca931",
     "data/manual/linkage_review_2015_2022.csv": "832459325ad58ec13717042b1aa4f50b397f3d880c524a99d61222b3aca07ccd"
   },
   "code_sha256": "6e1878e6b5334a3ef05e12de00abf45cc102884ebdbdbbe6723a565f01448f99",
   "summary": {
-    "linked": 3904,
-    "exact_folded_name_links": 3505,
-    "fuzzy_name_links": 399,
+    "linked": 3938,
+    "exact_folded_name_links": 3609,
+    "fuzzy_name_links": 329,
     "excluded_2015": {
       "no_crosswalked_block": 1,
       "blank_name": 15,
@@ -31,10 +31,10 @@
       "blank_name": 1,
       "name_repeated_in_group": 0
     },
-    "winner_name_shared_linked": 0.0958,
-    "winner_name_shared_exact_links": 0.0973,
-    "winner_name_shared_fuzzy_links": 0.0827,
-    "winner_name_shared_random_in_group": 0.0085,
+    "winner_name_shared_linked": 0.0973,
+    "winner_name_shared_exact_links": 0.0989,
+    "winner_name_shared_fuzzy_links": 0.079,
+    "winner_name_shared_random_in_group": 0.0084,
     "precision": {
       "bands": {
         "0.80-0.85": {
@@ -49,49 +49,49 @@
         },
         "0.85-0.90": {
           "links": 26,
-          "reviewed": 25,
-          "correct": 25,
+          "reviewed": 26,
+          "correct": 26,
           "precision": 1.0,
           "ci95": [
-            0.8668,
+            0.8713,
             1.0
           ]
         },
         "0.90-0.95": {
           "links": 17,
-          "reviewed": 17,
-          "correct": 17,
+          "reviewed": 16,
+          "correct": 16,
           "precision": 1.0,
           "ci95": [
-            0.8157,
+            0.8064,
             1.0
           ]
         },
         "0.95-1.00": {
-          "links": 312,
-          "reviewed": 50,
-          "correct": 50,
-          "precision": 1.0,
+          "links": 242,
+          "reviewed": 39,
+          "correct": 38,
+          "precision": 0.9744,
           "ci95": [
-            0.9286,
-            1.0
+            0.8682,
+            0.9955
           ]
         },
         "exact": {
-          "links": 3505,
-          "reviewed": 100,
-          "correct": 100,
-          "precision": 1.0,
+          "links": 3609,
+          "reviewed": 122,
+          "correct": 117,
+          "precision": 0.959,
           "ci95": [
-            0.963,
-            1.0
+            0.9076,
+            0.9824
           ]
         }
       },
       "reviewed_links": 263,
-      "reviewed_still_linked": 236,
-      "estimate_stratified": 1.0,
-      "lower_bound_stratified": 0.9585,
+      "reviewed_still_linked": 247,
+      "estimate_stratified": 0.9609,
+      "lower_bound_stratified": 0.9046,
       "near_misses_reviewed": 39,
       "near_misses_correct": 33
     },
@@ -126,7 +126,7 @@
         "gps_2022": 256,
         "linkable_2015": 256,
         "linkable_2022": 256,
-        "linked": 243
+        "linked": 246
       },
       {
         "district": "Dumka",
@@ -142,7 +142,7 @@
         "gps_2022": 231,
         "linkable_2015": 230,
         "linkable_2022": 231,
-        "linked": 209
+        "linked": 213
       },
       {
         "district": "Garhwa",
@@ -182,7 +182,7 @@
         "gps_2022": 250,
         "linkable_2015": 253,
         "linkable_2022": 250,
-        "linked": 220
+        "linked": 223
       },
       {
         "district": "Jamtara",
@@ -198,7 +198,7 @@
         "gps_2022": 86,
         "linkable_2015": 74,
         "linkable_2022": 86,
-        "linked": 73
+        "linked": 74
       },
       {
         "district": "Koderma",
@@ -234,11 +234,11 @@
       },
       {
         "district": "Palamu",
-        "gps_2015": 278,
+        "gps_2015": 283,
         "gps_2022": 265,
-        "linkable_2015": 278,
+        "linkable_2015": 283,
         "linkable_2022": 265,
-        "linked": 245
+        "linked": 263
       },
       {
         "district": "Ramgarh",
@@ -270,7 +270,7 @@
         "gps_2022": 132,
         "linkable_2015": 135,
         "linkable_2022": 132,
-        "linked": 128
+        "linked": 131
       },
       {
         "district": "Simdega",
@@ -286,13 +286,13 @@
         "gps_2022": 217,
         "linkable_2015": 217,
         "linkable_2022": 217,
-        "linked": 210
+        "linked": 212
       }
     ],
     "file": {
       "path": "gp_2015_2022.parquet",
-      "rows": 3904,
-      "sha256": "8ac41eb2150bdc4df18ed0fb9b74c4cb41b99cd48bb0ca9f1ccb40dd39f2da93"
+      "rows": 3938,
+      "sha256": "a8810f95d8760e73f4a659501ba4fd9f025b49f51806b0ced1392738de61e0b6"
     }
   }
 }

@@ -219,3 +219,18 @@ def is_header_text(value):
     if not text:
         return False
     return text.lower() in HEADER_TEXT or bool(HEADER_SHAPE.match(text))
+
+
+# "(निर्विरोध)", returned unopposed, printed in the name cell, before or after
+# the name; typed also र्निविरोध, and sometimes followed by निर्वाचित.
+UNOPPOSED = re.compile(
+    r"\s*\(\s*(?:र्निविरोध|निर्विरोध|निर्विराेध)(?:\s*निर्वाचित)?\s*\)\s*"
+)
+
+
+def split_unopposed(name):
+    """(the name without the mark, True if it carried one else None)."""
+    if not isinstance(name, str) or not name:
+        return name, None
+    bare = re.sub(r"\s+", " ", UNOPPOSED.sub(" ", name)).strip()
+    return bare, (True if bare != name.strip() else None)

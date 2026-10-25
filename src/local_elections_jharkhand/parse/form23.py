@@ -43,6 +43,7 @@ from rapidfuzz import fuzz
 
 from local_elections_jharkhand.extract.ocr_vision import cache_stem, read_cache, year_of
 from local_elections_jharkhand.parse.form23_repair import read_repairs, read_rereads
+from local_elections_jharkhand.parse.reservation_text import split_unopposed
 from local_elections_jharkhand.paths import MANUAL, RAW, RELEASE, ROOT
 
 DISTRICTS = {
@@ -550,11 +551,12 @@ def page_rows(record):
     return rows, width, turn
 
 
-# OCR variants of the post that spill into the name cell. Only whole tokens,
+# OCR variants of the post that spill into the name cell (and Ranchi 2022's
+# typed "eqqf[k;k", मुुखिया). Only whole tokens,
 # and not सुखिया or other names that merely end like मुखिया.
 POST_SPILL = re.compile(
     r"(?:^|\s)(?:ग़?्?रा[मनग]\.?|ग़?ाम[:.]?|प्राम|द्वाम)\s*[पव][ंं]?द?चायत\s*(?:के|मे)?(?=\s|$)|"
-    r"(?:^|\s)(?:[मगपज]ु[खस]़?िया|मुशिया|जुबिया|मुखियार?|मुखया|सदस्य)(?=\s|$)"
+    r"(?:^|\s)(?:[मगपज]ु+[खस]़?िया|मुशिया|जुबिया|मुखियार?|मुखया|सदस्य)(?=\s|$)"
 )
 # the serial-number column some districts print before the name
 SERIAL = re.compile(r"^[\d\s.:;/|,]+")
@@ -567,19 +569,24 @@ DETACHED_MATRA = re.compile(r"\s+([\u093e-\u094c\u0902\u0901])")
 TRAILING_SPILL = re.compile(
     r"(?:\s+ग्राम\s+\S+)?\s+के$|(?:\s+अनुसूचित)?\s+जन\s*जाति$|\s+अनुसूचित\s+जाति$"
 )
+# The panchayat samiti post read into the name cell, with OCR's spellings of
+# सदस्य ("रेखा देवी पंचायत समिति के", "... समिति के सनदस्य"): 393 of 2022's
+# names. No name contains समिति, so everything from it on is the post.
+SAMITI_SPILL = re.compile(r"(?:\s+[पव][ंं]?चायत)?\s+समिति(?:\s.*)?$")
 
 
 def clean_winner(text):
     text = DETACHED_MATRA.sub(r"\1", text)
     text = re.sub(r"(?<!\S)दवेी(?!\S)", "देवी", text)
-    text = TRAILING_SPILL.sub("", text.strip())
+    text = SAMITI_SPILL.sub("", text.strip())
+    text = TRAILING_SPILL.sub("", text)
     # a district heading fused onto a name ("जिला - साहेबगंज 13 लखन पहाड़िया")
     text = re.sub(r"^जिला\s*-\s*\S+\s*\d*\s+", "", text)
     text = POST_SPILL.sub(" ", text)
     text = SERIAL.sub("", text)
     text = re.sub(r"\s+\d+$", "", text)
     text = re.sub(r"\s+\S+\s+[पव][ंं]?चायत\S*(?:\s+के)?\s*$", "", text)
-    return clean(text.strip(" |-.,:;'")) or None
+    return clean(text.strip(" |-.,:;'[]")) or None
 
 
 def read_row(row, width):
@@ -960,6 +967,7 @@ MUKHIYA_COLUMNS = [
     "reserved_open_seat",
     "reserved_woman",
     "winner",
+    "unopposed",
     "vacant",
     "reserved_raw",
     "seat_id_raw",
@@ -1205,7 +1213,11 @@ def build(year="2022"):
         [*flags, "duplicate_key"] if dup else list(flags)
         for flags, dup in zip(mukhiya["parse_flags"], repeated, strict=True)
     ]
-    samiti = pd.DataFrame(samiti)[SAMITI_COLUMNS]
+    samiti = pd.DataFrame(samiti).reindex(columns=SAMITI_COLUMNS)
+    for frame in (mukhiya, samiti):
+        split = frame["winner"].map(split_unopposed)
+        frame["winner"] = split.str[0]
+        frame["unopposed"] = split.str[1]
     return mukhiya, samiti
 
 
@@ -1228,6 +1240,7 @@ def typed(frame):
         if column in frame:
             frame[column] = frame[column].astype("Int8")
     frame["reserved_open_seat"] = frame["reserved_open_seat"].astype("boolean")
+    frame["unopposed"] = frame["unopposed"].astype("boolean")
     for column in frame.columns:
         if frame[column].dtype == object and column != "parse_flags":
             frame[column] = frame[column].astype("string")

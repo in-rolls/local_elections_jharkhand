@@ -269,10 +269,6 @@ def main():
     return 0
 
 
-if __name__ == "__main__":
-    sys.exit(main())
-
-
 # --- Text-layer fallback ----------------------------------------------------
 #
 # Several 2015 gazettes (all of Palamu, Dhanbad, West Singhbhum, Simdega and
@@ -292,13 +288,13 @@ def text_layer_boxes(pdf, page_number, dpi):
     import pdfplumber
 
     from local_elections_jharkhand.krutidev import looks_converted, to_unicode
+    from local_elections_jharkhand.pdf_text import lines
 
     scale = dpi / 72
     with pdfplumber.open(pdf) as document:
         page = document.pages[page_number - 1]
-        words = page.extract_words(
-            x_tolerance=1.5, y_tolerance=2, keep_blank_chars=False
-        )
+        # stored order, not pdfplumber's: see pdf_text
+        words = [w for line in lines(page.chars) for w in line]
         width, height = (
             round(float(page.width) * scale),
             round(float(page.height) * scale),
@@ -322,8 +318,6 @@ def text_layer_boxes(pdf, page_number, dpi):
     for cell in cells:
         text = cell["text"]
         text = text if looks_converted(text) else to_unicode(text)
-        # Kruti Dev's brackets, which the converter leaves alone
-        text = text.replace("¼", "(").replace("½", ")")
         boxes.append(
             [
                 text,
@@ -363,7 +357,9 @@ def apply_text_layer(pdf):
     records = read_cache(pdf)
     changed = 0
     for record in records:
-        if record.get("engine") == "text_layer" or not needs_text_layer(pdf, record):
+        # a text-layer page is rebuilt every time: it is cheap and exact, and
+        # a fix to the reader must reach pages it has already written
+        if record.get("engine") != "text_layer" and not needs_text_layer(pdf, record):
             continue
         boxes, width, height = text_layer_boxes(
             pdf, record["page"], DPI_BY_DOCUMENT.get(pdf.stem, DPI)
@@ -395,3 +391,7 @@ def text_layer_main(year):
                 f"{pdf.relative_to(RAW)}: {changed} pages from the text layer",
                 flush=True,
             )
+
+
+if __name__ == "__main__":
+    sys.exit(main())

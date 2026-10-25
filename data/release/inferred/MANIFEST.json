@@ -6,8 +6,8 @@
     "scikit-learn": "1.9.1"
   },
   "inputs": {
-    "data/release/2015/mukhiya_results.parquet": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
-    "data/release/2022/mukhiya_results.parquet": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
+    "data/release/2015/mukhiya_results.parquet": "3dfb9b4f100734c4021012742a94eeb83ff197eee66e1f3da25792940af3e446",
+    "data/release/2022/mukhiya_results.parquet": "fafef1c7fc082d0d2c5d0f86a47b60c797a5f5ae4febc917c73dcf8167eb9926",
     "local_elections_up@42fb6190469688fd558596460aef44282e37f6d2:data/2021/gram_panchayat_head_candidate_record.parquet": "3f6e3e1cba08bd6cc012a445369f2f360b20a67bce1e7a022657d06d8263e0bd",
     "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2016/candidates.parquet": "0b73373fce5b29292c61399b3308d44b95f850f17127f5c2e6bfef3e162f65ca",
     "local_elections_bihar@fda20d495e7824cde6d968f97f51b0943133ba73:data/2021/candidates.parquet": "8e6fda01045edf245cc0c7d46665f3496c5e41323775a3900300a9ae0b9537be"
@@ -136,21 +136,21 @@
     },
     "jharkhand": {
       "2015": {
-        "winners_scored": 4104,
-        "naampy_abstained_share": 0.0095,
+        "winners_scored": 4109,
+        "naampy_abstained_share": 0.0097,
         "all": {
-          "women_seat_winners": 2118,
-          "women_seat_winners_mean_probability": 0.9265,
-          "women_seat_winners_below_0.5": 101,
-          "open_seat_winners": 1950,
-          "open_seat_winners_mean_probability": 0.2116
+          "women_seat_winners": 2120,
+          "women_seat_winners_mean_probability": 0.9321,
+          "women_seat_winners_below_0.5": 84,
+          "open_seat_winners": 1953,
+          "open_seat_winners_mean_probability": 0.209
         },
         "st": {
           "women_seat_winners": 1056,
-          "women_seat_winners_mean_probability": 0.8762,
-          "women_seat_winners_below_0.5": 87,
+          "women_seat_winners_mean_probability": 0.8865,
+          "women_seat_winners_below_0.5": 70,
           "open_seat_winners": 991,
-          "open_seat_winners_mean_probability": 0.2943
+          "open_seat_winners_mean_probability": 0.2917
         }
       },
       "2022": {
@@ -158,7 +158,7 @@
         "naampy_abstained_share": 0.0102,
         "all": {
           "women_seat_winners": 2322,
-          "women_seat_winners_mean_probability": 0.9313,
+          "women_seat_winners_mean_probability": 0.9314,
           "women_seat_winners_below_0.5": 89,
           "open_seat_winners": 2005,
           "open_seat_winners_mean_probability": 0.2093
@@ -168,19 +168,19 @@
           "women_seat_winners_mean_probability": 0.8881,
           "women_seat_winners_below_0.5": 72,
           "open_seat_winners": 1056,
-          "open_seat_winners_mean_probability": 0.2705
+          "open_seat_winners_mean_probability": 0.2704
         }
       }
     }
   },
   "files": {
     "winner_woman_probability_2015.parquet": {
-      "rows": 4104,
-      "sha256": "3421730006bb42e771f2d8a1dfc2eb01018b766708ea549b5ad742ba1e2299a2"
+      "rows": 4109,
+      "sha256": "cdbf5e9786d5d6e6b1e8bc53a66896d1e41e1da17fe06c924748f10a6b576810"
     },
     "winner_woman_probability_2022.parquet": {
       "rows": 4330,
-      "sha256": "e21048c3a1c3aa1beb3b1ea7e068bc5778b0bf8debb58406eee679152449dfd7"
+      "sha256": "c500ffa15c4808067432b57156070dd78b09e420237bcc17427806ac82daa9c9"
     }
   }
 }

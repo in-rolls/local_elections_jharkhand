@@ -141,6 +141,20 @@ MAP = {
     "+": "़",
     "ॅ": "ॅ",
     "@": "/",
+    # Read off the 2015 notifications, each confirmed by a word whose meaning
+    # the page fixes: "¼fu;e 85½" is (नियम 85), "gw¡" हूँ, "fu;ekoyh] 2001"
+    # नियमावली, 2001, "Ádk'ku" प्रकाशन, "#i ls" रूप से, "cq)s'oj" बुद्धेश्वर.
+    "¼": "(",
+    "½": ")",
+    "¡": "ँ",
+    "]": ",",
+    "Á": "प्र",
+    "#": "रु",
+    ")": "द्ध",
+    # "çधान" प्रधान, "v[rj" अख्तर, "dk:vk" कारूआ
+    "ç": "प्र",
+    "[": "ख्",
+    ":": "रू",
 }
 
 # The reph - the r that rides above the next consonant. Kruti Dev writes it

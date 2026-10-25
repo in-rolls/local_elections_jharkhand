@@ -159,3 +159,16 @@ def test_an_ambiguous_number_fills_nothing():
     filled, ambiguous = fill_block_names(rows)
     assert (filled, ambiguous) == (0, 1)
     assert rows[2]["block"] == ""
+
+
+def test_unopposed_mark_leaves_the_name():
+    from local_elections_jharkhand.parse.reservation_text import split_unopposed
+
+    assert split_unopposed("सरस्वती बेसरा (र्निविरोध)") == ("सरस्वती बेसरा", True)
+    assert split_unopposed("(निर्विरोध) देवंती कुमारी") == ("देवंती कुमारी", True)
+    assert split_unopposed("कैलाश पासवान (निर्विरोध )") == ("कैलाश पासवान", True)
+    assert split_unopposed("अर्जुन राम (निर्विरोध निर्वाचित)") == ("अर्जुन राम", True)
+    assert split_unopposed("पद्मवती देवी (उर्फ पद्मवती हेम्ब्रम)") == (
+        "पद्मवती देवी (उर्फ पद्मवती हेम्ब्रम)",
+        None,
+    )

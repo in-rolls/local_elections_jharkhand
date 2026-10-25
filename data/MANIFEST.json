@@ -4,8 +4,8 @@
     {
       "file": "release/2015/mukhiya_results.parquet",
       "description": "A 2015 mukhiya seat (Form 23 OCR)",
-      "sha256": "afde1ec88a0e09a5ea052238f72dab1dfd2241d05581259b85728cd6593e6157",
-      "rows": 4137,
+      "sha256": "3dfb9b4f100734c4021012742a94eeb83ff197eee66e1f3da25792940af3e446",
+      "rows": 4142,
       "schema": [
         {
           "name": "state",
@@ -72,6 +72,10 @@
           "type": "large_string"
         },
         {
+          "name": "unopposed",
+          "type": "bool"
+        },
+        {
           "name": "vacant",
           "type": "int8"
         },
@@ -128,8 +132,8 @@
     {
       "file": "release/2015/ward_member_results.parquet",
       "description": "A 2015 gram panchayat ward seat",
-      "sha256": "6a65af319c465996c32c3e2737d0aadbad9ed1d3b581fd210c92a8c1a90d807e",
-      "rows": 19843,
+      "sha256": "013144cf225f84c61a88965465b9067e6ff590a5a8f2a7f3f6b098f2d1019113",
+      "rows": 19930,
       "schema": [
         {
           "name": "state",
@@ -198,6 +202,10 @@
         {
           "name": "winner",
           "type": "string"
+        },
+        {
+          "name": "unopposed",
+          "type": "bool"
         },
         {
           "name": "vacant",
@@ -220,8 +228,8 @@
     {
       "file": "release/2015/panchayat_samiti_results.parquet",
       "description": "One 2015 panchayat samiti seat per row",
-      "sha256": "4e957c5cf0567094c40d7d47f9f8fb951aa556c43695852460119414dbc3a5bf",
-      "rows": 5171,
+      "sha256": "4bbbd5298df9003d4d6fd16143f0a82f6f7585d6a0e0453a4d4dedcd3ebb51d0",
+      "rows": 5218,
       "schema": [
         {
           "name": "state",
@@ -292,6 +300,10 @@
           "type": "string"
         },
         {
+          "name": "unopposed",
+          "type": "bool"
+        },
+        {
           "name": "vacant",
           "type": "int8"
         },
@@ -312,7 +324,7 @@
     {
       "file": "release/2015/zila_parishad_results.parquet",
       "description": "A 2015 zila parishad seat",
-      "sha256": "aef457bea75ff6339e89132dcd0f8ae4784a4fd3a35129ee4802482e5d1837fe",
+      "sha256": "da2d7f0766e986a09391cfce0cbc51dbfcc1ad7dea601eb07945fb55cb4d23cf",
       "rows": 226,
       "schema": [
         {
@@ -384,6 +396,10 @@
           "type": "string"
         },
         {
+          "name": "unopposed",
+          "type": "bool"
+        },
+        {
           "name": "vacant",
           "type": "int8"
         },
@@ -404,7 +420,7 @@
     {
       "file": "release/2022/mukhiya_results.parquet",
       "description": "A 2022 mukhiya seat (Form 23 OCR)",
-      "sha256": "be844a83ab6d8fc36fba74b318d788a97bd0b9dbcee749f6f2b8c1fe40253910",
+      "sha256": "fafef1c7fc082d0d2c5d0f86a47b60c797a5f5ae4febc917c73dcf8167eb9926",
       "rows": 4334,
       "schema": [
         {
@@ -472,6 +488,10 @@
           "type": "large_string"
         },
         {
+          "name": "unopposed",
+          "type": "bool"
+        },
+        {
           "name": "vacant",
           "type": "int8"
         },
@@ -528,7 +548,7 @@
     {
       "file": "release/2022/panchayat_samiti_results.parquet",
       "description": "One 2022 panchayat samiti seat per row",
-      "sha256": "d971a9c40329598f5cc1e531230c8d5c57cbcf41bd07e34d63c4e1b50ac2a620",
+      "sha256": "c66807d606b379193a310c35099ed27574e167cf5d99e611532aee043f02c41d",
       "rows": 4113,
       "schema": [
         {
@@ -596,6 +616,10 @@
           "type": "large_string"
         },
         {
+          "name": "unopposed",
+          "type": "bool"
+        },
+        {
           "name": "reserved_raw",
           "type": "large_string"
         },
@@ -648,8 +672,8 @@
     {
       "file": "release/linkage/gp_2015_2022.parquet",
       "description": "A 2015 mukhiya seat linked to its 2022 seat",
-      "sha256": "8ac41eb2150bdc4df18ed0fb9b74c4cb41b99cd48bb0ca9f1ccb40dd39f2da93",
-      "rows": 3904,
+      "sha256": "a8810f95d8760e73f4a659501ba4fd9f025b49f51806b0ced1392738de61e0b6",
+      "rows": 3938,
       "schema": [
         {
           "name": "district_2015",
@@ -732,8 +756,8 @@
     {
       "file": "release/inferred/winner_woman_probability_2015.parquet",
       "description": "2015 winner, P(woman)",
-      "sha256": "3421730006bb42e771f2d8a1dfc2eb01018b766708ea549b5ad742ba1e2299a2",
-      "rows": 4104,
+      "sha256": "cdbf5e9786d5d6e6b1e8bc53a66896d1e41e1da17fe06c924748f10a6b576810",
+      "rows": 4109,
       "schema": [
         {
           "name": "district",
@@ -832,7 +856,7 @@
     {
       "file": "release/inferred/winner_woman_probability_2022.parquet",
       "description": "2022 winner, P(woman)",
-      "sha256": "e21048c3a1c3aa1beb3b1ea7e068bc5778b0bf8debb58406eee679152449dfd7",
+      "sha256": "c500ffa15c4808067432b57156070dd78b09e420237bcc17427806ac82daa9c9",
       "rows": 4330,
       "schema": [
         {
@@ -965,11 +989,11 @@
     },
     {
       "file": "build/members_2015_mukhiya.parquet",
-      "sha256": "98946f4e7984f888a611a5f8d1321720e473842c0dd6807c84edb3ccdb803f12"
+      "sha256": "f3441aaea4f3a70797dd4b8f63bce29486d203446e03640045a2f2f19e9725f0"
     },
     {
       "file": "build/winner_sex/latin_indicate_0.10.0.parquet",
-      "sha256": "d1fd59e32d55514c2bc858d5a8a685e14162051f67c0ff89af3192bb4d8d2ff5"
+      "sha256": "e7f60059c8b2fc145a6fe9c5de8b2191ae312f65a9b094c56af3755337dc38ac"
     },
     {
       "file": "checks/handcheck_2022.csv",
@@ -977,7 +1001,7 @@
     },
     {
       "file": "checks/text_layer_2022.csv",
-      "sha256": "79940951611c3ee845ec98f2cbe4782e49efe8f14a48d20097d8734b29ffb18f"
+      "sha256": "c205c4db9fa2a1291a3015b1cc34cc457835ad9ceea5aaad8ef81ef464f03ba5"
     },
     {
       "file": "checks/gap_review_2022.csv",
@@ -985,21 +1009,21 @@
     },
     {
       "file": "release/linkage/MANIFEST.json",
-      "sha256": "661e28908f473240859f9faea46e99824e21ccb308e38786aeb33cb864ec20c2"
+      "sha256": "4b0fbad6a01dda1ea519911229c4145a13845844c4a43b388f1c39d245e3e666"
     },
     {
       "file": "release/inferred/MANIFEST.json",
-      "sha256": "d42e212f7b8f32c74efc8a9d8c8813042a3b11bf55cd70dacdd6101575f61e85"
+      "sha256": "3cebb6d56d4b24c2afd615da3c8cac6c9b2f3871cd05b89f6a21725fb3a2e76c"
     },
     {
       "file": "extracted/ocr_vision/2015/*.jsonl.gz",
       "files": 119,
-      "sha256_of_hashes": "d4125455dd0b6f8490440486721f5b506eed0638d1fc457a51f3ed8e19b4d227"
+      "sha256_of_hashes": "f7de21dc805f4e50c4a23b8c3a7404fe558a118395a20497bba6dd68e2422070"
     },
     {
       "file": "extracted/ocr_vision/2022/*.jsonl.gz",
       "files": 26,
-      "sha256_of_hashes": "f04f19133a574bb4fbeaa16eb1aa78447f770d39f63951273f05fde7fa8cf81f"
+      "sha256_of_hashes": "ac2790be9e866e45cfcdd06b9fea0889a8b517eb735b163688e8f7cf70ad6b1a"
     },
     {
       "file": "extracted/ocr_surya_2015/*.txt",
@@ -1166,7 +1190,7 @@
       "name": "coverage_vs_lgd_2015",
       "appeals_to": "external: LGD village-to-GP file (4,345 GPs, equal to the SEC's published 2022 mukhiya total)",
       "status": "warn",
-      "rows": 4137,
+      "rows": 4142,
       "published_total": 4345,
       "districts_exact": 9,
       "by_district": [
@@ -1274,9 +1298,9 @@
         },
         {
           "district": "Palamu",
-          "rows": 278,
+          "rows": 283,
           "lgd_gps": 265,
-          "diff": 13
+          "diff": 18
         },
         {
           "district": "Ramgarh",
@@ -1394,7 +1418,7 @@
       "hard": false,
       "status": "pass",
       "duplicate_rows": 0,
-      "blank_key_rows": 1397,
+      "blank_key_rows": 1385,
       "duplicates_by_district": {}
     },
     {
@@ -1432,13 +1456,13 @@
         "RESERVED": 0.0044
       },
       "statewide_2015": {
-        "rows": 4137,
-        "woman": 0.5213,
+        "rows": 4142,
+        "woman": 0.5212,
         "woman_unread": 36,
-        "SC": 0.0996,
-        "ST": 0.5018,
-        "BC": 0.1071,
-        "NONE": 0.2905,
+        "SC": 0.0997,
+        "ST": 0.5012,
+        "BC": 0.1072,
+        "NONE": 0.2909,
         "RESERVED": 0.001
       },
       "districts_2022_below_half_women": [],
@@ -1650,14 +1674,14 @@
         {
           "district": "Palamu",
           "woman_2022": 0.5585,
-          "woman_2015": 0.5144,
+          "woman_2015": 0.5124,
           "SC_2022": 0.2868,
-          "SC_2015": 0.2806,
+          "SC_2015": 0.2792,
           "ST_2022": 0.0943,
-          "ST_2015": 0.0899,
+          "ST_2015": 0.0883,
           "reserved_unspecified_2022": 0.0,
           "rows_2022": 265,
-          "rows_2015": 278
+          "rows_2015": 283
         },
         {
           "district": "Ramgarh",
@@ -1740,18 +1764,18 @@
       "threshold_ratio": 85,
       "rows_2022": 4334,
       "counts": {
-        "exact_block": 3156,
-        "none": 660,
-        "near_block": 405,
-        "exact_district": 89,
-        "near_district": 23,
+        "exact_block": 3299,
+        "none": 542,
+        "near_block": 383,
+        "exact_district": 88,
+        "near_district": 21,
         "blank_2022_name": 1
       },
-      "share_exact_or_near_in_block": 0.8216,
-      "share_exact_or_near_in_district": 0.8475,
+      "share_exact_or_near_in_block": 0.8496,
+      "share_exact_or_near_in_district": 0.8747,
       "rows_2022_in_districts_with_2015_rows": 4209,
       "rows_2022_in_blocks_with_2015_names": 4169,
-      "share_matched_in_blocks_with_2015_names": 0.8542,
+      "share_matched_in_blocks_with_2015_names": 0.8832,
       "near_match_examples": [
         {
           "district": "Garhwa",
@@ -1853,8 +1877,8 @@
       "text_layer_rows": 1147,
       "found_in_ocr_table": 1147,
       "misaligned_by_text_reader": 20,
-      "winner_char_agreement_aligned": 0.9832,
-      "gp_char_agreement_aligned": 0.9802,
+      "winner_char_agreement_aligned": 0.9898,
+      "gp_char_agreement_aligned": 0.9905,
       "caste_agree_all": "1083/1083",
       "caste_agree_aligned": "1066/1066",
       "woman_agree_all": "1108/1124",
@@ -1871,13 +1895,13 @@
       "name": "ported_2015_agreement",
       "appeals_to": "independent: parse/members_2015.py's reading of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans)",
       "status": "info",
-      "rows_new": 4137,
-      "rows_ported": 3974,
-      "shared_keys": 3647,
-      "caste_agree": "3611/3637",
-      "woman_agree": "3610/3615",
-      "winner_char_agreement": 0.9729,
-      "winner_exact": "3285/3647",
+      "rows_new": 4142,
+      "rows_ported": 4172,
+      "shared_keys": 3843,
+      "caste_agree": "3807/3833",
+      "woman_agree": "3806/3811",
+      "winner_char_agreement": 0.9764,
+      "winner_exact": "3570/3843",
       "caste_disagreements_by_district": {
         "Jamtara": 25,
         "Giridih": 1
@@ -1888,9 +1912,9 @@
       "appeals_to": "law: Jharkhand reserves half of its panchayat seats for women",
       "hard": true,
       "status": "pass",
-      "rows": 19843,
+      "rows": 19930,
       "districts": 11,
-      "woman": 0.5273,
+      "woman": 0.5275,
       "published_seats": null,
       "share_of_published": null
     },
@@ -1899,11 +1923,11 @@
       "appeals_to": "law: Jharkhand reserves half of its panchayat seats for women",
       "hard": true,
       "status": "pass",
-      "rows": 5171,
+      "rows": 5218,
       "districts": 24,
-      "woman": 0.5219,
+      "woman": 0.522,
       "published_seats": 5423,
-      "share_of_published": 0.9535
+      "share_of_published": 0.9622
     },
     {
       "name": "women_share_zila_parishad_2015",

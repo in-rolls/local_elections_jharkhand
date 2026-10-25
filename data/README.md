@@ -162,14 +162,14 @@ Form 23.
 
 | File | Rows | Each row |
 | --- | ---: | --- |
-| [release/2015/mukhiya_results.parquet](release/2015/mukhiya_results.parquet) | 4,137 | A 2015 mukhiya seat (Form 23 OCR) |
-| [release/2015/ward_member_results.parquet](release/2015/ward_member_results.parquet) | 19,843 | A 2015 gram panchayat ward seat |
-| [release/2015/panchayat_samiti_results.parquet](release/2015/panchayat_samiti_results.parquet) | 5,171 | One 2015 panchayat samiti seat per row |
+| [release/2015/mukhiya_results.parquet](release/2015/mukhiya_results.parquet) | 4,142 | A 2015 mukhiya seat (Form 23 OCR) |
+| [release/2015/ward_member_results.parquet](release/2015/ward_member_results.parquet) | 19,930 | A 2015 gram panchayat ward seat |
+| [release/2015/panchayat_samiti_results.parquet](release/2015/panchayat_samiti_results.parquet) | 5,218 | One 2015 panchayat samiti seat per row |
 | [release/2015/zila_parishad_results.parquet](release/2015/zila_parishad_results.parquet) | 226 | A 2015 zila parishad seat |
 | [release/2022/mukhiya_results.parquet](release/2022/mukhiya_results.parquet) | 4,334 | A 2022 mukhiya seat (Form 23 OCR) |
 | [release/2022/panchayat_samiti_results.parquet](release/2022/panchayat_samiti_results.parquet) | 4,113 | One 2022 panchayat samiti seat per row |
-| [release/linkage/gp_2015_2022.parquet](release/linkage/gp_2015_2022.parquet) | 3,904 | A 2015 mukhiya seat linked to its 2022 seat |
-| [release/inferred/winner_woman_probability_2015.parquet](release/inferred/winner_woman_probability_2015.parquet) | 4,104 | 2015 winner, P(woman) |
+| [release/linkage/gp_2015_2022.parquet](release/linkage/gp_2015_2022.parquet) | 3,938 | A 2015 mukhiya seat linked to its 2022 seat |
+| [release/inferred/winner_woman_probability_2015.parquet](release/inferred/winner_woman_probability_2015.parquet) | 4,109 | 2015 winner, P(woman) |
 | [release/inferred/winner_woman_probability_2022.parquet](release/inferred/winner_woman_probability_2022.parquet) | 4,330 | 2022 winner, P(woman) |
 
 ### Check results
@@ -177,21 +177,21 @@ Form 23.
 | Check | Appeals to | Status | Result |
 | --- | --- | --- | --- |
 | `coverage_vs_lgd_2022` | external: LGD village-to-GP file (4,345 GPs, equal to the SEC's published 2022 mukhiya total) | warn | rows=4334; published_total=4345; districts_exact=21 |
-| `coverage_vs_lgd_2015` | external: LGD village-to-GP file (4,345 GPs, equal to the SEC's published 2022 mukhiya total) | warn | rows=4137; published_total=4345; districts_exact=9 |
+| `coverage_vs_lgd_2015` | external: LGD village-to-GP file (4,345 GPs, equal to the SEC's published 2022 mukhiya total) | warn | rows=4142; published_total=4345; districts_exact=9 |
 | `gp_numbers_run_unbroken_2022` | source: the gazette's own 1..N GP numbering within a block; each gap opened and recorded in data/checks/gap_review_2022.csv | pass | missing_numbers=10; verified_source_gaps=10; unexplained_missing=0; blocks=264 |
 | `unique_district_block_no_gp_no_2022` | internal | pass | duplicate_rows=0; blank_key_rows=0 |
 | `duplicate_keys_flagged_2022` | internal | pass | flagged_rows=0; mismatched_rows=0 |
 | `unique_district_block_gram_panchayat_2022` | internal | pass | duplicate_rows=0; blank_key_rows=470 |
-| `unique_district_block_gram_panchayat_2015` | internal | pass | duplicate_rows=0; blank_key_rows=1397 |
+| `unique_district_block_gram_panchayat_2015` | internal | pass | duplicate_rows=0; blank_key_rows=1385 |
 | `source_page_within_document_2022` | source: page counts of the hashed PDFs | pass | documents=24; pages_outside_document=0; blank_provenance=0 |
 | `source_page_within_document_2015` | source: page counts of the hashed PDFs | pass | documents=81; pages_outside_document=0; blank_provenance=0 |
 | `women_share_and_caste_shares` | statute: Jharkhand Panchayat Raj Act reserves at least half of seats for women; 2015 shares as the comparison | pass |  |
-| `gp_name_match_2022_to_2015` | independent source: the 2015 gazettes, parsed by different code from a different year | info | threshold_ratio=85; rows_2022=4334; share_exact_or_near_in_block=0.8216; share_exact_or_near_in_district=0.8475; rows_2022_in_districts_with_2015_rows=4209; rows_2022_in_blocks_with_2015_names=4169; share_matched_in_blocks_with_2015_names=0.8542 |
+| `gp_name_match_2022_to_2015` | independent source: the 2015 gazettes, parsed by different code from a different year | info | threshold_ratio=85; rows_2022=4334; share_exact_or_near_in_block=0.8496; share_exact_or_near_in_district=0.8747; rows_2022_in_districts_with_2015_rows=4209; rows_2022_in_blocks_with_2015_names=4169; share_matched_in_blocks_with_2015_names=0.8832 |
 | `hand_transcription_2022` | independent: rows read by eye from the rendered page images | pass | rows=29; excluded_hand_keyed=1; unmatched=0; winner_char_agreement=0.9969; winner_exact=28; gram_panchayat_char_agreement=0.9881; gram_panchayat_exact=26; block_no_exact=29; gp_no_exact=29; reserved_caste_exact=29; reserved_woman_exact=29 |
-| `text_layer_agreement_2022` | independent: the PDFs' own Kruti Dev text layer, decoded without OCR, in the districts that have one | info | text_layer_rows=1147; found_in_ocr_table=1147; misaligned_by_text_reader=20; winner_char_agreement_aligned=0.9832; gp_char_agreement_aligned=0.9802; caste_agree_all=1083/1083; caste_agree_aligned=1066/1066; woman_agree_all=1108/1124; woman_agree_aligned=1106/1107 |
-| `ported_2015_agreement` | independent: parse/members_2015.py's reading of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans) | info | rows_new=4137; rows_ported=3974; shared_keys=3647; caste_agree=3611/3637; woman_agree=3610/3615; winner_char_agreement=0.9729; winner_exact=3285/3647 |
-| `women_share_ward_member_2015` | law: Jharkhand reserves half of its panchayat seats for women | pass | rows=19843; districts=11; woman=0.5273; published_seats=None; share_of_published=None |
-| `women_share_panchayat_samiti_2015` | law: Jharkhand reserves half of its panchayat seats for women | pass | rows=5171; districts=24; woman=0.5219; published_seats=5423; share_of_published=0.9535 |
+| `text_layer_agreement_2022` | independent: the PDFs' own Kruti Dev text layer, decoded without OCR, in the districts that have one | info | text_layer_rows=1147; found_in_ocr_table=1147; misaligned_by_text_reader=20; winner_char_agreement_aligned=0.9898; gp_char_agreement_aligned=0.9905; caste_agree_all=1083/1083; caste_agree_aligned=1066/1066; woman_agree_all=1108/1124; woman_agree_aligned=1106/1107 |
+| `ported_2015_agreement` | independent: parse/members_2015.py's reading of the same PDFs (pdfplumber + Kruti Dev decoding, Surya OCR for scans) | info | rows_new=4142; rows_ported=4172; shared_keys=3843; caste_agree=3807/3833; woman_agree=3806/3811; winner_char_agreement=0.9764; winner_exact=3570/3843 |
+| `women_share_ward_member_2015` | law: Jharkhand reserves half of its panchayat seats for women | pass | rows=19930; districts=11; woman=0.5275; published_seats=None; share_of_published=None |
+| `women_share_panchayat_samiti_2015` | law: Jharkhand reserves half of its panchayat seats for women | pass | rows=5218; districts=24; woman=0.522; published_seats=5423; share_of_published=0.9622 |
 | `women_share_zila_parishad_2015` | law: Jharkhand reserves half of its panchayat seats for women | pass | rows=226; districts=11; woman=0.531; published_seats=545; share_of_published=0.4147 |
 
 ### Rows per district against the LGD gram panchayat count
@@ -215,14 +215,14 @@ Form 23.
 | Latehar | 115 | 115 | 110 | 53.0% | 53.6% | 0.0% | 0.0% | 100.0% | 100.0% |
 | Lohardaga | 66 | 66 | 66 | 53.0% | 53.0% | 0.0% | 0.0% | 100.0% | 100.0% |
 | Pakur | 128 | 125 | 0 | 51.2% | — | 0.0% | — | 88.0% | — |
-| Palamu | 265 | 265 | 278 | 55.9% | 51.4% | 28.7% | 28.1% | 9.4% | 9.0% |
+| Palamu | 265 | 265 | 283 | 55.9% | 51.2% | 28.7% | 27.9% | 9.4% | 8.8% |
 | Ramgarh | 125 | 125 | 125 | 55.2% | 51.2% | 12.0% | 12.0% | 21.6% | 21.6% |
 | Ranchi | 305 | 305 | 305 | 51.8% | 51.8% | 0.0% | 0.0% | 100.0% | 100.0% |
 | Sahebganj | 162 | 155 | 166 | 51.6% | 51.2% | 0.0% | 0.0% | 83.9% | 84.9% |
 | Seraikela Kharsawan | 132 | 132 | 135 | 52.3% | 51.8% | 0.0% | 0.0% | 100.0% | 99.3% |
 | Simdega | 94 | 94 | 10 | 52.7% | 40.0% | 0.0% | 0.0% | 100.0% | 100.0% |
 | West Singhbhum | 217 | 217 | 217 | 52.1% | 52.1% | 0.0% | 0.0% | 100.0% | 100.0% |
-| **Total** | 4,345 | 4,334 | 4,137 | 53.7% | 52.1% | 9.5% | 10.0% | 51.7% | 50.2% |
+| **Total** | 4,345 | 4,334 | 4,142 | 53.7% | 52.1% | 9.5% | 10.0% | 51.7% | 50.1% |
 
 ### Blocks whose 2022 GP numbering has a gap or repeat
 

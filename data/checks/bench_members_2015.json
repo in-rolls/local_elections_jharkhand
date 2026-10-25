@@ -13,14 +13,14 @@
   },
   "REGRESSION": {
    "by_tier": {
-    "mukhiya": 997,
-    "panchayat_samiti": 1173,
-    "ward_member": 2462,
+    "mukhiya": 1195,
+    "panchayat_samiti": 1220,
+    "ward_member": 2549,
     "zila_parishad": 55
    },
-   "complete": 3476,
-   "complete_share": 0.7416,
-   "rows": 4687
+   "complete": 3553,
+   "complete_share": 0.7079,
+   "rows": 5019
   },
   "VALIDATE": {
    "by_tier": {
@@ -36,18 +36,18 @@
  },
  "tiers": {
   "mukhiya": {
-   "coverage": 0.9146,
-   "coverage_distance": 0.0854,
-   "impossible_excess": 2,
-   "rows": 3974
+   "coverage": 0.9602,
+   "coverage_distance": 0.0398,
+   "impossible_excess": 1,
+   "rows": 4172
   },
   "panchayat_samiti": {
-   "coverage": 0.9535,
-   "coverage_distance": 0.0465,
-   "rows": 5171
+   "coverage": 0.9622,
+   "coverage_distance": 0.0378,
+   "rows": 5218
   },
   "ward_member": {
-   "rows": 19843
+   "rows": 19930
   },
   "zila_parishad": {
    "coverage": 0.4147,

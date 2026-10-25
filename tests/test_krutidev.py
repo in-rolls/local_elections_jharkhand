@@ -116,3 +116,20 @@ def test_digits_and_punctuation_pass_through():
 def test_empty_input_is_returned_unchanged():
     assert krutidev.to_unicode("") == ""
     assert krutidev.to_unicode(None) is None
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected"),
+    [
+        pytest.param("¼fu;e 85½", "(नियम 85)", id="brackets"),
+        pytest.param("gk¡lnk", "हाँसदा", id="chandrabindu"),
+        pytest.param("fu;ekoyh] 2001", "नियमावली, 2001", id="comma"),
+        pytest.param("Ádk'ku", "प्रकाशन", id="pra"),
+        pytest.param("ç/kku", "प्रधान", id="pra-alternate"),
+        pytest.param("#i", "रुप", id="ru"),
+        pytest.param("cq)s'oj", "बुद्धेश्वर", id="ddha"),
+        pytest.param("v[rj", "अख्तर", id="half-kha"),
+    ],
+)
+def test_bytes_read_off_the_2015_notifications(raw, expected):
+    assert krutidev.to_unicode(raw) == expected
