@@ -30,7 +30,7 @@ Three pieces of evidence, combined by a logistic regression:
 - naampy's first-name score on the name romanized by indicate;
 - fixed last-word markers (devi, kaur, ... versus singh, kumar, ...).
 
-The combiner is fit on out-of-state predictions - names from one labelled state
+The combiner is fit on out-of-state predictions - names from one labeled state
 scored by a character model trained on the other - because Jharkhand is a
 third state, and in-state scores would make the character model look better
 than it will be here.
@@ -172,7 +172,7 @@ def labelled(state):
         )
         frames.append(d[(d["y"] >= 0) & (d["name"].str.len() > 1)])
     d = pd.concat(frames)
-    # one row per distinct name, labelled by its majority; ties dropped
+    # one row per distinct name, labeled by its majority; ties dropped
     g = d.groupby("name")["y"].agg(["mean", "size"]).reset_index()
     g = g[g["mean"] != 0.5]
     return pd.DataFrame(

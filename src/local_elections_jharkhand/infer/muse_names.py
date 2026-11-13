@@ -9,7 +9,7 @@ call that would pass the authorized cap, and records provider-reported cost.
     python -m local_elections_jharkhand.infer.muse_names pilot --cap 2
     python -m local_elections_jharkhand.infer.muse_names all --cap 2
 
-`pilot` scores 40 labelled names (recorded sex, UP and Bihar; 20 women, 20 men)
+`pilot` scores 40 labeled names (recorded sex, UP and Bihar; 20 women, 20 men)
 and 40 winners of Jharkhand ST women's seats (women by law) and reports how the
 model does on both. `all` scores every unique winner name and writes
 data/release/inferred/muse_spark_full_name.parquet. Calls and their accounting are kept

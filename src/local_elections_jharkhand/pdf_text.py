@@ -5,7 +5,7 @@ starts left of the last. Kruti Dev draws the anusvara, the e-sign and the other
 marks with zero width at, or just left of, the next glyph, so that order put a
 space inside about 1,100 of 2015's names: "flag" (सिंह) came out "fla g" and
 converted to सिहं, "fufoZjks/k" (निर्विरोध) to निर्विराध्े ा. The stored order is
-the typed order. Measured on 148,377 neighbouring pairs on a line: 51 step back
+the typed order. Measured on 148,377 neighboring pairs on a line: 51 step back
 more than 20pt (a new run, such as the next table cell), and the rest go
 forward or step back less than 3pt (the marks).
 

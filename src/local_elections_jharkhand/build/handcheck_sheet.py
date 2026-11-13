@@ -2,7 +2,7 @@
 
     python -m local_elections_jharkhand.build.handcheck_sheet OUT_DIR [--n 30]
 
-Writes OUT_DIR/sheet_NN.png (six row strips per image, each labelled with its
+Writes OUT_DIR/sheet_NN.png (six row strips per image, each labeled with its
 sample number) and OUT_DIR/template.csv. The strips show only the page image,
 never the parsed values, so the transcription in data/checks/handcheck_2022.csv
 is made without seeing what the parser read. Only the crop position comes from
