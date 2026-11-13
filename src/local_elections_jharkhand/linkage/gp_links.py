@@ -33,7 +33,7 @@ ignored, and a name scoring below NAME_THRESHOLD scores 0 whatever its
 number, so the serial can never carry a pair on its own.
 
 Not used: reservation and the winner's sex (the analysis variables) and the
-winners' names (they would favor re-elected incumbents). Winners are used
+winners' names (they would favour re-elected incumbents). Winners are used
 only by the check.
 
 Excluded: GPs with a blank name, and names repeated within one group in one
