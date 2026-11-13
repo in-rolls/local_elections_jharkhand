@@ -126,7 +126,7 @@ def recognise(image):
     ).recognize()
     boxes = []
     for text, confidence, (x, y, w, h) in results:
-        # Vision's boxes are normalised with the origin bottom-left.
+        # Vision's boxes are normalized with the origin bottom-left.
         boxes.append(
             [
                 text,

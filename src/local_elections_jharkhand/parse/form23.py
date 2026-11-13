@@ -203,7 +203,7 @@ def woman_of(text):
 def post_of(text):
     compact = text.replace(" ", "")
     # "सदस्य" (member) settles it: a mukhiya fragment beside it is a name or
-    # a neighbouring cell spilling over ("मुखादेव प्रसाद यादव ग्राम पंचायत सदस्य").
+    # a neighboring cell spilling over ("मुखादेव प्रसाद यादव ग्राम पंचायत सदस्य").
     if "सदस्य" in compact:
         if "समिति" in compact:
             return "panchayat_samiti"
@@ -880,7 +880,7 @@ def block_names(seats, heading_blocks):
             if name and not re.search(r"[A-Za-z0-9|]", name):
                 printed[seat["block_no"]][name] += 1
         if seat["tier_local"] == "panchayat_samiti" and seat["place"]:
-            # a merged neighbour can trail the name ("गोविन्दपुर-17) XIV धनबाद")
+            # a merged neighbor can trail the name ("गोविन्दपुर-17) XIV धनबाद")
             name = re.split(r"\s*[-(]", seat["place"])[0].strip(" .:")
             if name and not re.search(r"[A-Za-z0-9]", name):
                 names[seat["block_no"]][name] += 1

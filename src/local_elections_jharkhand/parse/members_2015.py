@@ -303,7 +303,7 @@ def split_seat_id(text, tier):
     # distinguishes the two is whether a number is involved: a separator has a
     # digit or a space on one side of it, a conjunct does not.
     #
-    # That narrower rule applies to Kruti Dev only. The ambiguity is an artefact
+    # That narrower rule applies to Kruti Dev only. The ambiguity is an artifact
     # of the encoding - in Unicode Devanagari ध is ध and "/" is only ever a
     # separator - and requiring the digit there cost 69 rows, because OCR leaves
     # commas against the separator ("3,/धसनियाँ") where a digit should be. So the
@@ -1258,7 +1258,7 @@ def main():
         row["winner"], row["unopposed"] = split_unopposed(row.get("winner"))
         # Describes what the row holds, not what this loop attempted. A value
         # the converter could not turn into Devanagari - a stray Latin token,
-        # an empty page - must not be labelled as though it had been.
+        # an empty page - must not be labeled as though it had been.
         names = [row.get(c) or "" for c in ("gram_panchayat", "winner")]
         row["script"] = (
             "devanagari"
