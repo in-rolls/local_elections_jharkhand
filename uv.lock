@@ -5,21 +5,24 @@ resolution-markers = [
     "python_full_version >= '3.14' and sys_platform == 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
     "python_full_version >= '3.14' and sys_platform == 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
     "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version < '3.14' and sys_platform == 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version < '3.14' and sys_platform == 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version < '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version >= '3.14' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version >= '3.14' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version == '3.13.*' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version == '3.13.*' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version == '3.13.*' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version < '3.13' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version < '3.13' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
-    "python_full_version < '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version >= '3.15' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version == '3.14.*' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version >= '3.15' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version == '3.14.*' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version >= '3.15' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version == '3.14.*' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
     "python_full_version >= '3.14' and sys_platform == 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
     "python_full_version >= '3.14' and sys_platform == 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
     "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version == '3.13.*' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version == '3.13.*' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version == '3.13.*' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version < '3.14' and sys_platform == 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version < '3.14' and sys_platform == 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version < '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version < '3.13' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version < '3.13' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
+    "python_full_version < '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
     "python_full_version < '3.14' and sys_platform == 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
     "python_full_version < '3.14' and sys_platform == 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
     "python_full_version < '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer' and extra != 'group-25-local-elections-jharkhand-muse'",
@@ -43,14 +46,14 @@ name = "aiohttp"
 version = "3.14.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "aiohappyeyeballs" },
-    { name = "aiosignal" },
-    { name = "attrs" },
-    { name = "frozenlist" },
-    { name = "multidict" },
-    { name = "propcache" },
-    { name = "typing-extensions", marker = "python_full_version < '3.13' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
-    { name = "yarl" },
+    { name = "aiohappyeyeballs", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "aiosignal", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "attrs", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "frozenlist", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "multidict", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "propcache", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "typing-extensions", marker = "(python_full_version < '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32') or (python_full_version < '3.13' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (python_full_version < '3.13' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (python_full_version >= '3.13' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "yarl", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/6c/4c/bdccd81e9ee225b69c60e7766c9a5b05364f118f4d383713b89a682d772d/aiohttp-3.14.5.tar.gz", hash = "sha256:5558a7f5a05af9ecf744af91e5baefc436f93c9333e656c27ec253f9a6bbe178", size = 8078052, upload-time = "2026-10-11T01:05:12.408Z" }
 wheels = [
@@ -185,8 +188,8 @@ name = "aiosignal"
 version = "1.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "frozenlist" },
-    { name = "typing-extensions", marker = "python_full_version < '3.13' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "frozenlist", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "typing-extensions", marker = "(python_full_version < '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32') or (python_full_version < '3.13' and sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (python_full_version < '3.13' and sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (python_full_version >= '3.13' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/61/62/06741b579156360248d1ec624842ad0edf697050bbaf7c3e46394e106ad1/aiosignal-1.4.0.tar.gz", hash = "sha256:f47eecd9468083c2029cc99945502cb7708b082c232f9aca65da147157b251c7", size = 25007, upload-time = "2025-07-03T22:54:43.528Z" }
 wheels = [
@@ -216,8 +219,8 @@ name = "anyio"
 version = "4.15.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "idna" },
-    { name = "typing-extensions", marker = "python_full_version < '3.15' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "idna", marker = "sys_platform != 'emscripten' or extra == 'group-25-local-elections-jharkhand-infer' or extra == 'group-25-local-elections-jharkhand-muse'" },
+    { name = "typing-extensions", marker = "(python_full_version < '3.15' and sys_platform != 'emscripten') or (python_full_version < '3.15' and extra == 'group-25-local-elections-jharkhand-infer') or (python_full_version < '3.15' and extra == 'group-25-local-elections-jharkhand-muse') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz", hash = "sha256:9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94", size = 276966, upload-time = "2026-09-05T10:42:39.44Z" }
 wheels = [
@@ -595,7 +598,7 @@ name = "cuda-bindings"
 version = "13.4.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cuda-pathfinder", marker = "sys_platform != 'emscripten' and sys_platform != 'win32'" },
+    { name = "cuda-pathfinder", marker = "python_full_version < '3.15' and sys_platform != 'emscripten' and sys_platform != 'win32'" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d7/38/87909f62598d02d9e5c536326aed1755f6bfa190285507b962bb601e0005/cuda_bindings-13.4.4-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:b346bfe1dda49537537c06cc4727b2210d949d8aee883cb591bca46581629d00", size = 6488222, upload-time = "2026-10-14T12:35:20.703Z" },
@@ -686,20 +689,19 @@ name = "datasets"
 version = "5.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "dill" },
-    { name = "filelock", version = "3.32.7", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
-    { name = "filelock", version = "4.2.4", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
-    { name = "fsspec", extra = ["http"] },
-    { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
-    { name = "huggingface-hub", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
-    { name = "multiprocess" },
-    { name = "numpy" },
-    { name = "packaging" },
-    { name = "pandas" },
-    { name = "pyarrow" },
-    { name = "pyyaml" },
-    { name = "tqdm" },
-    { name = "xxhash" },
+    { name = "dill", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "filelock", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "fsspec", extra = ["http"], marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "huggingface-hub", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "multiprocess", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "numpy", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "packaging", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pandas", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyarrow", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyyaml", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "tqdm", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "xxhash", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/17/e6/b5d8c77f13cc6269660b0f2691e8875777b9d94972e281b7b2c25f25bd9d/datasets-5.1.0.tar.gz", hash = "sha256:1561347daa8841b51351ef2ad1647b4ee4af406852c0f7bd1df587ac1ca7888e", size = 687306, upload-time = "2026-10-05T15:32:32.053Z" }
 wheels = [
@@ -716,25 +718,16 @@ wheels = [
 ]
 
 [[package]]
-name = "distro"
-version = "1.9.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed", size = 60722, upload-time = "2023-12-24T09:54:32.31Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2", size = 20277, upload-time = "2023-12-24T09:54:30.421Z" },
-]
-
-[[package]]
 name = "fastapi"
 version = "0.162.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "annotated-doc" },
-    { name = "opentelemetry-api" },
-    { name = "pydantic" },
-    { name = "starlette" },
-    { name = "typing-extensions" },
-    { name = "typing-inspection" },
+    { name = "annotated-doc", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "opentelemetry-api", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pydantic", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "starlette", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "typing-extensions", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "typing-inspection", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/e9/eb/2cf8c80abf09b2800aef0a83b41066fbfda8ee5495b7a08b9d1af40f7046/fastapi-0.162.0.tar.gz", hash = "sha256:6a22c1e2e6e32e0633ee7e170f00009a29b8228b16feb219ee42f32fd8d88a8f", size = 527867, upload-time = "2026-10-23T18:47:33.264Z" }
 wheels = [
@@ -784,39 +777,11 @@ wheels = [
 
 [[package]]
 name = "filelock"
-version = "3.32.7"
+version = "4.2.10"
 source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.14' and sys_platform == 'win32'",
-    "python_full_version >= '3.14' and sys_platform == 'emscripten'",
-    "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-    "python_full_version == '3.13.*' and sys_platform == 'win32'",
-    "python_full_version == '3.13.*' and sys_platform == 'emscripten'",
-    "python_full_version == '3.13.*' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-    "python_full_version < '3.13' and sys_platform == 'win32'",
-    "python_full_version < '3.13' and sys_platform == 'emscripten'",
-    "python_full_version < '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-]
-sdist = { url = "https://files.pythonhosted.org/packages/0f/59/e19834834cb01a32febfbb0f8a23a9088088f5d45991824ff2bc3b5e8acb/filelock-3.32.7.tar.gz", hash = "sha256:37b8a3d9811b0f9aef7e5ec5c71bb320de52df51e6ca9bcd6f5ad81187660da7", size = 225154, upload-time = "2026-09-16T00:24:20.907Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz", hash = "sha256:fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d", size = 670595, upload-time = "2026-11-09T18:58:00.54Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/df/31098c5aeb4d966b553641472bd55fcf5fdfac953549894b8a765ba44e91/filelock-3.32.7-py3-none-any.whl", hash = "sha256:65ff0d0190ea42038b32bda4b77834fb05be2cad4c5b9b01aa4dfb3614536e52", size = 100157, upload-time = "2026-09-16T00:24:19.543Z" },
-]
-
-[[package]]
-name = "filelock"
-version = "4.2.4"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.14' and sys_platform == 'win32'",
-    "python_full_version >= '3.14' and sys_platform == 'emscripten'",
-    "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-    "python_full_version < '3.14' and sys_platform == 'win32'",
-    "python_full_version < '3.14' and sys_platform == 'emscripten'",
-    "python_full_version < '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-]
-sdist = { url = "https://files.pythonhosted.org/packages/d8/28/3893324bcadf8f89b1616637468d766af3f625008c0735bf704fdfa86617/filelock-4.2.4.tar.gz", hash = "sha256:c6d8663535e1650ee430507b4ffbac7b464dd64b7647ea0112a9f406499d163d", size = 652444, upload-time = "2026-10-19T01:57:51.001Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e0/1b/5e74289a1878e666bb4b65fe5805a04cafcac2aa5f519ef1ead67ef91c56/filelock-4.2.4-py3-none-any.whl", hash = "sha256:301241438c57936ef93f4243a94f2559022268bfcf9b375a9a72eb0f8db8358e", size = 162475, upload-time = "2026-10-19T01:57:49.419Z" },
+    { url = "https://files.pythonhosted.org/packages/ef/90/5d0096a325aa0f83ba7a3968bfb485b67e32c947bdf9cd0fcb4b485be718/filelock-4.2.10-py3-none-any.whl", hash = "sha256:9479aaeb4db20b5a53e3da28493edd24720b66b8a0b84030aa56ccdf243d6857", size = 218040, upload-time = "2026-11-09T18:57:59.088Z" },
 ]
 
 [[package]]
@@ -919,7 +884,7 @@ wheels = [
 
 [package.optional-dependencies]
 http = [
-    { name = "aiohttp" },
+    { name = "aiohttp", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 
 [[package]]
@@ -995,8 +960,8 @@ name = "httpcore2"
 version = "2.16.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "h11", marker = "(sys_platform != 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
-    { name = "truststore", marker = "(sys_platform != 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "h11", marker = "sys_platform != 'emscripten' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "truststore", marker = "sys_platform != 'emscripten' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/c0/61/afa9d6b7452f9eca73f73d45324eb0bb52f098fd5e6049bf6b8263be9b4e/httpcore2-2.16.0.tar.gz", hash = "sha256:c72cd0413563b17e1cd8354677dff887466f8ec2551679759e93126534428643", size = 69886, upload-time = "2026-10-21T07:09:45.31Z" }
 wheels = [
@@ -1028,12 +993,12 @@ name = "httpx2"
 version = "2.16.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "anyio", marker = "(sys_platform != 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
-    { name = "httpcore2", marker = "(sys_platform != 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
-    { name = "httpx2-jsfetch", marker = "(sys_platform == 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
-    { name = "idna", marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
-    { name = "truststore", marker = "(sys_platform != 'emscripten' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
-    { name = "typing-extensions", marker = "(python_full_version < '3.13' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "anyio", marker = "sys_platform != 'emscripten' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "httpcore2", marker = "sys_platform != 'emscripten' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "httpx2-jsfetch", marker = "sys_platform == 'emscripten' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "idna" },
+    { name = "truststore", marker = "sys_platform != 'emscripten' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "typing-extensions", marker = "python_full_version < '3.13' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/43/73/5ca2cedf5e4e50423d1c258877865a6b62793633b561c58499f8aeb33b7e/httpx2-2.16.0.tar.gz", hash = "sha256:0d54c98128e8f2ff7fbbde0fca8c359e5f032edeaaaac443cdb7f31f685bcd7f", size = 103116, upload-time = "2026-10-21T07:09:46.348Z" }
 wheels = [
@@ -1054,9 +1019,12 @@ name = "huggingface-hub"
 version = "1.33.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.14' and sys_platform == 'win32'",
-    "python_full_version >= '3.14' and sys_platform == 'emscripten'",
-    "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
+    "python_full_version >= '3.15' and sys_platform == 'win32'",
+    "python_full_version == '3.14.*' and sys_platform == 'win32'",
+    "python_full_version >= '3.15' and sys_platform == 'emscripten'",
+    "python_full_version == '3.14.*' and sys_platform == 'emscripten'",
+    "python_full_version >= '3.15' and sys_platform != 'emscripten' and sys_platform != 'win32'",
+    "python_full_version == '3.14.*' and sys_platform != 'emscripten' and sys_platform != 'win32'",
     "python_full_version == '3.13.*' and sys_platform == 'win32'",
     "python_full_version == '3.13.*' and sys_platform == 'emscripten'",
     "python_full_version == '3.13.*' and sys_platform != 'emscripten' and sys_platform != 'win32'",
@@ -1066,7 +1034,7 @@ resolution-markers = [
 ]
 dependencies = [
     { name = "click", marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
-    { name = "filelock", version = "3.32.7", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
+    { name = "filelock", marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
     { name = "fsspec", marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
     { name = "hf-xet", marker = "(platform_machine == 'AMD64' and extra == 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'aarch64' and extra == 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'amd64' and extra == 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'arm64' and extra == 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'x86_64' and extra == 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
     { name = "httpx", marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
@@ -1094,7 +1062,7 @@ resolution-markers = [
 ]
 dependencies = [
     { name = "click", marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
-    { name = "filelock", version = "4.2.4", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
+    { name = "filelock", marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
     { name = "fsspec", marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
     { name = "hf-xet", marker = "(platform_machine == 'AMD64' and extra != 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'ARM64' and extra != 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'aarch64' and extra != 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'amd64' and extra != 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'arm64' and extra != 'group-25-local-elections-jharkhand-infer') or (platform_machine == 'x86_64' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
     { name = "httpx2", marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
@@ -1171,7 +1139,7 @@ name = "jinja2"
 version = "3.1.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "markupsafe" },
+    { name = "markupsafe", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz", hash = "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d", size = 245115, upload-time = "2025-03-05T20:05:02.478Z" }
 wheels = [
@@ -1323,21 +1291,22 @@ wheels = [
 
 [[package]]
 name = "litellm"
-version = "1.106.4"
+version = "1.109.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
+    { name = "anyio" },
     { name = "boto3" },
     { name = "certifi" },
     { name = "click" },
-    { name = "fastuuid" },
-    { name = "filelock", version = "3.32.7", source = { registry = "https://pypi.org/simple" } },
+    { name = "fastuuid", marker = "python_full_version < '3.15'" },
+    { name = "filelock" },
     { name = "httpx", extra = ["http2"], marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
     { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" } },
     { name = "importlib-metadata" },
     { name = "jinja2" },
     { name = "jsonschema" },
-    { name = "openai", version = "2.54.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "openai" },
     { name = "packaging" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
@@ -1347,15 +1316,15 @@ dependencies = [
     { name = "tokenizers" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ab/c9/ee739d080e1878891adfd624c97d86e2ab6f49460f5aac37f241429f82c5/litellm-1.106.4.tar.gz", hash = "sha256:f99a2c5615f26c7cb3b38b3d7657643d866852495a1d48b8c847b27cc1727949", size = 21194374, upload-time = "2026-10-25T09:33:08.609Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/64/cc/6295db7faccd95aae86392e06531817e8ef2661b04805e95cfde56165a32/litellm-1.109.1.tar.gz", hash = "sha256:5b98ecccd93374b8ea1746ee98de16b505c0b5e6c0dfb7e8afec3d817d08d7c2", size = 25570168, upload-time = "2026-11-12T02:00:18.465Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/92/f6/2077ec833f1738b8cf03b6a6a0feefaec844d8a5ed3afc7c2415af52361a/litellm-1.106.4-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:fb5dbe12d8789cc8c44dcf6a7f76eeef5e219007384b6a0ac74b3784203c216c", size = 36043758, upload-time = "2026-10-25T09:32:43.59Z" },
-    { url = "https://files.pythonhosted.org/packages/19/32/9d9f1918fe0274946b1be3bef127af20433c391531b95f9d83c7a661d40b/litellm-1.106.4-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:9ea61a1660528d5d72459acefa38762de3bda3c20fe1f44eab674ec3b72f9238", size = 35045643, upload-time = "2026-10-25T09:32:47.333Z" },
-    { url = "https://files.pythonhosted.org/packages/b9/12/13e4a8b05b804ae5facad556df9b2b2acac0ea2eb1a65f35ad3cedf38ee8/litellm-1.106.4-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:1c2b7d072a47c3f04032764d8143ed6ade8c354a331f4ad5ab9b9d5b1ba2dd4c", size = 35560760, upload-time = "2026-10-25T09:32:51.421Z" },
-    { url = "https://files.pythonhosted.org/packages/06/db/0e42dc7945e27f0633eb00a10e8ff6ecdb93d6fd2798a1ca15e63fc7c54c/litellm-1.106.4-cp310-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:d4cd1c1cab5c1e7f32d6a06a74e88176575fcbf427e8a4b6a434207aca007fb4", size = 36553537, upload-time = "2026-10-25T09:32:55.236Z" },
-    { url = "https://files.pythonhosted.org/packages/f9/85/2d1f4ae722e76ea4fae927931e118c630d0eb8a93ef32d089500178b58dd/litellm-1.106.4-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:9f36a1d4a58fec0286e87f1bae5eab2819077b28efb9d77a310a0d78b4ae07f5", size = 35724339, upload-time = "2026-10-25T09:32:58.713Z" },
-    { url = "https://files.pythonhosted.org/packages/0b/20/6d8a707a12f7b43886635c29cb8c59b5fd0d903d38ab4f9a3540a98f21cf/litellm-1.106.4-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:7dd40a6c2a495bdf0b80151d140c8b65fe77f7fecadef989c244d78c646c3a97", size = 36621544, upload-time = "2026-10-25T09:33:01.838Z" },
-    { url = "https://files.pythonhosted.org/packages/0c/11/eb49387741c030a181eb5ba5240d813c641b636d93ea22b9099d8e38c9c2/litellm-1.106.4-cp310-abi3-win_amd64.whl", hash = "sha256:1dc78af5a710715b1807a73d1b378d4d1fd82a4f4a13e45179b76287cbbabba9", size = 37382771, upload-time = "2026-10-25T09:33:05.488Z" },
+    { url = "https://files.pythonhosted.org/packages/0c/1e/f83650f0840f47b4d48e7d3fcc49ee23f2b9ab27fb90937f0e1d9e0dbd5c/litellm-1.109.1-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:1fdf789757fc71c9a9ac183cd326b978782dfa9ebd44087c6603b5b963956841", size = 40565744, upload-time = "2026-11-12T01:59:54.804Z" },
+    { url = "https://files.pythonhosted.org/packages/16/10/9c973a582a29ace1b4437b0851b278f8b65a22c351ab3c3180d6bcebb0ec/litellm-1.109.1-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:1b2866219249186babe194d7e3f4af29095c0905a4c5712b62be662aa6a38fb7", size = 39911789, upload-time = "2026-11-12T01:59:58.373Z" },
+    { url = "https://files.pythonhosted.org/packages/af/20/d305f1243712131a79c7f069cdaad8be9f5a3746f09440576933ec55b6a9/litellm-1.109.1-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:1dcf31166d385e6eaaef7f5840ba88c4eac319d1aa2d3ec2787de981e07fcf11", size = 40353049, upload-time = "2026-11-12T02:00:01.288Z" },
+    { url = "https://files.pythonhosted.org/packages/30/5b/05ec8f224dd31cc294a5e0483fd6385d8991ffe4c0312978f5924ac053a5/litellm-1.109.1-cp310-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:1c8b4dd671fa0cd0850aa751678704ff77e595fb1e6085b2dc3be39ee19bdaaf", size = 41091727, upload-time = "2026-11-12T02:00:05.2Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/93/80f9b16aea7a10ccc1bac561fd65130271a928b5a8f23a6a1e8b32ec349b/litellm-1.109.1-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:c84737897b6b459acd660fd7adb33e2d552c5d0b93c4a47b8cd4f5e299c93bac", size = 40482185, upload-time = "2026-11-12T02:00:08.516Z" },
+    { url = "https://files.pythonhosted.org/packages/2f/49/120f60c831983fccfddfaa8683e0bb75c2ba70ed62263acae44ddd360534/litellm-1.109.1-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:b94080b0436c471e686735d10fd1069c151cf8b9816d823a1450419573f30e46", size = 41180765, upload-time = "2026-11-12T02:00:11.814Z" },
+    { url = "https://files.pythonhosted.org/packages/44/82/dfd6aa8ac212f5c2c7576079c92b97fcb666f3da521f47c813d1ee02e195/litellm-1.109.1-cp310-abi3-win_amd64.whl", hash = "sha256:738fd2465e24460f03a8c5ff33dc57c3fdfad88ff489811d718ee6ba3c5ad900", size = 41985493, upload-time = "2026-11-12T02:00:15.416Z" },
 ]
 
 [[package]]
@@ -1453,7 +1422,7 @@ name = "markdown-it-py"
 version = "4.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "mdurl" },
+    { name = "mdurl", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz", hash = "sha256:04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49", size = 82454, upload-time = "2026-05-07T12:08:28.36Z" }
 wheels = [
@@ -1587,7 +1556,7 @@ name = "miniaudio"
 version = "1.71"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cffi" },
+    { name = "cffi", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/d8/d5/e5439dc08561f73656bfeb3340fc64ab63163e101426593d8fb9a025ff1e/miniaudio-1.71.tar.gz", hash = "sha256:ff51e2887bb673e2e757752b586b3dc924d59aa5fbcae9bbc45f4a111bd3262b", size = 1116480, upload-time = "2026-04-29T21:20:38.182Z" }
 wheels = [
@@ -1675,16 +1644,16 @@ name = "mlx-audio"
 version = "0.6.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
-    { name = "huggingface-hub", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
-    { name = "miniaudio" },
-    { name = "mlx" },
-    { name = "numpy" },
-    { name = "scipy" },
-    { name = "sentencepiece" },
-    { name = "sounddevice" },
-    { name = "tqdm" },
-    { name = "transformers" },
+    { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "huggingface-hub", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "miniaudio", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "mlx", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "numpy", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "scipy", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "sentencepiece", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "sounddevice", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "tqdm", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "transformers", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/b2/5b/e7be1d322253a56f891dd41773afe21997e3c889a4b68953aa0db67efe68/mlx_audio-0.6.1.tar.gz", hash = "sha256:94259999694c707129c1f6a30cc1e164e525d0471c9311c5af88f37f20682300", size = 1919670, upload-time = "2026-10-20T15:21:25.496Z" }
 wheels = [
@@ -1706,25 +1675,25 @@ name = "mlx-vlm"
 version = "0.7.10"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cryptography" },
-    { name = "datasets" },
-    { name = "fastapi" },
-    { name = "jinja2" },
-    { name = "llguidance" },
-    { name = "miniaudio" },
-    { name = "mlx" },
-    { name = "mlx-audio" },
-    { name = "numpy" },
-    { name = "opencv-python" },
-    { name = "pillow" },
-    { name = "python-multipart" },
-    { name = "requests" },
-    { name = "sentencepiece" },
-    { name = "starlette" },
-    { name = "tqdm" },
-    { name = "transformers" },
-    { name = "uvicorn" },
-    { name = "websockets" },
+    { name = "cryptography", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "datasets", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "fastapi", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "jinja2", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "llguidance", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "miniaudio", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "mlx", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "mlx-audio", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "numpy", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "opencv-python", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pillow", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "python-multipart", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "requests", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "sentencepiece", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "starlette", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "tqdm", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "transformers", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "uvicorn", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "websockets", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/26/b5/86eb4a7785974ebbbb3655b1a82c0c342bd9b8e08f7ee6ccafe6f5de2fae/mlx_vlm-0.7.10.tar.gz", hash = "sha256:89adc43235194e797b6ac6795fd275e8957a5d14a1e2760ba49e3a7fedf79f96", size = 2699280, upload-time = "2026-10-21T17:47:10.614Z" }
 wheels = [
@@ -1883,7 +1852,7 @@ name = "multiprocess"
 version = "0.70.19"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "dill" },
+    { name = "dill", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/a2/f2/e783ac7f2aeeed14e9e12801f22529cc7e6b7ab80928d6dcce4e9f00922d/multiprocess-0.70.19.tar.gz", hash = "sha256:952021e0e6c55a4a9fe4cd787895b86e239a40e76802a789d6305398d3975897", size = 2079989, upload-time = "2026-01-19T06:47:39.744Z" }
 wheels = [
@@ -1902,7 +1871,7 @@ source = { git = "https://github.com/gojiplus/museclient?rev=2063b1b#2063b1bb1b5
 dependencies = [
     { name = "httpx" },
     { name = "jsonschema" },
-    { name = "openai", version = "3.37.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "openai" },
 ]
 
 [[package]]
@@ -2183,9 +2152,9 @@ name = "ocrmac"
 version = "1.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "click" },
-    { name = "pillow" },
-    { name = "pyobjc-framework-vision" },
+    { name = "click", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pillow", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyobjc-framework-vision", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/5e/07/3e15ab404f75875c5e48c47163300eb90b7409044d8711fc3aaf52503f2e/ocrmac-1.0.1.tar.gz", hash = "sha256:507fe5e4cbd67b2d03f6729a52bbc11f9d0b58241134eb958a5daafd4b9d93d9", size = 1454317, upload-time = "2026-01-08T16:44:26.412Z" }
 wheels = [
@@ -2194,46 +2163,8 @@ wheels = [
 
 [[package]]
 name = "openai"
-version = "2.54.0"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.14' and sys_platform == 'win32'",
-    "python_full_version >= '3.14' and sys_platform == 'emscripten'",
-    "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-    "python_full_version == '3.13.*' and sys_platform == 'win32'",
-    "python_full_version == '3.13.*' and sys_platform == 'emscripten'",
-    "python_full_version == '3.13.*' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-    "python_full_version < '3.13' and sys_platform == 'win32'",
-    "python_full_version < '3.13' and sys_platform == 'emscripten'",
-    "python_full_version < '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-]
-dependencies = [
-    { name = "anyio" },
-    { name = "distro" },
-    { name = "httpx" },
-    { name = "jiter" },
-    { name = "pydantic" },
-    { name = "sniffio" },
-    { name = "tqdm" },
-    { name = "typing-extensions" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/50/9a/8c75e8c8a5b407a0586faeb2afac91674ff955c191ecc1d6d3b6669f6788/openai-2.54.0.tar.gz", hash = "sha256:e3e6f8bc1ba30ddf381ace1a14340eed381cb984a1a59bd0f34b5be3b5d49cfa", size = 1100285, upload-time = "2026-08-11T18:46:59.035Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/64/a8/bb76c7356de8ad57f59d5ff993d434df0607f07f08bcc9c9a5c275e399c0/openai-2.54.0-py3-none-any.whl", hash = "sha256:89089789197ccdb87f173a03145ed1598d00795220c93e96cf712b1cbf5e5f2b", size = 1660351, upload-time = "2026-08-11T18:46:56.684Z" },
-]
-
-[[package]]
-name = "openai"
 version = "3.37.0"
 source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.14' and sys_platform == 'win32'",
-    "python_full_version >= '3.14' and sys_platform == 'emscripten'",
-    "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-    "python_full_version < '3.14' and sys_platform == 'win32'",
-    "python_full_version < '3.14' and sys_platform == 'emscripten'",
-    "python_full_version < '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
-]
 dependencies = [
     { name = "anyio" },
     { name = "httpx2" },
@@ -2252,7 +2183,7 @@ name = "opencv-python"
 version = "5.0.0.93"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "numpy" },
+    { name = "numpy", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/79/4c/a438d23e09ce2033c09f7b784ad2fbdb0adf529e434101ed28f142226f98/opencv_python-5.0.0.93.tar.gz", hash = "sha256:66aac3e5b5faa48d4025816592f3af19e4bfc2c68dec067bae2dbb4ca10aa9e2", size = 81802749, upload-time = "2026-07-02T06:59:53.815Z" }
 wheels = [
@@ -2290,7 +2221,7 @@ name = "opentelemetry-api"
 version = "1.45.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/2e/02/6e0ae9cc61bd3169d401077b507b3ebc344745171e1051ab430be012dcd9/opentelemetry_api-1.45.1.tar.gz", hash = "sha256:aa38ed19bcc084ba42782a73255b3582283eced7ad6dddbd6695189e69adfb75", size = 72804, upload-time = "2026-10-06T17:32:58.133Z" }
 wheels = [
@@ -2683,10 +2614,10 @@ name = "pydantic"
 version = "2.14.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "annotated-types" },
-    { name = "pydantic-core" },
-    { name = "typing-extensions" },
-    { name = "typing-inspection" },
+    { name = "annotated-types", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pydantic-core", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "typing-extensions", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "typing-inspection", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/7c/0b/8e10b2e693af8ec54346a14caf36221334775975a747c9ceaa3f8371d96d/pydantic-2.14.1.tar.gz", hash = "sha256:94f478203dd03404682a1ada216965651dd74b1d2d5ffd62e00e0837caab5c26", size = 900362, upload-time = "2026-10-11T18:37:55.396Z" }
 wheels = [
@@ -2698,7 +2629,7 @@ name = "pydantic-core"
 version = "2.50.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/a6/24/af4ec4be49fbc810f35b0bdcacc3d433b56bbfa469fd3bfd4ae116cd9bf1/pydantic_core-2.50.1.tar.gz", hash = "sha256:e50d7b94baac6c7d09927fa5ca5800a0c7ee5015c7fcff65beb3a1931b5a6e09", size = 513515, upload-time = "2026-10-11T18:35:44.82Z" }
 wheels = [
@@ -2843,7 +2774,7 @@ name = "pyobjc-framework-cocoa"
 version = "12.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pyobjc-core" },
+    { name = "pyobjc-core", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/75/76/49c6da2c6a831020b4854ba20079d5a1030474bffc776b7b73c2eeff8c15/pyobjc_framework_cocoa-12.2.2.tar.gz", hash = "sha256:c96c0ef69a71afbbb0e6a7d594b455c5fe47d62e0db376ee7a2b4b828c16ace9", size = 3132831, upload-time = "2026-08-11T19:44:02.288Z" }
 wheels = [
@@ -2861,8 +2792,8 @@ name = "pyobjc-framework-coreml"
 version = "12.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pyobjc-core" },
-    { name = "pyobjc-framework-cocoa" },
+    { name = "pyobjc-core", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyobjc-framework-cocoa", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/b7/3b/c835535e7aef41afc953e5597ea41e693b7bae80d753ab74b9721e07cba5/pyobjc_framework_coreml-12.2.2.tar.gz", hash = "sha256:3e6abe134634adbcc0c1e843826e42df86e63beb3bc7e8e4a914e93179ae1e75", size = 49750, upload-time = "2026-08-11T19:44:14.011Z" }
 wheels = [
@@ -2880,8 +2811,8 @@ name = "pyobjc-framework-quartz"
 version = "12.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pyobjc-core" },
-    { name = "pyobjc-framework-cocoa" },
+    { name = "pyobjc-core", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyobjc-framework-cocoa", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/35/b1/426a37c7ae37280b3ffca2571fb48f211946aee2f4ca31a603ed1943c4a7/pyobjc_framework_quartz-12.2.2.tar.gz", hash = "sha256:810f97b210cfd93704d240860286dfd6df09f9f1c52525fc5c2166723aea3f9e", size = 3218295, upload-time = "2026-08-11T19:45:15.189Z" }
 wheels = [
@@ -2899,10 +2830,10 @@ name = "pyobjc-framework-vision"
 version = "12.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pyobjc-core" },
-    { name = "pyobjc-framework-cocoa" },
-    { name = "pyobjc-framework-coreml" },
-    { name = "pyobjc-framework-quartz" },
+    { name = "pyobjc-core", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyobjc-framework-cocoa", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyobjc-framework-coreml", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyobjc-framework-quartz", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/ea/bf/31e8bcae94047b365592ab7533096a4025c0306a8a312b65bcbf57e073ec/pyobjc_framework_vision-12.2.2.tar.gz", hash = "sha256:a6bf78e8dca145c6a78fd8d5f925b6da54649a60a1464b81ff405bca4a08406b", size = 73289, upload-time = "2026-08-11T19:45:41.877Z" }
 wheels = [
@@ -2966,9 +2897,12 @@ name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.14' and sys_platform == 'win32'",
-    "python_full_version >= '3.14' and sys_platform == 'emscripten'",
-    "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
+    "python_full_version >= '3.15' and sys_platform == 'win32'",
+    "python_full_version == '3.14.*' and sys_platform == 'win32'",
+    "python_full_version >= '3.15' and sys_platform == 'emscripten'",
+    "python_full_version == '3.14.*' and sys_platform == 'emscripten'",
+    "python_full_version >= '3.15' and sys_platform != 'emscripten' and sys_platform != 'win32'",
+    "python_full_version == '3.14.*' and sys_platform != 'emscripten' and sys_platform != 'win32'",
     "python_full_version == '3.13.*' and sys_platform == 'win32'",
     "python_full_version == '3.13.*' and sys_platform == 'emscripten'",
     "python_full_version == '3.13.*' and sys_platform != 'emscripten' and sys_platform != 'win32'",
@@ -3282,10 +3216,10 @@ name = "requests"
 version = "2.34.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "certifi" },
-    { name = "charset-normalizer" },
-    { name = "idna" },
-    { name = "urllib3" },
+    { name = "certifi", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "charset-normalizer", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "idna", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "urllib3", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz", hash = "sha256:f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed", size = 142856, upload-time = "2026-05-14T19:25:27.735Z" }
 wheels = [
@@ -3297,8 +3231,8 @@ name = "rich"
 version = "15.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "markdown-it-py" },
-    { name = "pygments" },
+    { name = "markdown-it-py", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pygments", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz", hash = "sha256:edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36", size = 230680, upload-time = "2026-04-12T08:24:00.75Z" }
 wheels = [
@@ -3696,7 +3630,7 @@ name = "sounddevice"
 version = "0.5.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cffi" },
+    { name = "cffi", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/ec/db/0c890e2d9aab9ba284021efc02e1d3aebfecab1b611762d7434602209bcf/sounddevice-0.5.6.tar.gz", hash = "sha256:8ec9fbfde2e32f020b167e348f3ab3bac6625a5f15af524d790108ac7147a410", size = 1120094, upload-time = "2026-08-17T07:55:05.048Z" }
 wheels = [
@@ -3712,8 +3646,8 @@ name = "starlette"
 version = "1.10.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "anyio" },
-    { name = "typing-extensions", marker = "python_full_version < '3.13' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "anyio", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "typing-extensions", marker = "(python_full_version < '3.13' and sys_platform != 'emscripten' and sys_platform != 'win32') or (python_full_version >= '3.13' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/48/bb/3d8757f21e9a53d9035c9eb039a777047139a16bfdbedfc7a58241c3d914/starlette-1.10.0.tar.gz", hash = "sha256:b8399098d4c1e3522734f7235dc79b1fc967f96cf139c81e0fa30479e0685f9b", size = 2734356, upload-time = "2026-10-24T15:04:12.342Z" }
 wheels = [
@@ -3810,7 +3744,7 @@ version = "0.23.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
-    { name = "huggingface-hub", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
+    { name = "huggingface-hub", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/e0/7c/2cabb2174e772636683008f2c5621949b645da7d303c596589e84516a184/tokenizers-0.23.3.tar.gz", hash = "sha256:cded33237c77caeef62944d32aa9a7ef42bdce2b3497e18d137e072a8c4be438", size = 385286, upload-time = "2026-10-09T10:16:55.759Z" }
 wheels = [
@@ -3846,7 +3780,7 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cuda-bindings", marker = "python_full_version < '3.15' and sys_platform == 'linux'" },
     { name = "cuda-toolkit", extra = ["cublas", "cudart", "cufft", "cufile", "cupti", "curand", "cusolver", "cusparse", "nvjitlink", "nvrtc", "nvtx"], marker = "(sys_platform == 'linux' and extra == 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
-    { name = "filelock", version = "3.32.7", source = { registry = "https://pypi.org/simple" } },
+    { name = "filelock" },
     { name = "fsspec" },
     { name = "jinja2" },
     { name = "networkx" },
@@ -3895,16 +3829,16 @@ name = "transformers"
 version = "5.20.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-infer'" },
-    { name = "huggingface-hub", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'group-25-local-elections-jharkhand-muse' or extra != 'group-25-local-elections-jharkhand-infer'" },
-    { name = "numpy" },
-    { name = "packaging" },
-    { name = "pyyaml" },
-    { name = "regex" },
-    { name = "safetensors" },
-    { name = "tokenizers" },
-    { name = "tqdm" },
-    { name = "typer" },
+    { name = "huggingface-hub", version = "1.33.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform != 'emscripten' and sys_platform != 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "huggingface-hub", version = "2.3.0", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform != 'emscripten' and sys_platform != 'win32' and extra != 'group-25-local-elections-jharkhand-infer') or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "numpy", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "packaging", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "pyyaml", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "regex", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "safetensors", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "tokenizers", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "tqdm", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "typer", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/8c/4e/3cd6f08cc84ee612d40f3cdb1649475e7c997f2d5cbd95ade8780708af62/transformers-5.20.2.tar.gz", hash = "sha256:080871e061546d720be57f5846fce426f46b44d61574907cc7404c2cba49d180", size = 10225379, upload-time = "2026-10-19T17:46:03.092Z" }
 wheels = [
@@ -3940,10 +3874,9 @@ name = "typer"
 version = "0.27.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "annotated-doc" },
-    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
-    { name = "rich" },
-    { name = "shellingham" },
+    { name = "annotated-doc", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "rich", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "shellingham", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz", hash = "sha256:d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901", size = 205303, upload-time = "2026-10-06T17:24:16.61Z" }
 wheels = [
@@ -3964,7 +3897,7 @@ name = "typing-inspection"
 version = "0.4.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/a3/26/b09b8010994eccc3c09092e6b34058f36a460eea2d4c3e8b910c695975a0/typing_inspection-0.4.4.tar.gz", hash = "sha256:547274fa6b0a561ccf549cc9524b999a578e737d015d8709d021f9d0d13bea47", size = 76928, upload-time = "2026-08-12T12:37:25.997Z" }
 wheels = [
@@ -3994,8 +3927,8 @@ name = "uvicorn"
 version = "0.54.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "click" },
-    { name = "h11" },
+    { name = "click", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
+    { name = "h11", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer' and extra == 'group-25-local-elections-jharkhand-muse')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/da/34/30e9280707135d2cfc589dfff3cb796bd07a3aeb1a3e415ba09dd89d7bb4/uvicorn-0.54.0.tar.gz", hash = "sha256:a2e33cbfaa0306f8e6b0c13e0cb89d7d7a2da3e62b90c66e18c33d9807b28620", size = 112283, upload-time = "2026-09-25T06:52:37.601Z" }
 wheels = [
@@ -4298,9 +4231,9 @@ name = "yarl"
 version = "1.25.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "idna" },
-    { name = "multidict" },
-    { name = "propcache" },
+    { name = "idna", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "multidict", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
+    { name = "propcache", marker = "(sys_platform != 'emscripten' and sys_platform != 'win32') or (sys_platform == 'emscripten' and extra == 'group-25-local-elections-jharkhand-infer') or (sys_platform == 'win32' and extra == 'group-25-local-elections-jharkhand-infer')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/75/16/e8be8e2fb175bbf41a0680381a319f1199fae256588241a2ac8677eafb49/yarl-1.25.1.tar.gz", hash = "sha256:03dd38de09bc213e9a8b29761eec33ee1d5318dac0e49d8af36e4d27830e23a7", size = 246245, upload-time = "2026-09-15T19:35:02.264Z" }
 wheels = [
