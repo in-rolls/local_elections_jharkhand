@@ -4,7 +4,7 @@ version = "1.0.0"
 description = "Jharkhand gram panchayat head (mukhiya) reservations and winners, 2015 and 2022"
 readme = "README.md"
 requires-python = ">=3.12"
-authors = [{ name = "Gaurav Sood", email = "contact@gsood.com" }]
+authors = [{ name = "Gaurav Sood" }]
 license = "MIT"
 license-files = ["LICENSE"]
 keywords = ["Jharkhand", "elections", "panchayats", "mukhiya", "reservation", "data"]
